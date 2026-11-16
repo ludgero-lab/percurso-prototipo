@@ -14,7 +14,9 @@
     'atendimento/etapas': { secao: 'atendimento', ancora: 'etapas' },
     'conteudo': { secao: 'conteudo' },
     'duvidas': { secao: 'duvidas' },
-    'agendar/1': { secao: 'agendar-1', fluxo: 1, nomePasso: 'Modalidade, dia e horário', progresso: 33 }
+    'agendar/1': { secao: 'agendar-1', fluxo: 1, nomePasso: 'Modalidade, dia e horário', progresso: 33 },
+    'agendar/2': { secao: 'agendar-2', fluxo: 2, nomePasso: 'Seus dados', progresso: 66 },
+    'agendar/3': { secao: 'agendar-3', fluxo: 3, nomePasso: 'Solicitação enviada', progresso: 100 }
   };
   const ROTA_PADRAO = '#/inicio';
 
@@ -528,12 +530,89 @@
   ROTAS['agendar/1'].aoEntrar = sincronizarPasso1;
 
   // ---------------------------------------------------------------
-  // Agendar · passo 2: dados (completado na etapa seguinte)
+  // Resumo da escolha (passos 2 e 3)
   // ---------------------------------------------------------------
-  function zerarFormularioDados() {
-    const form = $('#form-passo2');
-    if (form) form.reset();
+  // "Online · quinta, 26 de novembro, 14:00" / "Fuso Brasília · cerca de 1h30"
+  function linhasDaEscolha() {
+    return [
+      MODALIDADES[estado.modalidade] + ' · ' + diaPorExtenso(daChave(estado.dia)) + ', ' +
+        converterHorario(estado.horario, estado.fuso),
+      'Fuso ' + FUSOS[estado.fuso].nome + ' · cerca de 1h30'
+    ];
   }
+
+  function preencherResumo(idLinha1, idLinha2) {
+    const [linha1, linha2] = linhasDaEscolha();
+    $('#' + idLinha1).textContent = linha1;
+    $('#' + idLinha2).textContent = linha2;
+  }
+
+  // ---------------------------------------------------------------
+  // Agendar · passo 2: dados (nada é salvo nem enviado)
+  // ---------------------------------------------------------------
+  const formPasso2 = $('#form-passo2');
+  const MSG_VAZIO = 'Preencha este campo.';
+  const MSG_EMAIL = 'Digite um e-mail válido.';
+  const MSG_PRIVACIDADE = 'Confirme que leu a política de privacidade.';
+
+  const CAMPOS = [
+    { id: 'nome', validar: (c) => (c.value.trim() ? '' : MSG_VAZIO) },
+    { id: 'email', validar: (c) => (!c.value.trim() ? MSG_VAZIO : (c.value.includes('@') ? '' : MSG_EMAIL)) },
+    { id: 'whatsapp', validar: (c) => (c.value.trim() ? '' : MSG_VAZIO) },
+    { id: 'como-conheceu', validar: (c) => (c.value ? '' : MSG_VAZIO) },
+    { id: 'privacidade', validar: (c) => (c.checked ? '' : MSG_PRIVACIDADE) }
+  ];
+
+  function marcarErro(campo, mensagem) {
+    $('#erro-' + campo.id).textContent = mensagem;
+    if (mensagem) campo.setAttribute('aria-invalid', 'true');
+    else campo.removeAttribute('aria-invalid');
+  }
+
+  function zerarFormularioDados() {
+    formPasso2.reset();
+    CAMPOS.forEach(({ id }) => marcarErro($('#' + id), ''));
+  }
+
+  formPasso2.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    let primeiroComErro = null;
+    CAMPOS.forEach(({ id, validar }) => {
+      const campo = $('#' + id);
+      const mensagem = validar(campo);
+      marcarErro(campo, mensagem);
+      if (mensagem && !primeiroComErro) primeiroComErro = campo;
+    });
+    if (primeiroComErro) {
+      primeiroComErro.focus();
+      return;
+    }
+    estado.enviado = true;
+    location.hash = '#/agendar/3';
+  });
+
+  // O erro some quando a pessoa corrige o campo
+  ['input', 'change'].forEach((tipo) => {
+    formPasso2.addEventListener(tipo, (evento) => {
+      const regra = CAMPOS.find((c) => c.id === evento.target.id);
+      if (regra && evento.target.hasAttribute('aria-invalid') && !regra.validar(evento.target)) {
+        marcarErro(evento.target, '');
+      }
+    });
+  });
+
+  ROTAS['agendar/2'].aoEntrar = () => preencherResumo('resumo-linha1', 'resumo-linha2');
+
+  // ---------------------------------------------------------------
+  // Agendar · passo 3: solicitação enviada
+  // ---------------------------------------------------------------
+  ROTAS['agendar/3'].aoEntrar = () => preencherResumo('confirmacao-linha1', 'confirmacao-linha2');
+
+  $('#voltar-inicio').addEventListener('click', () => {
+    zerarEstado();
+    zerarFormularioDados();
+    location.hash = ROTA_PADRAO;
+  });
 
   // ---------------------------------------------------------------
   // Início

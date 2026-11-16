@@ -613,6 +613,13 @@ h3[tabindex="-1"]:focus {
   line-height: 1.25;
 }
 
+#titulo-fluxo-texto {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  margin-left: 8px;
+}
+
 .passo-texto {
   margin: 4px 0 8px 8px;
   font-size: 0.9375rem;
@@ -820,6 +827,49 @@ select {
   background: var(--fundo);
   font-weight: 600;
   cursor: pointer;
+}
+
+/* Passos 2 e 3 */
+.resumo-linha1 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.resumo .apoio {
+  margin-bottom: 4px;
+}
+
+.campo-apoio {
+  margin: -4px 0 8px;
+}
+
+.caixa-selecao {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 44px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.caixa-selecao input {
+  width: 24px;
+  height: 24px;
+  margin: 2px 0 0;
+  flex: none;
+}
+
+.icone-ok {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--escuro);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 /* Rodapé fixo do passo 1 */

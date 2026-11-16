@@ -431,6 +431,96 @@
       </form>
     </section>
 
+    <!-- ===================== AGENDAR · PASSO 2 ===================== -->
+    <section class="pagina fluxo" data-rota="agendar-2" hidden>
+      <div class="bloco">
+        <div class="cartao resumo">
+          <p class="resumo-linha1" id="resumo-linha1"></p>
+          <p class="apoio" id="resumo-linha2"></p>
+          <a class="link" href="#/agendar/1">Alterar</a>
+        </div>
+      </div>
+
+      <form class="bloco" id="form-passo2" novalidate>
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" aria-describedby="erro-nome">
+          <p class="erro" id="erro-nome"></p>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <p class="apoio campo-apoio" id="apoio-email">Para receber o convite com o link do Google Meet.</p>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="apoio-email erro-email">
+          <p class="erro" id="erro-email"></p>
+        </div>
+
+        <div class="campo">
+          <label for="whatsapp">WhatsApp</label>
+          <p class="apoio campo-apoio" id="apoio-whatsapp">Com DDD, ou com o código do país se você mora fora.</p>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" aria-describedby="apoio-whatsapp erro-whatsapp">
+          <p class="erro" id="erro-whatsapp"></p>
+        </div>
+
+        <div class="campo">
+          <label for="como-conheceu">Como conheceu?</label>
+          <select id="como-conheceu" name="como-conheceu" aria-describedby="erro-como-conheceu">
+            <option value=""></option>
+            <option>Pesquisa no Google</option>
+            <option>Indicação</option>
+            <option>YouTube</option>
+            <option>Redes sociais</option>
+            <option>Outro</option>
+          </select>
+          <p class="erro" id="erro-como-conheceu"></p>
+        </div>
+
+        <div class="campo">
+          <label class="caixa-selecao" for="privacidade">
+            <input type="checkbox" id="privacidade" name="privacidade" aria-describedby="erro-privacidade">
+            <span>Li a política de privacidade. Nome, e-mail e telefone são usados só para marcar e confirmar a sessão, e vistos pela Maria Clara e pela ferramenta de agendamento.</span>
+          </label>
+          <p class="erro" id="erro-privacidade"></p>
+        </div>
+
+        <div class="botoes">
+          <button type="submit" class="botao botao-principal">Enviar solicitação</button>
+        </div>
+        <p class="apoio">Na primeira sessão, a Maria Clara confirma o horário.</p>
+        <p class="apoio">Em sofrimento intenso? Ligue 188 (CVV).</p>
+      </form>
+    </section>
+
+    <!-- ===================== AGENDAR · PASSO 3 ===================== -->
+    <section class="pagina fluxo" data-rota="agendar-3" hidden>
+      <div class="bloco">
+        <div class="icone-ok" aria-hidden="true">✓</div>
+        <h1 role="status" tabindex="-1">Solicitação enviada</h1>
+        <p>A Maria Clara recebeu o seu pedido e confirma o horário por e-mail e WhatsApp em até 1 dia útil.</p>
+        <div class="cartao resumo">
+          <p class="resumo-linha1" id="confirmacao-linha1"></p>
+          <p class="apoio" id="confirmacao-linha2"></p>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>O que acontece agora</h2>
+        <ol class="cartoes cartoes-numerados">
+          <li class="cartao"><p>Você recebe a confirmação do horário.</p></li>
+          <li class="cartao"><p>Se for online, o convite com o link do Google Meet chega no seu e-mail. Se for presencial, a rota para o consultório.</p></li>
+          <li class="cartao"><p>Na primeira sessão, você preenche uma ficha escrita sobre a sua história.</p></li>
+        </ol>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <button type="button" class="botao botao-principal" id="voltar-inicio">Voltar ao início</button>
+        </div>
+        <div class="caixa-cvv">
+          <p><strong>Em sofrimento intenso?</strong></p>
+          <p>Ligue 188 (CVV), 24 horas, gratuito.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Rodapé global -->
