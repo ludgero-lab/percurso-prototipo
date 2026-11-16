@@ -838,6 +838,7 @@ select {
 }
 
 .campo > .caixa-selecao {
+  display: flex;
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 400;
