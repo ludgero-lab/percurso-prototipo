@@ -251,6 +251,44 @@
     <section class="pagina" data-rota="conteudo" hidden>
       <div class="bloco">
         <h1 tabindex="-1">Conteúdo</h1>
+        <p>Um vídeo por semana, em temporadas, sobre um tema escolhido pela Maria Clara.</p>
+      </div>
+
+      <div class="bloco">
+        <p class="rotulo">Episódio em destaque</p>
+        <div class="reservado reservado-16x9">
+          <span class="reservado-texto">[vídeo]</span>
+          <button type="button" class="botao-play" data-aviso="video" aria-labelledby="titulo-destaque">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <p id="titulo-destaque"><strong>[Título do episódio]</strong></p>
+        <p class="apoio">Temporada [n] · Episódio [n]</p>
+      </div>
+
+      <div class="bloco">
+        <h2 id="titulo-temporadas">Temporadas</h2>
+        <div class="temporadas" role="group" aria-labelledby="titulo-temporadas">
+          <button type="button" class="botao botao-alternar" data-temporada="1" aria-pressed="true">Temporada 1</button>
+          <button type="button" class="botao botao-alternar" data-temporada="2" aria-pressed="false">Temporada 2</button>
+          <button type="button" class="botao botao-alternar" data-temporada="3" aria-pressed="false">Temporada 3</button>
+        </div>
+        <ul class="episodios" id="lista-episodios"></ul>
+      </div>
+
+      <div class="bloco">
+        <h2>Acompanhe no YouTube</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-principal" data-aviso="youtube">Inscrever-se no canal</button>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>Quer conversar antes de marcar?</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+        </div>
       </div>
     </section>
 
@@ -258,6 +296,54 @@
     <section class="pagina" data-rota="duvidas" hidden>
       <div class="bloco">
         <h1 tabindex="-1">Dúvidas</h1>
+        <p>Respostas curtas para as perguntas de quem está chegando.</p>
+      </div>
+
+      <div class="bloco">
+        <div class="acordeao">
+          <details>
+            <summary>O que é parapsicologia clínica?</summary>
+            <div class="resposta"><p>[Explicação simples, com as palavras dela.]</p></div>
+          </details>
+          <details>
+            <summary>Como é uma sessão?</summary>
+            <div class="resposta">
+              <p>Cerca de 1h30, online ou presencial. Começamos conhecendo a sua história e seguimos no seu ritmo, com metas definidas juntos.</p>
+              <a class="link" href="#/atendimento/etapas">Ver as 8 etapas</a>
+            </div>
+          </details>
+          <details>
+            <summary>Alguém vai me julgar?</summary>
+            <div class="resposta"><p>Não. Aqui ninguém é julgado: a regra é separar o ato da pessoa.</p></div>
+          </details>
+          <details>
+            <summary>Meus dados ficam em sigilo?</summary>
+            <div class="resposta"><p>Sim. O sigilo é absoluto.</p></div>
+          </details>
+          <details>
+            <summary>Como funciona o atendimento online?</summary>
+            <div class="resposta"><p>Por Google Meet ou WhatsApp, com o horário mostrado no seu fuso.</p></div>
+          </details>
+          <details>
+            <summary>Como funciona o pacote de 5 sessões?</summary>
+            <div class="resposta"><p>São cinco sessões, com até 15 dias entre elas. Você solicita pelo WhatsApp.</p></div>
+          </details>
+          <details>
+            <summary>Quanto custa e como pago?</summary>
+            <div class="resposta"><p>Os valores são informados pelo WhatsApp. O pagamento é por Pix, dinheiro ou transferência.</p></div>
+          </details>
+          <details>
+            <summary>E se eu precisar remarcar?</summary>
+            <div class="resposta"><p>Avise assim que souber e remarque o quanto antes, para não perder a continuidade.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>Não encontrou a sua dúvida?</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-principal" data-aviso="whatsapp">Perguntar no WhatsApp</button>
+        </div>
       </div>
     </section>
 

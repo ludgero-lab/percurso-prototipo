@@ -327,6 +327,111 @@ h3[tabindex="-1"]:focus {
   scroll-snap-align: start;
 }
 
+/* Botões que alternam (temporadas) */
+.temporadas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.botao-alternar {
+  min-height: 44px;
+  padding: 8px 4px;
+  background: var(--fundo);
+  color: var(--texto);
+  border-color: var(--borda);
+  font-size: 0.9375rem;
+}
+
+.botao-alternar[aria-pressed="true"] {
+  background: var(--escuro);
+  border-color: var(--escuro);
+  color: var(--sobre-escuro);
+}
+
+/* Lista de episódios */
+.episodios {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.episodio {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 72px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.episodio .reservado {
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.episodio-titulo {
+  display: block;
+  font-weight: 600;
+}
+
+.episodio-duracao {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--texto-suave);
+}
+
+/* Acordeão */
+.acordeao details {
+  border-bottom: 1px solid var(--linha);
+}
+
+.acordeao details:first-child {
+  border-top: 1px solid var(--linha);
+}
+
+.acordeao summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 8px 0;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.acordeao summary::-webkit-details-marker {
+  display: none;
+}
+
+.acordeao summary::after {
+  content: "+";
+  flex: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.acordeao details[open] summary::after {
+  content: "−";
+}
+
+.resposta {
+  padding: 0 0 16px;
+}
+
 /* ---------- Cabeçalho global ---------- */
 
 .cabecalho {
