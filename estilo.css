@@ -292,6 +292,41 @@ h3[tabindex="-1"]:focus {
   left: 12px;
 }
 
+.botao-reservado {
+  width: 100%;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.perfil p {
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Avaliações em rolagem horizontal */
+.rolagem-horizontal {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 0 8px;
+  margin: 0 0 8px;
+}
+
+.rolagem-horizontal > li {
+  flex: 0 0 82%;
+  scroll-snap-align: start;
+}
+
 /* ---------- Cabeçalho global ---------- */
 
 .cabecalho {

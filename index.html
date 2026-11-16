@@ -26,8 +26,116 @@
 
     <!-- ===================== INÍCIO ===================== -->
     <section class="pagina" data-rota="inicio" hidden>
+      <!-- 1. Abertura -->
       <div class="bloco">
+        <div class="perfil">
+          <div class="reservado reservado-redondo">[foto]</div>
+          <p><strong>Maria Clara Vinotti</strong><br><span class="apoio">Parapsicologia clínica, Sistema Grisa</span></p>
+        </div>
         <h1 tabindex="-1">Parapsicologia clínica feita com acolhimento e parceria</h1>
+        <p>Um espaço para olhar para os seus desafios no seu ritmo, entender a sua história e conduzir o seu caminho com mais consciência, online ou em Florianópolis.</p>
+        <div class="botoes">
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+        </div>
+        <p class="apoio">Sessões de cerca de 1h30, online ou presenciais.</p>
+      </div>
+
+      <!-- 2. Vídeo -->
+      <div class="bloco">
+        <p class="rotulo">Vídeo de introdução</p>
+        <h2>Entenda como funciona, no seu ritmo</h2>
+        <div class="reservado reservado-16x9">
+          <span class="reservado-texto">[vídeo]</span>
+          <button type="button" class="botao-play" data-aviso="video" aria-label="Reproduzir vídeo de introdução">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <button type="button" class="link" data-aviso="transcricao">Ler a transcrição (legendas ativadas)</button>
+      </div>
+
+      <!-- 3. Como é uma sessão -->
+      <div class="bloco">
+        <h2>Como é uma sessão</h2>
+        <p>Cerca de 1h30, online ou presencial. Você não chega para receber respostas prontas.</p>
+        <ol class="cartoes cartoes-numerados">
+          <li class="cartao"><p><strong>Conhecer a sua história.</strong> Ficha escrita e tabela familiar.</p></li>
+          <li class="cartao"><p><strong>Olhar para os sentimentos</strong> que mais marcam a sua vida.</p></li>
+          <li class="cartao"><p><strong>Definir metas</strong> a curto, médio e longo prazo, juntos.</p></li>
+          <li class="cartao"><p><strong>Tarefas entre as sessões:</strong> áudios, filmes e exercícios, no seu tempo.</p></li>
+        </ol>
+        <a class="link" href="#/atendimento/etapas">Ver as 8 etapas</a>
+      </div>
+
+      <!-- 4. Acolhimento e sigilo -->
+      <div class="bloco">
+        <h2>Acolhimento e sigilo</h2>
+        <ul class="cartoes">
+          <li class="cartao"><p><strong>Ninguém é julgado.</strong> Separar o ato da pessoa é a regra que ela segue.</p></li>
+          <li class="cartao"><p><strong>Sigilo absoluto.</strong> O que você conta fica entre vocês.</p></li>
+          <li class="cartao"><p><strong>Cliente como sócio no processo.</strong> Tarefas, áudios e filmes entre as sessões.</p></li>
+        </ul>
+      </div>
+
+      <!-- 5. Online ou presencial -->
+      <div class="bloco">
+        <h2>Online ou presencial</h2>
+        <div class="cartoes">
+          <div class="cartao">
+            <h3>Online</h3>
+            <p>Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso.</p>
+            <a class="link" href="#/agendar/1" data-agendar="online">Agendar online</a>
+          </div>
+          <div class="cartao">
+            <h3>Presencial</h3>
+            <p>Balneário, Estreito, Florianópolis (SC).</p>
+            <a class="link" href="#/atendimento/presencial">Ver rota</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Avaliações -->
+      <div class="bloco">
+        <h2 id="titulo-avaliacoes">O que dizem no Google</h2>
+        <p>[nota] · [nº] avaliações</p>
+        <ul class="rolagem-horizontal" tabindex="0" role="region" aria-labelledby="titulo-avaliacoes">
+          <li class="cartao">
+            <p>[texto da avaliação publicada no Google]</p>
+            <p class="apoio">[nome] · [data]</p>
+          </li>
+          <li class="cartao">
+            <p>[texto da avaliação publicada no Google]</p>
+            <p class="apoio">[nome] · [data]</p>
+          </li>
+        </ul>
+        <button type="button" class="link" data-aviso="avaliacoes">Ver todas no Google</button>
+      </div>
+
+      <!-- 7. Sobre resumido -->
+      <div class="bloco">
+        <div class="reservado reservado-4x3">[foto]</div>
+        <h2>Maria Clara Vinotti</h2>
+        <p>Parapsicóloga clínica pelo Sistema Grisa. [Bio curta, com as palavras dela]</p>
+        <a class="link" href="#/sobre">Formação e vínculos</a>
+      </div>
+
+      <!-- 8. YouTube -->
+      <div class="bloco">
+        <h2>No YouTube, em temporadas</h2>
+        <button type="button" class="reservado reservado-16x9 botao-reservado" data-aviso="video" aria-labelledby="titulo-episodio-inicio">[miniatura do episódio]</button>
+        <p id="titulo-episodio-inicio"><strong>[Título do episódio]</strong></p>
+        <p class="apoio">Temporada [n] · Episódio [n]</p>
+        <a class="link" href="#/conteudo">Ver todos os episódios</a>
+      </div>
+
+      <!-- 9. Conversar antes -->
+      <div class="bloco">
+        <h2>Quer conversar antes de marcar?</h2>
+        <p>Me chame no WhatsApp. Se já sabe o dia, escolha o horário aqui no site.</p>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+        </div>
       </div>
     </section>
 
