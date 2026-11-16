@@ -837,6 +837,12 @@ select {
   margin: -4px 0 8px;
 }
 
+.campo > .caixa-selecao {
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 .caixa-selecao {
   display: flex;
   align-items: flex-start;
