@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Maria Clara Vinotti · Parapsicóloga clínica</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Cabeçalho global (Início, Sobre, Atendimento, Conteúdo, Dúvidas) -->
+  <header class="cabecalho" id="cabecalho-global">
+    <a class="marca" href="#/inicio">
+      <span class="marca-nome">Maria Clara Vinotti</span>
+      <span class="marca-sub">Parapsicóloga clínica</span>
+    </a>
+    <button type="button" class="botao-icone" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ===================== INÍCIO ===================== -->
+    <section class="pagina" data-rota="inicio" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Parapsicologia clínica feita com acolhimento e parceria</h1>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="pagina" data-rota="sobre" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Maria Clara Vinotti</h1>
+      </div>
+    </section>
+
+    <!-- ===================== ATENDIMENTO ===================== -->
+    <section class="pagina" data-rota="atendimento" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Atendimento</h1>
+      </div>
+    </section>
+
+    <!-- ===================== CONTEÚDO ===================== -->
+    <section class="pagina" data-rota="conteudo" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Conteúdo</h1>
+      </div>
+    </section>
+
+    <!-- ===================== DÚVIDAS ===================== -->
+    <section class="pagina" data-rota="duvidas" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Dúvidas</h1>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé global -->
+  <footer class="rodape" id="rodape">
+    <p class="rodape-nome">Maria Clara Vinotti</p>
+    <p>Parapsicóloga clínica · Florianópolis e online</p>
+    <ul>
+      <li><a href="#/inicio">Início</a></li>
+      <li><a href="#/sobre">Sobre</a></li>
+      <li><a href="#/atendimento">Atendimento</a></li>
+      <li><a href="#/conteudo">Conteúdo</a></li>
+      <li><a href="#/duvidas">Dúvidas</a></li>
+    </ul>
+    <div class="caixa-cvv">
+      <p><strong>Em sofrimento intenso?</strong></p>
+      <p>Ligue 188 (CVV), 24 horas, gratuito.</p>
+    </div>
+    <p class="rodape-legal">
+      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
+      <span aria-hidden="true">·</span>
+      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Barra fixa na base -->
+<div class="barra-fixa" id="barra-fixa">
+  <button type="button" class="botao botao-secundario" data-aviso="whatsapp">WhatsApp</button>
+  <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+</div>
+
+<!-- Menu -->
+<div class="menu-fundo" id="menu-fundo" hidden></div>
+<nav class="menu" id="menu" tabindex="-1" hidden>
+  <ul>
+    <li><a href="#/inicio">Início</a></li>
+    <li><a href="#/sobre">Sobre</a></li>
+    <li><a href="#/atendimento">Atendimento</a></li>
+    <li><a href="#/conteudo">Conteúdo</a></li>
+    <li><a href="#/duvidas">Dúvidas</a></li>
+  </ul>
+  <button type="button" class="botao botao-secundario" id="botao-fechar-menu">Fechar</button>
+</nav>
+
+<!-- Aviso temporário das interações simuladas -->
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

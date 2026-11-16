@@ -1,0 +1,476 @@
+/* Percurso: protótipo de teste em fidelidade baixa.
+   Só cinzas neutros e uma cor escura para os botões principais. */
+
+:root {
+  --fundo: #ffffff;
+  --superficie: #f2f2f2;
+  --superficie-forte: #e6e6e6;
+  --linha: #d4d4d4;
+  --borda: #767676;      /* bordas de controles: contraste ≥ 3:1 */
+  --texto: #1a1a1a;
+  --texto-suave: #595959; /* ≥ 4,5:1 sobre branco e sobre --superficie */
+  --escuro: #1f1f1f;      /* botões principais */
+  --sobre-escuro: #ffffff;
+  --foco: #1a1a1a;
+  --altura-barra: 0px;    /* atualizada pelo app.js */
+  --raio: 8px;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--superficie-forte);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.08);
+}
+
+body.menu-aberto {
+  overflow: hidden;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.app {
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--fundo);
+  padding-bottom: calc(var(--altura-barra) + 24px);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.375rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul,
+ol {
+  margin: 0 0 12px;
+  padding-left: 1.25rem;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--escuro);
+}
+
+/* Foco visível em tudo que é interativo */
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+/* Títulos recebem foco por programa ao trocar de rota; não precisam de anel */
+h1[tabindex="-1"]:focus,
+h2[tabindex="-1"]:focus,
+h3[tabindex="-1"]:focus {
+  outline: none;
+}
+
+[id] {
+  scroll-margin-top: 88px;
+}
+
+/* ---------- Blocos de página ---------- */
+
+.bloco {
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.bloco:last-child {
+  border-bottom: 0;
+}
+
+.rotulo {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+  margin-bottom: 4px;
+}
+
+.apoio {
+  font-size: 0.9375rem;
+  color: var(--texto-suave);
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 12px;
+}
+
+/* ---------- Botões e links ---------- */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 20px;
+  border-radius: var(--raio);
+  border: 2px solid var(--escuro);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.botao-principal {
+  background: var(--escuro);
+  color: var(--sobre-escuro);
+}
+
+.botao-secundario {
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* ---------- Cartões ---------- */
+
+.cartoes {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: grid;
+  gap: 12px;
+}
+
+.cartao {
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 16px;
+}
+
+.cartao > :last-child {
+  margin-bottom: 0;
+}
+
+.cartoes-numerados {
+  counter-reset: cartao;
+}
+
+.cartoes-numerados > li {
+  counter-increment: cartao;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.cartoes-numerados > li::before {
+  content: counter(cartao);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--borda);
+  font-weight: 700;
+}
+
+/* ---------- Espaços reservados (imagens e vídeos) ---------- */
+
+.reservado {
+  display: grid;
+  place-items: center;
+  background: var(--superficie-forte);
+  border: 2px dashed var(--borda);
+  border-radius: var(--raio);
+  color: #3d3d3d;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 8px;
+  margin: 0 0 16px;
+}
+
+.reservado-16x9 {
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.reservado-4x3 {
+  aspect-ratio: 4 / 3;
+}
+
+.reservado-redondo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0;
+  font-size: 0.75rem;
+  flex: none;
+}
+
+.botao-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--escuro);
+  background: var(--fundo);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.botao-play svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+}
+
+.reservado-16x9 .reservado-texto {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+}
+
+/* ---------- Cabeçalho global ---------- */
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--fundo);
+  border-bottom: 1px solid var(--linha);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 8px 8px 16px;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 44px;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.marca-nome {
+  font-weight: 700;
+}
+
+.marca-sub {
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+.botao-icone {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: var(--raio);
+  background: none;
+  cursor: pointer;
+  flex: none;
+}
+
+.botao-icone svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ---------- Menu ---------- */
+
+.menu-fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: max(0px, calc((100vw - 480px) / 2));
+  z-index: 50;
+  width: min(320px, 85vw);
+  background: var(--fundo);
+  padding: 16px;
+  overflow-y: auto;
+  border-left: 1px solid var(--linha);
+}
+
+.menu:focus {
+  outline: none;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.menu li a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--linha);
+}
+
+.menu li a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Barra fixa na base ---------- */
+
+.barra-fixa {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--fundo);
+  border-top: 1px solid var(--linha);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 12px;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  padding: 24px 16px 8px;
+  background: var(--superficie);
+  border-top: 1px solid var(--linha);
+}
+
+.rodape-nome {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.rodape ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px;
+}
+
+.rodape li a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.caixa-cvv {
+  border: 2px solid var(--escuro);
+  border-radius: var(--raio);
+  background: var(--fundo);
+  padding: 12px 16px;
+  margin: 0 0 12px;
+}
+
+.caixa-cvv p {
+  margin: 0;
+}
+
+.rodape-legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  font-size: 0.9375rem;
+}
+
+/* ---------- Aviso temporário ---------- */
+
+.aviso {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(var(--altura-barra) + 12px);
+  z-index: 60;
+  max-width: 448px;
+  margin: 0 auto;
+  background: var(--escuro);
+  color: var(--sobre-escuro);
+  border-radius: var(--raio);
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.aviso:empty {
+  padding: 0;
+  background: none;
+}
