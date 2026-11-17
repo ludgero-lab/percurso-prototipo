@@ -36,3 +36,7 @@ Publicado pelo GitHub Pages a partir do branch `main`, pasta raiz:
 <https://ludgero-lab.github.io/percurso-prototipo/>
 
 O site tem `noindex` e `robots.txt` bloqueando tudo, mas quem tiver o link consegue abrir.
+
+## Alternativa B
+
+Uma segunda proposta do Início, para avaliação, está em [`alternativa-b/`](alternativa-b/) e é publicada em <https://ludgero-lab.github.io/percurso-prototipo/alternativa-b/>. Ela reaproveita o `estilo.css` da alternativa A. As diferenças em relação à especificação estão em [`alternativa-b/MUDANCAS.md`](alternativa-b/MUDANCAS.md).
