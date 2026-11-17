@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Maria Clara Vinotti</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Cabeçalho global (Início, Sobre, Atendimento, Conteúdo, Dúvidas) -->
+  <header class="cabecalho" id="cabecalho-global">
+    <a class="marca" href="#/inicio">
+      <span class="marca-nome">Maria Clara Vinotti</span>
+      <span class="marca-sub">Parapsicóloga clínica</span>
+    </a>
+    <button type="button" class="botao-icone" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </header>
+
+  <!-- Cabeçalho do fluxo de agendamento -->
+  <header class="cabecalho cabecalho-fluxo" id="cabecalho-fluxo" hidden>
+    <div class="fluxo-topo">
+      <button type="button" class="botao-icone" id="botao-voltar" aria-label="Voltar">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </button>
+      <h1 class="titulo-fluxo" id="titulo-fluxo" tabindex="-1">Agendar sessão</h1>
+      <p class="titulo-fluxo" id="titulo-fluxo-texto" hidden>Agendar sessão</p>
+    </div>
+    <p class="passo-texto" id="passo-texto">Passo 1 de 3 · Modalidade, dia e horário</p>
+    <div class="progresso" role="progressbar" aria-labelledby="passo-texto" aria-valuemin="0" aria-valuemax="100" aria-valuenow="33">
+      <div class="progresso-barra" id="progresso-barra"></div>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ===================== INÍCIO ===================== -->
+    <section class="pagina" data-rota="inicio" hidden>
+      <!-- 1. Abertura -->
+      <div class="bloco">
+        <div class="perfil">
+          <div class="reservado reservado-redondo">[foto]</div>
+          <p><strong>Maria Clara Vinotti</strong><br><span class="apoio">Parapsicologia clínica, Sistema Grisa</span></p>
+        </div>
+        <h1 tabindex="-1">Parapsicologia clínica feita com acolhimento e parceria</h1>
+        <p>Um espaço para olhar para os seus desafios no seu ritmo, entender a sua história e conduzir o seu caminho com mais consciência, online ou em Florianópolis.</p>
+        <div class="botoes">
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+        </div>
+        <p class="apoio">Sessões de cerca de 1h30, online ou presenciais.</p>
+      </div>
+
+      <!-- 2. Vídeo -->
+      <div class="bloco">
+        <p class="rotulo">Vídeo de introdução</p>
+        <h2>Entenda como funciona, no seu ritmo</h2>
+        <div class="reservado reservado-16x9">
+          <button type="button" class="botao-play" data-aviso="video" aria-label="Reproduzir vídeo de introdução">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <button type="button" class="link" data-aviso="transcricao">Ler a transcrição (legendas ativadas)</button>
+      </div>
+
+      <!-- 3. Como é uma sessão -->
+      <div class="bloco">
+        <h2>Como é uma sessão</h2>
+        <p>Cerca de 1h30, online ou presencial. Você não chega para receber respostas prontas.</p>
+        <ol class="cartoes cartoes-numerados">
+          <li class="cartao"><p><strong>Conhecer a sua história.</strong> Ficha escrita e tabela familiar.</p></li>
+          <li class="cartao"><p><strong>Olhar para os sentimentos</strong> que mais marcam a sua vida.</p></li>
+          <li class="cartao"><p><strong>Definir metas</strong> a curto, médio e longo prazo, juntos.</p></li>
+          <li class="cartao"><p><strong>Tarefas entre as sessões:</strong> áudios, filmes e exercícios, no seu tempo.</p></li>
+        </ol>
+        <a class="link" href="#/atendimento/etapas">Ver as 8 etapas</a>
+      </div>
+
+      <!-- 4. Acolhimento e sigilo -->
+      <div class="bloco">
+        <h2>Acolhimento e sigilo</h2>
+        <ul class="cartoes">
+          <li class="cartao"><p><strong>Ninguém é julgado.</strong> Separar o ato da pessoa é a regra que ela segue.</p></li>
+          <li class="cartao"><p><strong>Sigilo absoluto.</strong> O que você conta fica entre vocês.</p></li>
+          <li class="cartao"><p><strong>Cliente como sócio no processo.</strong> Tarefas, áudios e filmes entre as sessões.</p></li>
+        </ul>
+      </div>
+
+      <!-- 5. Online ou presencial -->
+      <div class="bloco">
+        <h2>Online ou presencial</h2>
+        <div class="cartoes">
+          <div class="cartao">
+            <h3>Online</h3>
+            <p>Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso.</p>
+            <a class="link" href="#/agendar/1" data-agendar="online">Agendar online</a>
+          </div>
+          <div class="cartao">
+            <h3>Presencial</h3>
+            <p>Balneário, Estreito, Florianópolis (SC).</p>
+            <a class="link" href="#/atendimento/presencial">Ver rota</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Avaliações -->
+      <div class="bloco">
+        <h2 id="titulo-avaliacoes">O que dizem no Google</h2>
+        <p>[nota] · [nº] avaliações</p>
+        <ul class="rolagem-horizontal" tabindex="0" role="region" aria-labelledby="titulo-avaliacoes">
+          <li class="cartao">
+            <p>[texto da avaliação publicada no Google]</p>
+            <p class="apoio">[nome] · [data]</p>
+          </li>
+          <li class="cartao">
+            <p>[texto da avaliação publicada no Google]</p>
+            <p class="apoio">[nome] · [data]</p>
+          </li>
+        </ul>
+        <button type="button" class="link" data-aviso="avaliacoes">Ver todas no Google</button>
+      </div>
+
+      <!-- 7. Sobre resumido -->
+      <div class="bloco">
+        <div class="reservado reservado-4x3">[foto]</div>
+        <h2>Maria Clara Vinotti</h2>
+        <p>Parapsicóloga clínica pelo Sistema Grisa. [Bio curta, com as palavras dela]</p>
+        <a class="link" href="#/sobre">Formação e vínculos</a>
+      </div>
+
+      <!-- 8. YouTube -->
+      <div class="bloco">
+        <h2>No YouTube, em temporadas</h2>
+        <button type="button" class="reservado reservado-16x9 botao-reservado" data-aviso="video" aria-labelledby="titulo-episodio-inicio">[miniatura do episódio]</button>
+        <p id="titulo-episodio-inicio"><strong>[Título do episódio]</strong></p>
+        <p class="apoio">Temporada [n] · Episódio [n]</p>
+        <a class="link" href="#/conteudo">Ver todos os episódios</a>
+      </div>
+
+      <!-- 9. Conversar antes -->
+      <div class="bloco">
+        <h2>Quer conversar antes de marcar?</h2>
+        <p>Me chame no WhatsApp. Se já sabe o dia, escolha o horário aqui no site.</p>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="pagina" data-rota="sobre" hidden>
+      <div class="bloco">
+        <div class="reservado reservado-4x3">[foto profissional]</div>
+        <h1 tabindex="-1">Maria Clara Vinotti</h1>
+        <p class="apoio">Parapsicóloga clínica pelo Sistema Grisa</p>
+        <p>[Biografia curta, com as palavras dela: quem é, há quanto tempo atende e como chegou à parapsicologia clínica.]</p>
+        <div class="botoes">
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>Formação e vínculos</h2>
+        <ul class="cartoes">
+          <li class="cartao"><p><strong>Sistema Grisa.</strong> Formação inicial pelo IPAPPI e continuidade no Método Grisa.</p></li>
+          <li class="cartao"><p><strong>Registro FATECPR,</strong> Curitiba.</p></li>
+          <li class="cartao"><p><strong>ABPSIG.</strong> Associada, com carteira de parapsicóloga clínica.</p></li>
+          <li class="cartao"><p><strong>Aprimoramento em hipnose,</strong> pelo Método Grisa.</p></li>
+        </ul>
+      </div>
+
+      <div class="bloco">
+        <h2>Como cheguei à parapsicologia</h2>
+        <p>[Trajetória pessoal, nas palavras dela.]</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Como eu trabalho</h2>
+        <ul class="cartoes">
+          <li class="cartao"><p><strong>Ninguém é julgado.</strong> Separo o ato da pessoa.</p></li>
+          <li class="cartao"><p><strong>Sigilo absoluto.</strong></p></li>
+          <li class="cartao"><p><strong>Não prometo milagres.</strong> Ofereço acolhimento e parceria.</p></li>
+        </ul>
+      </div>
+
+      <div class="bloco">
+        <h2>Quer conversar antes de marcar?</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ATENDIMENTO ===================== -->
+    <section class="pagina" data-rota="atendimento" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Atendimento</h1>
+        <p>Sessões de cerca de 1h30, online ou presenciais.</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Online ou presencial</h2>
+        <div class="cartoes">
+          <div class="cartao">
+            <h3>Online</h3>
+            <p>Para todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp. Você escolhe o horário e vê no seu fuso.</p>
+          </div>
+          <div class="cartao" id="presencial">
+            <h3 tabindex="-1">Presencial</h3>
+            <p>Balneário, Estreito, Florianópolis (SC).</p>
+            <div class="reservado reservado-4x3">[mapa do consultório]</div>
+            <button type="button" class="botao botao-secundario" data-aviso="maps">Ver rota no Google Maps</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>Horários</h2>
+        <p>Terça a sexta, das 9h às 17h. Terças a quintas, até 21h.</p>
+        <p class="apoio">Os horários livres aparecem na hora de agendar.</p>
+      </div>
+
+      <div class="bloco" id="etapas">
+        <h2 tabindex="-1">As 8 etapas do processo</h2>
+        <p>Cada pessoa segue no seu ritmo.</p>
+        <ol class="cartoes cartoes-numerados">
+          <li class="cartao"><p><strong>Sua história.</strong> Ficha de anamnese escrita.</p></li>
+          <li class="cartao"><p><strong>Tabela familiar.</strong> A sua posição na família e a relação com os sentimentos.</p></li>
+          <li class="cartao"><p><strong>Orientação.</strong> Estudos, áudios, relaxamento e respiração.</p></li>
+          <li class="cartao"><p><strong>Terapia eletrônica.</strong> Áudios e filmes que ajudam a ver o passado com mais clareza.</p></li>
+          <li class="cartao"><p><strong>Cinco maiores sentimentos</strong> nas principais fases da sua vida.</p></li>
+          <li class="cartao"><p><strong>Metas</strong> a curto, médio e longo prazo.</p></li>
+          <li class="cartao"><p><strong>Hipnose</strong> para compreender melhor a situação.</p></li>
+          <li class="cartao"><p><strong>Tarefas em casa,</strong> no seu tempo, para organizar a mente.</p></li>
+        </ol>
+      </div>
+
+      <div class="bloco">
+        <h2>Pacote de 5 sessões</h2>
+        <p>Pensado para dar sequência ao trabalho, com até 15 dias entre uma sessão e a próxima.</p>
+        <p>Em caso de imprevisto, avise sobre o cancelamento e remarque o quanto antes, para não perder a continuidade.</p>
+        <div class="botoes">
+          <button type="button" class="botao botao-principal" data-aviso="whatsapp">Solicitar pacote pelo WhatsApp</button>
+        </div>
+        <p class="apoio">Os valores são informados pelo WhatsApp.</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Pronto para marcar?</h2>
+        <div class="botoes">
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTEÚDO ===================== -->
+    <section class="pagina" data-rota="conteudo" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Conteúdo</h1>
+        <p>Um vídeo por semana, em temporadas, sobre um tema escolhido pela Maria Clara.</p>
+      </div>
+
+      <div class="bloco">
+        <p class="rotulo">Episódio em destaque</p>
+        <div class="reservado reservado-16x9">
+          <button type="button" class="botao-play" data-aviso="video" aria-labelledby="titulo-destaque">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <p id="titulo-destaque"><strong>[Título do episódio]</strong></p>
+        <p class="apoio">Temporada [n] · Episódio [n]</p>
+      </div>
+
+      <div class="bloco">
+        <h2 id="titulo-temporadas">Temporadas</h2>
+        <div class="temporadas" role="group" aria-labelledby="titulo-temporadas">
+          <button type="button" class="botao botao-alternar" data-temporada="1" aria-pressed="true">Temporada 1</button>
+          <button type="button" class="botao botao-alternar" data-temporada="2" aria-pressed="false">Temporada 2</button>
+          <button type="button" class="botao botao-alternar" data-temporada="3" aria-pressed="false">Temporada 3</button>
+        </div>
+        <ul class="episodios" id="lista-episodios"></ul>
+      </div>
+
+      <div class="bloco">
+        <h2>Acompanhe no YouTube</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-principal" data-aviso="youtube">Inscrever-se no canal</button>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>Quer conversar antes de marcar?</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DÚVIDAS ===================== -->
+    <section class="pagina" data-rota="duvidas" hidden>
+      <div class="bloco">
+        <h1 tabindex="-1">Dúvidas</h1>
+        <p>Respostas curtas para as perguntas de quem está chegando.</p>
+      </div>
+
+      <div class="bloco">
+        <div class="acordeao">
+          <details>
+            <summary>O que é parapsicologia clínica?</summary>
+            <div class="resposta"><p>[Explicação simples, com as palavras dela.]</p></div>
+          </details>
+          <details>
+            <summary>Como é uma sessão?</summary>
+            <div class="resposta">
+              <p>Cerca de 1h30, online ou presencial. Começamos conhecendo a sua história e seguimos no seu ritmo, com metas definidas juntos.</p>
+              <a class="link" href="#/atendimento/etapas">Ver as 8 etapas</a>
+            </div>
+          </details>
+          <details>
+            <summary>Alguém vai me julgar?</summary>
+            <div class="resposta"><p>Não. Aqui ninguém é julgado: a regra é separar o ato da pessoa.</p></div>
+          </details>
+          <details>
+            <summary>Meus dados ficam em sigilo?</summary>
+            <div class="resposta"><p>Sim. O sigilo é absoluto.</p></div>
+          </details>
+          <details>
+            <summary>Como funciona o atendimento online?</summary>
+            <div class="resposta"><p>Por Google Meet ou WhatsApp, com o horário mostrado no seu fuso.</p></div>
+          </details>
+          <details>
+            <summary>Como funciona o pacote de 5 sessões?</summary>
+            <div class="resposta"><p>São cinco sessões, com até 15 dias entre elas. Você solicita pelo WhatsApp.</p></div>
+          </details>
+          <details>
+            <summary>Quanto custa e como pago?</summary>
+            <div class="resposta"><p>Os valores são informados pelo WhatsApp. O pagamento é por Pix, dinheiro ou transferência.</p></div>
+          </details>
+          <details>
+            <summary>E se eu precisar remarcar?</summary>
+            <div class="resposta"><p>Avise assim que souber e remarque o quanto antes, para não perder a continuidade.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>Não encontrou a sua dúvida?</h2>
+        <div class="botoes">
+          <button type="button" class="botao botao-principal" data-aviso="whatsapp">Perguntar no WhatsApp</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AGENDAR · PASSO 1 ===================== -->
+    <section class="pagina fluxo" data-rota="agendar-1" hidden>
+      <form id="form-passo1" novalidate>
+        <div class="bloco">
+          <fieldset class="opcoes">
+            <legend>Como você prefere?</legend>
+            <label class="cartao-radio">
+              <input type="radio" name="modalidade" value="online">
+              <span><strong>Online</strong><span class="opcao-apoio">Google Meet ou WhatsApp</span></span>
+            </label>
+            <label class="cartao-radio">
+              <input type="radio" name="modalidade" value="presencial">
+              <span><strong>Presencial</strong><span class="opcao-apoio">Balneário, Estreito</span></span>
+            </label>
+          </fieldset>
+
+          <div class="campo">
+            <label for="fuso">Horários no seu fuso</label>
+            <select id="fuso" name="fuso">
+              <option value="brasilia">Brasília (UTC−3)</option>
+              <option value="lisboa">Lisboa (UTC+0)</option>
+              <option value="londres">Londres (UTC+0)</option>
+              <option value="nova-york">Nova York (UTC−5)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bloco">
+          <div class="calendario-topo">
+            <button type="button" class="botao-icone botao-mes" id="mes-anterior" aria-label="Mês anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </button>
+            <p class="mes-nome" id="mes-nome" aria-live="polite"></p>
+            <button type="button" class="botao-icone botao-mes" id="proximo-mes" aria-label="Próximo mês">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </button>
+          </div>
+          <table class="calendario" aria-labelledby="mes-nome">
+            <thead>
+              <tr>
+                <th scope="col"><abbr title="Domingo">D</abbr></th>
+                <th scope="col"><abbr title="Segunda">S</abbr></th>
+                <th scope="col"><abbr title="Terça">T</abbr></th>
+                <th scope="col"><abbr title="Quarta">Q</abbr></th>
+                <th scope="col"><abbr title="Quinta">Q</abbr></th>
+                <th scope="col"><abbr title="Sexta">S</abbr></th>
+                <th scope="col"><abbr title="Sábado">S</abbr></th>
+              </tr>
+            </thead>
+            <tbody id="calendario-dias"></tbody>
+          </table>
+          <p class="apoio">Dias com borda têm horário livre. Os demais estão ocupados ou fora do atendimento.</p>
+
+          <div class="area-horarios" id="area-horarios" hidden>
+            <h2 id="titulo-dia"></h2>
+            <div class="grade-horarios" id="grade-horarios" role="group" aria-labelledby="titulo-dia"></div>
+            <p class="apoio">Cada sessão dura cerca de 1h30.</p>
+          </div>
+        </div>
+
+        <div class="rodape-passo" id="rodape-passo1">
+          <p class="erro" id="erro-passo1" aria-live="polite"></p>
+          <button type="submit" class="botao botao-principal" aria-describedby="erro-passo1">Continuar</button>
+          <button type="button" class="link" data-aviso="whatsapp">Prefere conversar antes? WhatsApp</button>
+          <p class="cvv-linha">Em sofrimento intenso? Ligue 188 (CVV).</p>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== AGENDAR · PASSO 2 ===================== -->
+    <section class="pagina fluxo" data-rota="agendar-2" hidden>
+      <div class="bloco">
+        <div class="cartao resumo">
+          <p class="resumo-linha1" id="resumo-linha1"></p>
+          <p class="apoio" id="resumo-linha2"></p>
+          <a class="link" href="#/agendar/1">Alterar</a>
+        </div>
+      </div>
+
+      <form class="bloco" id="form-passo2" novalidate>
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" aria-describedby="erro-nome">
+          <p class="erro" id="erro-nome"></p>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <p class="apoio campo-apoio" id="apoio-email">Para receber o convite com o link do Google Meet.</p>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="apoio-email erro-email">
+          <p class="erro" id="erro-email"></p>
+        </div>
+
+        <div class="campo">
+          <label for="whatsapp">WhatsApp</label>
+          <p class="apoio campo-apoio" id="apoio-whatsapp">Com DDD, ou com o código do país se você mora fora.</p>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" aria-describedby="apoio-whatsapp erro-whatsapp">
+          <p class="erro" id="erro-whatsapp"></p>
+        </div>
+
+        <div class="campo">
+          <label for="como-conheceu">Como conheceu?</label>
+          <select id="como-conheceu" name="como-conheceu" aria-describedby="erro-como-conheceu">
+            <option value=""></option>
+            <option>Pesquisa no Google</option>
+            <option>Indicação</option>
+            <option>YouTube</option>
+            <option>Redes sociais</option>
+            <option>Outro</option>
+          </select>
+          <p class="erro" id="erro-como-conheceu"></p>
+        </div>
+
+        <div class="campo">
+          <label class="caixa-selecao" for="privacidade">
+            <input type="checkbox" id="privacidade" name="privacidade" aria-describedby="erro-privacidade">
+            <span>Li a política de privacidade. Nome, e-mail e telefone são usados só para marcar e confirmar a sessão, e vistos pela Maria Clara e pela ferramenta de agendamento.</span>
+          </label>
+          <p class="erro" id="erro-privacidade"></p>
+        </div>
+
+        <div class="botoes">
+          <button type="submit" class="botao botao-principal">Enviar solicitação</button>
+        </div>
+        <p class="apoio">Na primeira sessão, a Maria Clara confirma o horário.</p>
+        <p class="apoio">Em sofrimento intenso? Ligue 188 (CVV).</p>
+      </form>
+    </section>
+
+    <!-- ===================== AGENDAR · PASSO 3 ===================== -->
+    <section class="pagina fluxo" data-rota="agendar-3" hidden>
+      <div class="bloco">
+        <div class="icone-ok" aria-hidden="true">✓</div>
+        <h1 role="status" tabindex="-1">Solicitação enviada</h1>
+        <p>A Maria Clara recebeu o seu pedido e confirma o horário por e-mail e WhatsApp em até 1 dia útil.</p>
+        <div class="cartao resumo">
+          <p class="resumo-linha1" id="confirmacao-linha1"></p>
+          <p class="apoio" id="confirmacao-linha2"></p>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <h2>O que acontece agora</h2>
+        <ol class="cartoes cartoes-numerados">
+          <li class="cartao"><p>Você recebe a confirmação do horário.</p></li>
+          <li class="cartao"><p>Se for online, o convite com o link do Google Meet chega no seu e-mail. Se for presencial, a rota para o consultório.</p></li>
+          <li class="cartao"><p>Na primeira sessão, você preenche uma ficha escrita sobre a sua história.</p></li>
+        </ol>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <button type="button" class="botao botao-principal" id="voltar-inicio">Voltar ao início</button>
+        </div>
+        <div class="caixa-cvv">
+          <p><strong>Em sofrimento intenso?</strong></p>
+          <p>Ligue 188 (CVV), 24 horas, gratuito.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé global -->
+  <footer class="rodape" id="rodape">
+    <p class="rodape-nome">Maria Clara Vinotti</p>
+    <p>Parapsicóloga clínica · Florianópolis e online</p>
+    <ul>
+      <li><a href="#/inicio">Início</a></li>
+      <li><a href="#/sobre">Sobre</a></li>
+      <li><a href="#/atendimento">Atendimento</a></li>
+      <li><a href="#/conteudo">Conteúdo</a></li>
+      <li><a href="#/duvidas">Dúvidas</a></li>
+    </ul>
+    <div class="caixa-cvv">
+      <p><strong>Em sofrimento intenso?</strong></p>
+      <p>Ligue 188 (CVV), 24 horas, gratuito.</p>
+    </div>
+    <p class="rodape-legal">
+      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
+      <span aria-hidden="true">·</span>
+      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Barra fixa na base -->
+<div class="barra-fixa" id="barra-fixa">
+  <button type="button" class="botao botao-secundario" data-aviso="whatsapp">WhatsApp</button>
+  <a class="botao botao-principal" href="#/agendar/1" data-agendar="novo">Agendar sessão</a>
+</div>
+
+<!-- Menu -->
+<div class="menu-fundo" id="menu-fundo" hidden></div>
+<nav class="menu" id="menu" tabindex="-1" hidden>
+  <ul>
+    <li><a href="#/inicio">Início</a></li>
+    <li><a href="#/sobre">Sobre</a></li>
+    <li><a href="#/atendimento">Atendimento</a></li>
+    <li><a href="#/conteudo">Conteúdo</a></li>
+    <li><a href="#/duvidas">Dúvidas</a></li>
+  </ul>
+  <button type="button" class="botao botao-secundario" id="botao-fechar-menu">Fechar</button>
+</nav>
+
+<!-- Aviso temporário das interações simuladas -->
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
