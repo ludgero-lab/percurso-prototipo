@@ -145,6 +145,8 @@
   function desenhar() {
     const g = geometria();
     arco.setAttribute('viewBox', '0 0 ' + g.largura + ' ' + g.altura);
+    arco.setAttribute('width', g.largura);
+    arco.setAttribute('height', g.altura);
     arco.textContent = '';
 
     // Marcas do mostrador
@@ -190,11 +192,17 @@
     escolhida = Number(label.dataset.indice);
     rotuloEscolhido.textContent = EMOCOES[escolhida].nome;
     desenhar();
-    // Logo após a resposta, oferece o teste de perfil
-    if (testePerfil.hidden) {
-      testePerfil.hidden = false;
-      testePerfil.scrollIntoView({ block: 'nearest' });
-    }
+    // Logo após a resposta: aparece a confirmação e o bloco do teste de perfil fica liberado logo abaixo
+    botaoContinuar.hidden = false;
+    testePerfil.hidden = false;
+  });
+
+  // "Continuar" rola a página até o convite do teste de perfil
+  const botaoContinuar = $('#botao-continuar');
+  const reduzirMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+  botaoContinuar.addEventListener('click', () => {
+    testePerfil.scrollIntoView({ behavior: reduzirMovimento.matches ? 'auto' : 'smooth', block: 'start' });
+    $('#titulo-teste').focus({ preventScroll: true });
   });
 
   window.addEventListener('resize', desenhar);

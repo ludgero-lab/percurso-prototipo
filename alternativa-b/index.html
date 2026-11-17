@@ -22,8 +22,8 @@
 
   <main id="conteudo-principal">
 
-    <!-- 1. Abertura: nome grande, foto, cards e agendamento -->
-    <section class="bloco abertura-b">
+    <!-- Bloco 1 (altura da tela): nome grande, foto, cards e agendamento -->
+    <section class="bloco tela-cheia abertura-b">
       <div class="hero-grade">
         <div class="hero-texto">
           <h1 class="hero-nome">Maria Clara</h1>
@@ -42,8 +42,8 @@
       <button type="button" class="botao botao-principal botao-pilula" data-aviso="pagina">Agendar uma sessão</button>
     </section>
 
-    <!-- 2. Como você se sente hoje? -->
-    <section class="bloco humor" aria-labelledby="titulo-humor">
+    <!-- Bloco 2 (altura da tela): Como você se sente hoje? -->
+    <section class="bloco tela-cheia humor" aria-labelledby="titulo-humor">
       <h2 id="titulo-humor">Como você se sente hoje?</h2>
       <fieldset class="mostrador" id="mostrador">
         <legend class="so-leitor">Como você se sente hoje?</legend>
@@ -52,12 +52,18 @@
         <div class="emocoes" id="emocoes"></div>
         <p class="emocao-escolhida" id="emocao-escolhida" aria-live="polite"></p>
       </fieldset>
+      <!-- Confirmação que leva ao bloco 3; o espaço fica reservado para a tela não pular -->
+      <div class="confirmacao">
+        <button type="button" class="botao botao-secundario botao-pilula botao-continuar" id="botao-continuar" aria-controls="teste-perfil" hidden>
+          Continuar
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </button>
+      </div>
     </section>
 
-    <!-- 3. Convite para o teste de perfil (aparece logo após a resposta) -->
-    <section class="bloco teste-perfil" id="teste-perfil" aria-labelledby="titulo-teste" hidden>
-      <svg class="seta-baixo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      <h2 id="titulo-teste">Você gostaria de fazer um teste de perfil?</h2>
+    <!-- Bloco 3 (altura da tela): convite para o teste de perfil, liberado após a resposta -->
+    <section class="bloco tela-cheia teste-perfil" id="teste-perfil" aria-labelledby="titulo-teste" hidden>
+      <h2 id="titulo-teste" tabindex="-1">Você gostaria de fazer um teste de perfil?</h2>
       <p>É bem rapidinho!</p>
       <button type="button" class="botao botao-principal botao-pilula" data-aviso="pagina">Fazer o teste</button>
       <details class="sobre-teste">

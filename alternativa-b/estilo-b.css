@@ -4,6 +4,25 @@
 :root {
   /* espaço no fim da página para o botão flutuante de WhatsApp */
   --altura-barra: 88px;
+  /* altura do cabeçalho fixo (botão de 48 px + 8 px em cima e embaixo) */
+  --altura-cabecalho: 64px;
+  /* os blocos de tela cheia "encaixam" na rolagem, sem prender o resto da página */
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--altura-cabecalho);
+}
+
+/* ---------- Blocos com a altura da tela do celular ---------- */
+
+.tela-cheia {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--altura-cabecalho));
+  min-height: calc(100svh - var(--altura-cabecalho));
+  /* deixa livre a faixa do botão flutuante de WhatsApp */
+  padding-bottom: 88px;
+  scroll-snap-align: start;
+  /* anula a margem de rolagem das âncoras da A ([id] em ../estilo.css); o cabeçalho já entra no scroll-padding */
+  scroll-margin-top: 0;
 }
 
 .so-leitor {
@@ -29,6 +48,11 @@
 
 .abertura-b {
   padding-top: 8px;
+}
+
+/* o botão "Agendar uma sessão" fica ancorado na base do primeiro bloco */
+.abertura-b > .botao-pilula {
+  margin-top: auto;
 }
 
 .hero-grade {
@@ -117,11 +141,11 @@
   border: 0;
 }
 
+/* largura e altura vêm do app-b.js (100% não funciona dentro de fieldset em layout flex) */
 .mostrador-arco {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
   overflow: visible;
 }
 
@@ -209,15 +233,32 @@
 
 /* ---------- Teste de perfil ---------- */
 
-.teste-perfil {
-  text-align: center;
+.humor {
+  justify-content: center;
 }
 
-.seta-baixo {
-  width: 32px;
-  height: 32px;
-  color: var(--texto-suave);
-  margin-bottom: 8px;
+.confirmacao {
+  display: flex;
+  justify-content: center;
+  min-height: 56px;
+  margin-top: 16px;
+}
+
+.botao-continuar {
+  width: auto;
+  gap: 8px;
+  padding-left: 28px;
+  padding-right: 20px;
+}
+
+.botao-continuar svg {
+  width: 22px;
+  height: 22px;
+}
+
+.teste-perfil {
+  justify-content: center;
+  text-align: center;
 }
 
 .teste-perfil h2 {
