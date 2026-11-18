@@ -18,6 +18,8 @@ A especificação está em [`docs/especificacao-prototipo.md`](docs/especificaca
 
 `#/inicio` (padrão), `#/sobre`, `#/atendimento`, `#/atendimento/presencial`, `#/atendimento/etapas`, `#/conteudo`, `#/duvidas`, `#/agendar/1`, `#/agendar/2`, `#/agendar/3`.
 
+`#/agendar/online` é uma rota de apoio para links vindos de outras páginas (alternativa C): abre o passo 1 com Online marcado.
+
 As âncoras da especificação (`presencial` e `etapas`) viraram rotas para não conflitar com o roteamento por hash.
 
 ## Abrir no computador
@@ -37,6 +39,12 @@ Publicado pelo GitHub Pages a partir do branch `main`, pasta raiz:
 
 O site tem `noindex` e `robots.txt` bloqueando tudo, mas quem tiver o link consegue abrir.
 
-## Alternativa B
+## Alternativas
 
-Uma segunda proposta do Início, para avaliação, está em [`alternativa-b/`](alternativa-b/) e é publicada em <https://ludgero-lab.github.io/percurso-prototipo/alternativa-b/>. Ela reaproveita o `estilo.css` da alternativa A. As diferenças em relação à especificação estão em [`alternativa-b/MUDANCAS.md`](alternativa-b/MUDANCAS.md).
+| Alternativa | O que é | Publicação | Diferenças |
+|---|---|---|---|
+| A | Protótipo completo, conforme a especificação | <https://ludgero-lab.github.io/percurso-prototipo/> | [`docs/especificacao-prototipo.md`](docs/especificacao-prototipo.md) |
+| B | Início traduzido fielmente do esboço à mão (congelada como registro) | <https://ludgero-lab.github.io/percurso-prototipo/alternativa-b/> | [`alternativa-b/MUDANCAS.md`](alternativa-b/MUDANCAS.md) |
+| C | Revisão da B: topo em tela cheia, chips de sentimentos, flash cards e quiz de autoconhecimento | <https://ludgero-lab.github.io/percurso-prototipo/alternativa-c/> (quiz em <https://ludgero-lab.github.io/percurso-prototipo/alternativa-c/quiz.html>) | [`alternativa-c/MUDANCAS.md`](alternativa-c/MUDANCAS.md) |
+
+As alternativas B e C reaproveitam o `estilo.css` da A e acrescentam só o que muda. A C tem apenas o Início e o quiz: o menu, os links das seções e o agendamento levam às páginas da A. A especificação da C está em [`docs/especificacao-alternativa-c.md`](docs/especificacao-alternativa-c.md).
