@@ -3,7 +3,7 @@
 'use strict';
 
 (function () {
-  const { $, mostrarBarra, comportamentoRolagem } = window.PercursoC;
+  const { $, mostrarBarra, comportamentoRolagem, criarBaralho } = window.PercursoC;
 
   // ---------------------------------------------------------------
   // Com o que você está chegando hoje? (respostas em rascunho)
@@ -52,6 +52,31 @@
     baralho.scrollIntoView({ behavior: comportamentoRolagem(), block: 'start' });
     $('#titulo-baralho').focus({ preventScroll: true });
   });
+
+  // ---------------------------------------------------------------
+  // Baralho de flash cards
+  // ---------------------------------------------------------------
+  const contador = $('#contador-cartoes');
+  const botaoAnterior = $('#cartao-anterior');
+  const botaoProximo = $('#cartao-proximo');
+
+  const baralho = criarBaralho($('#baralho-cartoes'), {
+    deslizar: true,
+    aoMudar(atual) {
+      const total = baralho.total();
+      contador.textContent = 'Cartão ' + (atual + 1) + ' de ' + total;
+      const focoNumBotao = document.activeElement === botaoAnterior || document.activeElement === botaoProximo;
+      botaoAnterior.disabled = atual === 0;
+      botaoProximo.disabled = atual === total - 1;
+      // Se o botão com foco ficou desativado (nas pontas), o foco vai para o cartão
+      if (focoNumBotao && document.activeElement.disabled) {
+        $('.carta-virar', baralho.carta()).focus({ preventScroll: true });
+      }
+    }
+  });
+
+  botaoAnterior.addEventListener('click', () => baralho.irPara(baralho.atual() - 1));
+  botaoProximo.addEventListener('click', () => baralho.irPara(baralho.atual() + 1));
 
   // ---------------------------------------------------------------
   // Barra em pílula: só aparece depois que as ações do topo saem da tela

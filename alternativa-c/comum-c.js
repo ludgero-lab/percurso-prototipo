@@ -107,5 +107,117 @@ window.PercursoC = (function () {
     return reduzirMovimento.matches ? 'auto' : 'smooth';
   }
 
-  return { $, $$, reduzirMovimento, mostrarAviso, mostrarBarra, comportamentoRolagem };
+  // ---------------------------------------------------------------
+  // Baralho de cartões empilhados (flash cards do Início e perguntas do quiz)
+  // ---------------------------------------------------------------
+  // Cada [data-carta] recebe data-pos conforme a distância até o cartão atual:
+  // "0" na frente, "1" e "2" atrás (deslocados), "atras" escondido, "saiu" fora pela esquerda.
+  // Só o cartão da frente fica fora do inert. Cartões que viram têm um botão
+  // .carta-virar (aria-expanded) e um .carta-verso, que fica inert enquanto fechado.
+  const DURACAO_TROCA = 300;
+
+  function virarCarta(carta, aberta) {
+    carta.classList.toggle('virada', aberta);
+    const botao = $('.carta-virar', carta);
+    const verso = $('.carta-verso', carta);
+    if (botao) botao.setAttribute('aria-expanded', String(aberta));
+    if (verso) verso.inert = !aberta;
+  }
+
+  // Volta à frente sem mostrar o giro (cartão que já saiu da frente)
+  function desvirarSemAnimacao(carta) {
+    carta.classList.add('sem-transicao');
+    virarCarta(carta, false);
+    void carta.offsetWidth;
+    carta.classList.remove('sem-transicao');
+  }
+
+  function criarBaralho(raiz, opcoes) {
+    opcoes = opcoes || {};
+    let atual = 0;
+    let ignorarClique = false;
+    const cartas = () => $$('[data-carta]', raiz);
+
+    function posicionar() {
+      cartas().forEach((carta, i) => {
+        const distancia = i - atual;
+        carta.dataset.pos = distancia < 0 ? 'saiu' : (distancia > 2 ? 'atras' : String(distancia));
+        carta.inert = distancia !== 0;
+      });
+    }
+
+    function irPara(indice) {
+      const lista = cartas();
+      if (indice < 0 || indice >= lista.length || indice === atual) return false;
+      const anterior = lista[atual];
+      const tinhaFoco = anterior.contains(document.activeElement);
+      atual = indice;
+      posicionar();
+      // O novo cartão aparece sempre pela frente; o que saiu desvira depois de sair de vista
+      if (anterior.classList.contains('virada')) {
+        setTimeout(() => {
+          if (cartas().indexOf(anterior) !== atual) desvirarSemAnimacao(anterior);
+        }, reduzirMovimento.matches ? 0 : DURACAO_TROCA + 20);
+      }
+      if (tinhaFoco) {
+        const botao = $('.carta-virar', lista[atual]);
+        if (botao) botao.focus({ preventScroll: true });
+      }
+      if (opcoes.aoMudar) opcoes.aoMudar(atual);
+      return true;
+    }
+
+    // Depois de deslizar o dedo, o toque que o navegador gera não vira o cartão
+    raiz.addEventListener('click', (evento) => {
+      if (!ignorarClique) return;
+      ignorarClique = false;
+      evento.preventDefault();
+      evento.stopPropagation();
+    }, true);
+
+    raiz.addEventListener('click', (evento) => {
+      const botao = evento.target.closest('.carta-virar');
+      if (!botao) return;
+      const carta = botao.closest('[data-carta]');
+      if (opcoes.aoVirar) opcoes.aoVirar(carta);
+      else virarCarta(carta, !carta.classList.contains('virada'));
+    });
+
+    // Deslizar para os lados é só um atalho para Anterior e Próximo
+    if (opcoes.deslizar) {
+      let inicio = null;
+      raiz.addEventListener('pointerdown', (evento) => {
+        if (evento.pointerType === 'mouse' && evento.button !== 0) return;
+        inicio = { x: evento.clientX, y: evento.clientY, id: evento.pointerId };
+      });
+      raiz.addEventListener('pointerup', (evento) => {
+        if (!inicio || evento.pointerId !== inicio.id) return;
+        const dx = evento.clientX - inicio.x;
+        const dy = evento.clientY - inicio.y;
+        inicio = null;
+        if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        ignorarClique = true;
+        setTimeout(() => { ignorarClique = false; }, 400);
+        irPara(atual + (dx < 0 ? 1 : -1));
+      });
+      raiz.addEventListener('pointercancel', () => { inicio = null; });
+    }
+
+    posicionar();
+    return {
+      irPara,
+      atual: () => atual,
+      total: () => cartas().length,
+      carta: (i) => cartas()[i === undefined ? atual : i],
+      virar: virarCarta,
+      desvirar: desvirarSemAnimacao,
+      reiniciar() {
+        cartas().forEach(desvirarSemAnimacao);
+        atual = 0;
+        posicionar();
+      }
+    };
+  }
+
+  return { $, $$, reduzirMovimento, mostrarAviso, mostrarBarra, comportamentoRolagem, criarBaralho };
 })();

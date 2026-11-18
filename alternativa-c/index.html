@@ -59,6 +59,77 @@
       <div class="resposta-sentimento" id="resposta-sentimento" aria-live="polite"></div>
     </section>
 
+    <!-- 3. Baralho de flash cards -->
+    <section class="secao secao-baralho" id="baralho" aria-labelledby="titulo-baralho">
+      <h2 id="titulo-baralho" tabindex="-1">Para entender em poucas palavras</h2>
+      <p class="baralho-contador" id="contador-cartoes" aria-live="polite">Cartão 1 de 4</p>
+      <!-- Cada cartão: um botão que cobre o cartão inteiro (vira) + frente (só visual) + verso (lido quando aberto) -->
+      <div class="baralho baralho-deslizar" id="baralho-cartoes">
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-1" aria-expanded="false" aria-controls="verso-1"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-1">O que é a parapsicologia clínica?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-1" inert>
+              <p>A parapsicologia do Sistema Grisa busca entender como funciona a mente humana. A mente é uma só, mas funciona como duas: a consciente, racional, e a subconsciente, emocional. Ela dialoga com a psicologia, a psicanálise e a psiquiatria como aliadas importantes.</p>
+              <a class="link" href="../#/duvidas">Mais dúvidas</a>
+            </div>
+          </div>
+        </div>
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-2" aria-expanded="false" aria-controls="verso-2"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-2">Como ela pode ajudar?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-2" inert>
+              <p>Quem procura costuma trazer angústia, ansiedade, raiva, culpa ou a sensação de não merecer as próprias conquistas. Não prometemos milagres: o caminho é ficar mais consciente do próprio poder de pensar, decidir e conduzir a própria vida.</p>
+              <a class="link" href="../#/atendimento">Ver o atendimento</a>
+            </div>
+          </div>
+        </div>
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-3" aria-expanded="false" aria-controls="verso-3"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-3">Como é uma sessão?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-3" inert>
+              <p>Cerca de 1h30, online ou presencial.</p>
+              <ol class="carta-lista">
+                <li>Conhecer a sua história.</li>
+                <li>Olhar para os sentimentos que mais marcam a sua vida.</li>
+                <li>Definir metas a curto, médio e longo prazo, juntos.</li>
+                <li>Tarefas entre as sessões, no seu tempo.</li>
+              </ol>
+              <a class="link" href="../#/atendimento/etapas">Ver as 8 etapas</a>
+            </div>
+          </div>
+        </div>
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-4" aria-expanded="false" aria-controls="verso-4"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-4">Quem sou eu?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-4" inert>
+              <p>Professora de Letras (Português e Inglês), especialista em Gestão Escolar e especialista em análise, orientação e hipnoterapia em Parapsicologia Clínica pelo Sistema Grisa. Atendo há sete anos.</p>
+              <a class="link" href="../#/sobre">Formação e vínculos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="baralho-nav">
+        <button type="button" class="botao botao-secundario" id="cartao-anterior" disabled>Anterior</button>
+        <button type="button" class="botao botao-secundario" id="cartao-proximo">Próximo</button>
+      </div>
+    </section>
+
     <!-- 5. Acolhimento e sigilo -->
     <section class="secao" aria-labelledby="titulo-acolhimento">
       <h2 id="titulo-acolhimento">Acolhimento e sigilo</h2>
