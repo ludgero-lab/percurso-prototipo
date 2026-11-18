@@ -66,7 +66,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 | 10 | Rodapé com o CVV discreto e a linha de registro | Mudança global (também na A) |
 | — | Barra flutuante em pílula e voltar ao topo | Substituem o botão flutuante de WhatsApp |
 
-Só o topo tem a altura da tela. Na rolagem, a imagem fica parada e o quadro de texto sobe por cima dela; a base arredondada do quadro da imagem sobe junto (o quadro recolhe de baixo para cima) e a seção seguinte vem logo atrás, sem vão. O topo do quadro desce na medida da rolagem (`inicio-c.js`), então fica sempre logo abaixo do cabeçalho com os cantos arredondados; o fundo "fixo" do CSS não foi usado porque não funciona no Safari do iPhone; o encaixe na rolagem (herdado da B) saiu, porque puxava a página de volta e brigava com esse efeito.
+Só o topo tem a altura da tela. Na rolagem, o topo sobe inteiro, com a imagem e o quadro de texto juntos. Os efeitos de imagem parada testados (quadro de texto subindo sobre a imagem) saíram por ora e ficam para a implementação final; o encaixe na rolagem herdado da B também saiu.
 
 ## 5. Linha visual (estrutura, não estética)
 

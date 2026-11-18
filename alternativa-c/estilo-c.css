@@ -249,9 +249,7 @@ main > .secao:last-child {
   scroll-margin-top: 0;
 }
 
-/* Quadro arredondado da imagem. Na rolagem, inicio-c.js empurra o topo do quadro para baixo
-   na medida da rolagem: o topo, com os cantos arredondados, fica sempre logo abaixo do
-   cabeçalho, e só a base sobe junto com o texto (o quadro recolhe de baixo para cima). */
+/* Quadro arredondado da imagem: ocupa o topo inteiro e rola junto com o texto */
 .topo-moldura {
   position: absolute;
   top: 0;
@@ -263,8 +261,8 @@ main > .secao:last-child {
   background: var(--superficie-forte); /* enquanto a imagem carrega */
 }
 
-/* Imagem da identidade visual (tons de cinza): altura fixa da primeira tela, presa ao topo
-   do quadro, então fica parada enquanto o quadro recolhe; o busto fica na faixa de cima. */
+/* Imagem da identidade visual (tons de cinza): altura da primeira tela; o busto fica na
+   faixa de cima, acima do quadro de texto. */
 .topo-imagem {
   display: block;
   width: 100%;
@@ -940,9 +938,6 @@ main > .secao:last-child {
 /* "Reduzir movimento": sem entrada, sem deslize nem giro; só troca de opacidade.
    No topo, a imagem não fica parada: rola junto com o texto. */
 @media (prefers-reduced-motion: reduce) {
-  .topo-moldura {
-    top: 0 !important;
-  }
 
   .barra-pilula,
   .barra-pilula.visivel,
