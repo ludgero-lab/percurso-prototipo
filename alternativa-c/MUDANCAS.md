@@ -27,7 +27,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 
 **Vídeo do canal**
 - O player é criado só no toque, a partir de `youtube-nocookie.com`; antes disso, nenhuma chamada ao YouTube. O título do iframe é o título do vídeo mostrado abaixo dele (h3).
-- "Inscrever-se no canal" é secundário: a ação principal (escura) continua reservada para "Agendar sessão".
+- "Inscreva-se no canal" é secundário no Início: a ação principal (escura) continua reservada para "Agendar sessão". Na página Conteúdo da C, o mesmo botão também diz "Inscreva-se no canal", para a C falar do mesmo jeito.
 
 **Barra em pílula e voltar ao topo**
 - Uma regra para todas as páginas: a barra aparece quando as ações marcadas com `data-acoes` (as de agendar e conversar de cada tela; no quiz, também "Começar" e "Voltar"/"Próxima") estão fora de vista.

@@ -152,7 +152,7 @@ As outras três seções ganham textos novos, na voz da Maria Clara (primeira pe
 - Texto de convite (rascunho): "No canal, eu explico de um jeito simples como funciona a parapsicologia clínica e converso sobre sentimentos que pesam no dia a dia, como culpa, medo e mágoa. Comece por este vídeo e fique à vontade para explorar."
 - Vídeo: o espaço mostra uma capa cinza com o botão de play. Ao tocar, entra o player do vídeo https://youtu.be/3LOUZY9A1qo, carregado de `youtube-nocookie.com` (sem cookies de rastreio), e o foco vai para ele. Antes do toque não há nenhuma chamada ao YouTube. É a única exceção à regra de "nenhuma chamada de rede".
 - Abaixo do vídeo, o título real do vídeo como h3 (abaixo do h2 da seção): "Introdução à Parapsicologia Clínica | Sistema Grisa". Temporada e episódio ficam ocultos por ora.
-- No lugar de "Ver todos os episódios", um convite ao canal: botão secundário em pílula "Inscrever-se no canal" (mostra o aviso "Neste ponto abriria o canal no YouTube.").
+- No lugar de "Ver todos os episódios", um convite ao canal: o texto "Aproveite também para se inscrever no canal." (rascunho) e o botão secundário em pílula "Inscreva-se no canal" (mostra o aviso "Neste ponto abriria o canal no YouTube."). Na página Conteúdo da C, o botão do canal também passa a "Inscreva-se no canal".
 
 ### 2.6 Barra flutuante em pílula
 
