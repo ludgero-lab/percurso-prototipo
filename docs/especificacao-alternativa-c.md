@@ -100,8 +100,8 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 ### 2.3 Baralho de flash cards
 
 - h2: "Para entender em poucas palavras" (com `tabindex="-1"`, para receber o foco vindo de "Ver como funciona").
-- Quatro cartões empilhados: o da frente inteiro e os de trás alinhados no centro, um pouco mais estreitos e deslocados para baixo, mostrando que há mais cartões. Cada cartão de trás é um tom de cinza mais escuro que o da frente dele, para a quantidade ficar perceptível. Os cartões não têm sombra: só o quadro.
-- Troca de cartão na vertical: em "Próximo", o cartão da frente sobe e some enquanto o seguinte sobe para o lugar; em "Anterior", o cartão volta descendo. Movimento suave e perceptível (560 ms, curva suave). Com "reduzir movimento", vira troca de opacidade.
+- Quatro cartões empilhados: o da frente inteiro e os de trás alinhados no centro, um pouco mais estreitos e deslocados para baixo, mostrando que há mais cartões. **Regra de hierarquia tonal:** quanto mais ao fundo, mais escuro o cartão (frente #f2f2f2, primeiro de trás #e0e0e0, último #cbcbcb). Os cartões não têm sombra: só o quadro.
+- Troca de cartão para os lados: em "Próximo", o cartão da frente desliza inteiro para fora pela esquerda, girando de leve, e some só no fim, enquanto o seguinte sobe para o lugar; em "Anterior", o cartão volta pelo mesmo lado. Movimento evidente e suave (650 ms, começa e termina devagar). Com "reduzir movimento", vira troca de opacidade.
 - Acima do baralho: "Cartão X de 4". Abaixo: botões "Anterior" e "Próximo" (desativados nas pontas). Deslizar o cartão com o dedo para os lados é um atalho, nunca a única forma de navegar.
 - Frente de cada cartão: a pergunta em destaque e o apoio "Toque para ver a resposta".
 - Tocar na frente vira o cartão (giro em Y de 450 ms) e mostra o verso. Tocar de novo volta para a frente. O cartão é um `button` com `aria-expanded`; o verso fica no DOM e é lido por leitor de tela quando aberto. Com "reduzir movimento", o giro vira uma troca de opacidade.
@@ -150,7 +150,7 @@ As outras três seções ganham textos novos, na voz da Maria Clara (primeira pe
 **YouTube (rascunho):**
 - h2: "Conheça meu canal no YouTube" (no lugar de "No YouTube, em temporadas"): um convite a conhecer o canal, sem prometer uma frequência de vídeos.
 - Vídeo: o espaço mostra uma capa cinza com o botão de play. Ao tocar, entra o player do vídeo https://youtu.be/3LOUZY9A1qo, carregado de `youtube-nocookie.com` (sem cookies de rastreio), e o foco vai para ele. Antes do toque não há nenhuma chamada ao YouTube. É a única exceção à regra de "nenhuma chamada de rede".
-- Abaixo do vídeo, o título real do vídeo como h3 (abaixo do h2 da seção). Temporada e episódio ficam ocultos por ora.
+- Abaixo do vídeo, o título real do vídeo como h3 (abaixo do h2 da seção): "Introdução à Parapsicologia Clínica | Sistema Grisa". Temporada e episódio ficam ocultos por ora.
 - No lugar de "Ver todos os episódios", um convite ao canal: botão secundário em pílula "Inscrever-se no canal" (mostra o aviso "Neste ponto abriria o canal no YouTube.").
 
 ### 2.6 Barra flutuante em pílula
@@ -183,7 +183,7 @@ Página própria da C: `alternativa-c/quiz.html`, com o mesmo cabeçalho, rodap�
 - Mesma linguagem visual do baralho do Início: cartão da frente com a pergunta e os de trás deslocados.
 - Acima do baralho: "Pergunta X de 6".
 - Opções como botões grandes (rádios nativos estilizados, mínimo 44 px de altura). Tocar numa opção marca a escolha.
-- "Próxima" (desativado até haver escolha) faz o cartão subir e sumir e revela o próximo, com o mesmo movimento vertical dos flash cards (seção 2.3). "Voltar" traz o cartão anterior de volta, descendo, com a resposta mantida. Com "reduzir movimento", vira troca de opacidade.
+- "Próxima" (desativado até haver escolha) faz o cartão deslizar para fora pela esquerda e revela o próximo, com o mesmo movimento dos flash cards (seção 2.3). "Voltar" traz o cartão anterior de volta pelo mesmo lado, com a resposta mantida. Com "reduzir movimento", vira troca de opacidade.
 - Ao trocar de cartão, o foco vai para o título da pergunta.
 - A ordem das opções abaixo é a de exibição. A letra indica o tema e não aparece na tela.
 
@@ -256,7 +256,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] Os 7 chips funcionam com toque e teclado; cada um mostra a resposta certa; só "Tristeza" mostra a linha do 188.
 - [ ] "Ver como funciona" rola até o baralho e leva o foco ao título.
 - [ ] Baralho: "Cartão X de 4", Anterior e Próximo, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
-- [ ] Baralho alinhado na vertical, sem sombra, com troca para cima e para baixo; o mesmo no quiz.
+- [ ] Baralho alinhado na vertical, sem sombra, com hierarquia tonal (cada cartão de trás mais escuro) e troca para os lados, evidente e suave; o mesmo no quiz.
 - [ ] Os links dos cartões, das seções e do menu levam às páginas certas da C; nenhum link sai da C.
 - [ ] A barra flutuante só aparece depois que as ações principais da tela saem de vista e não esconde conteúdo nem o rodapé.
 - [ ] O botão de voltar ao topo aparece quando a página desce, leva ao topo e o foco ao h1.
