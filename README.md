@@ -8,9 +8,9 @@ Protótipo de teste de usabilidade do Percurso: wireframe navegável, em fidelid
 |---|---|---|---|
 | A | Protótipo completo: todas as páginas e o agendamento | <https://ludgero-lab.github.io/percurso-prototipo/> | [`docs/especificacao-prototipo.md`](docs/especificacao-prototipo.md) |
 | B | Início traduzido do esboço à mão. Congelada como registro | <https://ludgero-lab.github.io/percurso-prototipo/alternativa-b/> | [`alternativa-b/MUDANCAS.md`](alternativa-b/MUDANCAS.md) |
-| C | Revisão da B: Início e quiz de autoconhecimento | <https://ludgero-lab.github.io/percurso-prototipo/alternativa-c/> | [`docs/especificacao-alternativa-c.md`](docs/especificacao-alternativa-c.md) e [`alternativa-c/MUDANCAS.md`](alternativa-c/MUDANCAS.md) |
+| C | Revisão da B, com a linha visual da referência de cartões: Início, quiz de autoconhecimento, páginas internas e agendamento | <https://ludgero-lab.github.io/percurso-prototipo/alternativa-c/> | [`docs/especificacao-alternativa-c.md`](docs/especificacao-alternativa-c.md) e [`alternativa-c/MUDANCAS.md`](alternativa-c/MUDANCAS.md) |
 
-A B e a C têm só o Início (a C também tem o quiz, em `alternativa-c/quiz.html`). O menu, os links das seções e o agendamento delas levam às páginas da A.
+A B tem só o Início; o menu, os links e o agendamento dela levam às páginas da A. A C é completa: tem as próprias páginas internas, o quiz e o agendamento, e nenhum link sai dela.
 
 As regras do projeto (conteúdo, visual, acessibilidade e privacidade) estão em [`CLAUDE.md`](CLAUDE.md). O guia das imagens de referência da C está em [`docs/referencias-visuais.md`](docs/referencias-visuais.md).
 
@@ -22,7 +22,7 @@ As regras do projeto (conteúdo, visual, acessibilidade e privacidade) estão em
 | `agendamento.js` | Lógica do agendamento, usada pela A e pela C: estado só em memória, calendário, fusos, horários, validação e resumo |
 | `estilo.css` | Base visual de todas as alternativas: tons de cinza, mobile first, até 480 px no desktop. B e C só acrescentam ao que está aqui |
 | `alternativa-b/` | Alternativa B (não alterar) |
-| `alternativa-c/` | Alternativa C: `index.html`, `quiz.html`, `estilo-c.css` e os scripts `comum-c.js`, `inicio-c.js` e `quiz-c.js` |
+| `alternativa-c/` | Alternativa C: Início, quiz, páginas internas e agendamento (arquivos em [`alternativa-c/MUDANCAS.md`](alternativa-c/MUDANCAS.md)) |
 | `docs/` | Especificações e guia de referências visuais |
 | `robots.txt`, `.nojekyll` | Bloqueia os buscadores; faz o GitHub Pages servir os arquivos como estão |
 
