@@ -79,23 +79,25 @@
   botaoProximo.addEventListener('click', () => baralho.irPara(baralho.atual() + 1));
 
   // ---------------------------------------------------------------
-  // Topo: na rolagem, a imagem fica parada e o quadro arredondado recolhe de baixo
-  // para cima, junto com o texto. A imagem é deslocada para baixo na mesma medida
-  // da rolagem (dentro do quadro, que a recorta). Sem efeito com "reduzir movimento".
+  // Topo: na rolagem, o quadro da imagem recolhe de baixo para cima. O topo do quadro desce
+  // na mesma medida da rolagem, então fica logo abaixo do cabeçalho com os cantos
+  // arredondados, a imagem (presa a ele) fica parada e só a base sobe com o texto.
+  // Sem efeito com "reduzir movimento".
   // ---------------------------------------------------------------
+  const topo = $('.topo');
   const moldura = $('.topo-moldura');
-  const imagemTopo = $('.topo-imagem');
   const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)');
   let agendado = false;
 
   function acompanharRolagem() {
     agendado = false;
     if (reduzir.matches) {
-      imagemTopo.style.transform = '';
+      moldura.style.top = '';
       return;
     }
-    const deslocamento = Math.min(Math.max(window.scrollY, 0), moldura.offsetHeight);
-    imagemTopo.style.transform = 'translate3d(0, ' + deslocamento + 'px, 0)';
+    const limite = topo.offsetHeight - 12; // altura do quadro sem rolagem
+    const deslocamento = Math.min(Math.max(window.scrollY, 0), limite);
+    moldura.style.top = deslocamento + 'px';
   }
 
   window.addEventListener('scroll', () => {
