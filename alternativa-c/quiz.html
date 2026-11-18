@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Quiz de autoconhecimento · Maria Clara Vinotti (alternativa C)</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="estilo-c.css">
+</head>
+<body class="c-quiz">
+<div class="app">
+
+  <!-- Cabeçalho: Voltar (Início da C) e menu -->
+  <header class="cabecalho cabecalho-c cabecalho-quiz" id="cabecalho">
+    <a class="botao-icone botao-redondo" href="./" aria-label="Voltar">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </a>
+    <button type="button" class="botao-icone botao-redondo" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="secao secao-baralho quiz" aria-labelledby="titulo-quiz">
+      <h1 id="titulo-quiz" tabindex="-1">Quiz de autoconhecimento</h1>
+
+      <!-- Abertura -->
+      <div class="quiz-abertura" id="quiz-abertura">
+        <p>São 6 perguntas rápidas sobre como você tem vivido os seus desafios. Não existe resposta certa, e não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão.</p>
+        <div class="botoes" data-acoes-quiz>
+          <button type="button" class="botao botao-principal botao-pilula" id="quiz-comecar">Começar</button>
+        </div>
+        <p class="apoio">Leva cerca de 2 minutos.</p>
+      </div>
+
+      <!-- Perguntas em baralho (os cartões são montados pelo quiz-c.js) -->
+      <div class="quiz-perguntas" id="quiz-perguntas" hidden>
+        <p class="baralho-contador" id="quiz-contador" aria-live="polite">Pergunta 1 de 6</p>
+        <form id="form-quiz" novalidate>
+          <div class="baralho baralho-quiz" id="baralho-quiz"></div>
+        </form>
+        <div class="baralho-nav" data-acoes-quiz>
+          <button type="button" class="botao botao-secundario" id="quiz-voltar" disabled>Voltar</button>
+          <button type="button" class="botao botao-principal" id="quiz-proxima" disabled>Próxima</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé (CVV discreto, só aqui) -->
+  <footer class="rodape rodape-c" id="rodape">
+    <p class="rodape-nome">Maria Clara Vinotti</p>
+    <p>Parapsicóloga clínica · Florianópolis e online</p>
+    <ul>
+      <li><a href="./">Início</a></li>
+      <li><a href="../#/sobre">Sobre</a></li>
+      <li><a href="../#/atendimento">Atendimento</a></li>
+      <li><a href="../#/conteudo">Conteúdo</a></li>
+      <li><a href="../#/duvidas">Dúvidas</a></li>
+    </ul>
+    <p class="aviso-crise">Este site não oferece atendimento imediato em situações de crise. Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito, ou acesse <button type="button" class="link-inline" data-aviso="cvv">cvv.org.br</button>. Em emergência, procure o hospital mais próximo.</p>
+    <p class="rodape-legal">
+      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
+      <span aria-hidden="true">·</span>
+      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
+    </p>
+    <p class="rodape-registro">Registro FATECPR · Associada à ABPSIG</p>
+  </footer>
+
+</div>
+
+<!-- Barra flutuante em pílula: aparece quando as ações do quiz (Começar, navegação, resultado) estão fora da tela -->
+<div class="barra-pilula" id="barra-pilula">
+  <button type="button" class="botao botao-secundario botao-pilula" data-aviso="whatsapp">WhatsApp</button>
+  <a class="botao botao-principal botao-pilula" href="../#/agendar/1">Agendar sessão</a>
+</div>
+
+<!-- Menu: leva às páginas da alternativa A -->
+<div class="menu-fundo" id="menu-fundo" hidden></div>
+<nav class="menu menu-c" id="menu" tabindex="-1" hidden>
+  <ul>
+    <li><a href="./">Início</a></li>
+    <li><a href="../#/sobre">Sobre</a></li>
+    <li><a href="../#/atendimento">Atendimento</a></li>
+    <li><a href="../#/conteudo">Conteúdo</a></li>
+    <li><a href="../#/duvidas">Dúvidas</a></li>
+  </ul>
+  <button type="button" class="botao botao-secundario botao-pilula" id="botao-fechar-menu">Fechar</button>
+</nav>
+
+<!-- Aviso temporário das interações simuladas -->
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="comum-c.js"></script>
+<script src="quiz-c.js"></script>
+</body>
+</html>

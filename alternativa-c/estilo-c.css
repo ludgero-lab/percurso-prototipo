@@ -588,3 +588,107 @@ main > .secao:last-child {
     opacity: 0;
   }
 }
+
+/* ---------- 4. Convite para o quiz ---------- */
+
+/* Dois cartões de trás, só de forma, antecipam o baralho do quiz */
+.convite-quiz {
+  position: relative;
+  margin-bottom: 20px;
+  box-shadow: var(--sombra);
+}
+
+.convite-quiz::before,
+.convite-quiz::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  border-radius: var(--raio-cartao);
+  background: var(--superficie-forte);
+  z-index: -1;
+}
+
+.convite-quiz::before {
+  transform: translate(-6px, 10px) rotate(-2deg);
+}
+
+.convite-quiz::after {
+  transform: translate(6px, 18px) rotate(1.5deg);
+  background: var(--linha);
+}
+
+.convite-quiz .botao {
+  margin: 4px 0 4px;
+}
+
+.detalhe-c summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.detalhe-c summary::-webkit-details-marker {
+  display: none;
+}
+
+.detalhe-c p {
+  margin: 4px 0 0;
+}
+
+/* ---------- Quiz ---------- */
+
+.quiz h1 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.quiz-abertura .botoes {
+  margin-top: 24px;
+}
+
+.carta-quiz .carta-face {
+  min-height: 0;
+}
+
+.quiz-pergunta {
+  margin: 0;
+}
+
+.quiz-pergunta legend {
+  margin-bottom: 16px;
+}
+
+.quiz-titulo {
+  font-size: 1.375rem;
+}
+
+/* Opções como botões grandes (rádios nativos, no estilo .cartao-radio da A) */
+.opcao-quiz {
+  min-height: 56px;
+  margin-bottom: 8px;
+  background: var(--fundo);
+  line-height: 1.35;
+}
+
+.opcao-quiz:last-child {
+  margin-bottom: 0;
+}
+
+.opcao-quiz:has(input:checked) {
+  background: var(--fundo);
+  font-weight: 600;
+}
+
+/* contexto próprio para os cartões de trás (z-index -1) ficarem atrás do convite e à frente da página */
+.secao-convite {
+  position: relative;
+  isolation: isolate;
+}
