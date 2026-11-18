@@ -416,6 +416,15 @@ main > .secao:last-child {
   margin-top: -4px;
 }
 
+/* Convite antes de "Inscreva-se no canal": fica junto do botão */
+.convite-canal {
+  margin: 16px 0 0;
+}
+
+.convite-canal + .botoes {
+  margin-top: 12px;
+}
+
 .video-c iframe {
   position: absolute;
   inset: 0;
