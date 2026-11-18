@@ -77,4 +77,30 @@
 
   botaoAnterior.addEventListener('click', () => baralho.irPara(baralho.atual() - 1));
   botaoProximo.addEventListener('click', () => baralho.irPara(baralho.atual() + 1));
+
+  // ---------------------------------------------------------------
+  // Topo: na rolagem, a imagem fica parada e o quadro arredondado recolhe de baixo
+  // para cima, junto com o texto. A imagem é deslocada para baixo na mesma medida
+  // da rolagem (dentro do quadro, que a recorta). Sem efeito com "reduzir movimento".
+  // ---------------------------------------------------------------
+  const moldura = $('.topo-moldura');
+  const imagemTopo = $('.topo-imagem');
+  const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let agendado = false;
+
+  function acompanharRolagem() {
+    agendado = false;
+    if (reduzir.matches) {
+      imagemTopo.style.transform = '';
+      return;
+    }
+    const deslocamento = Math.min(Math.max(window.scrollY, 0), moldura.offsetHeight);
+    imagemTopo.style.transform = 'translate3d(0, ' + deslocamento + 'px, 0)';
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!agendado) { agendado = true; requestAnimationFrame(acompanharRolagem); }
+  }, { passive: true });
+  window.addEventListener('resize', acompanharRolagem);
+  acompanharRolagem();
 })();

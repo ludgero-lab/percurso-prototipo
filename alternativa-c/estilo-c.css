@@ -237,33 +237,9 @@ main > .secao:last-child {
 
 /* ---------- 1. Topo em tela cheia ---------- */
 
-/* Imagem da identidade visual (tons de cinza): fica parada (sticky) atrás da página.
-   O quadro do topo e as seções seguintes, com fundo branco, sobem por cima dela,
-   então abaixo do quadro nunca aparece um vão vazio. */
-.topo-imagem {
-  --altura-imagem: calc(100vh - var(--altura-cabecalho) - 12px);
-  position: sticky;
-  top: var(--altura-cabecalho);
-  display: block;
-  width: calc(100% - 24px);
-  height: var(--altura-imagem);
-  margin: 0 12px calc(-1 * var(--altura-imagem));
-  border-radius: var(--raio-cartao);
-  object-fit: cover;
-  object-position: center top;
-  background: var(--superficie-forte); /* enquanto a imagem carrega */
-}
-
-@supports (height: 100svh) {
-  .topo-imagem {
-    --altura-imagem: calc(100svh - var(--altura-cabecalho) - 12px);
-  }
-}
-
 /* Topo: a primeira tela, com o quadro de texto e a ação na base, por cima da imagem */
 .topo {
   position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -273,16 +249,28 @@ main > .secao:last-child {
   scroll-margin-top: 0;
 }
 
-/* As seções têm fundo branco e ficam acima da imagem parada */
-main > .secao {
-  position: relative;
-  z-index: 1;
-  background: var(--fundo);
+/* Quadro arredondado da imagem: rola com o topo; a base sobe junto com o texto */
+.topo-moldura {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  overflow: hidden;
+  border-radius: var(--raio-cartao);
+  background: var(--superficie-forte); /* enquanto a imagem carrega */
 }
 
-/* A seção logo depois do topo entra como uma folha de cantos arredondados sobre a imagem */
-.topo + .secao {
-  border-radius: var(--raio-cartao) var(--raio-cartao) 0 0;
+/* Imagem da identidade visual (tons de cinza): o busto fica no centro da faixa de cima.
+   Na rolagem, inicio-c.js a desloca para baixo na mesma medida, então ela parece parada
+   enquanto o quadro recolhe de baixo para cima (sem animação com "reduzir movimento"). */
+.topo-imagem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  will-change: transform;
 }
 
 /* Quadro de texto e ação */
@@ -952,8 +940,7 @@ main > .secao {
    No topo, a imagem não fica parada: rola junto com o texto. */
 @media (prefers-reduced-motion: reduce) {
   .topo-imagem {
-    position: relative;
-    top: 0;
+    transform: none !important;
   }
 
   .barra-pilula,
