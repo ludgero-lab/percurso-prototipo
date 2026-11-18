@@ -692,3 +692,56 @@ main > .secao:last-child {
   position: relative;
   isolation: isolate;
 }
+
+/* ---------- Quiz: resultado, ações e e-mail ---------- */
+
+.carta-resultado .carta-frente {
+  min-height: 240px;
+}
+
+.resultado-tema + .resultado-tema {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linha);
+}
+
+.resultado-titulo {
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+}
+
+.resultado-tema > :last-child {
+  margin-bottom: 0;
+}
+
+.quiz-depois {
+  margin-top: 24px;
+}
+
+.link-centro {
+  justify-self: center;
+  align-self: center;
+}
+
+.form-email {
+  margin-top: 8px;
+}
+
+.form-email .botao {
+  margin-top: 4px;
+}
+
+.email-enviado {
+  margin: 8px 0 0;
+  font-weight: 600;
+}
+
+.email-enviado:empty {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.email-enviado:focus {
+  outline: none;
+}

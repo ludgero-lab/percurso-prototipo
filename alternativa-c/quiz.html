@@ -39,11 +39,54 @@
       <div class="quiz-perguntas" id="quiz-perguntas" hidden>
         <p class="baralho-contador" id="quiz-contador" aria-live="polite">Pergunta 1 de 6</p>
         <form id="form-quiz" novalidate>
-          <div class="baralho baralho-quiz" id="baralho-quiz"></div>
+          <div class="baralho baralho-quiz" id="baralho-quiz">
+            <!-- Último cartão: o resultado, que vira ao toque (o verso é preenchido pelo quiz-c.js) -->
+            <div class="carta carta-viravel carta-resultado" data-carta id="carta-resultado">
+              <button type="button" class="carta-virar" aria-labelledby="resultado-pronto" aria-expanded="false" aria-controls="resultado-verso"></button>
+              <div class="carta-giro">
+                <div class="carta-face carta-frente" aria-hidden="true">
+                  <p class="carta-pergunta" id="resultado-pronto">Seu resultado está pronto</p>
+                  <p class="carta-dica">Toque para ver</p>
+                </div>
+                <div class="carta-face carta-verso" id="resultado-verso" inert></div>
+              </div>
+            </div>
+          </div>
         </form>
         <div class="baralho-nav" data-acoes-quiz>
           <button type="button" class="botao botao-secundario" id="quiz-voltar" disabled>Voltar</button>
           <button type="button" class="botao botao-principal" id="quiz-proxima" disabled>Próxima</button>
+        </div>
+
+        <!-- Depois de virar o resultado -->
+        <div class="quiz-depois" id="quiz-depois" hidden>
+          <p>Este quiz não é um diagnóstico. Ele é um ponto de partida para uma conversa.</p>
+          <div class="botoes" data-acoes-quiz>
+            <button type="button" class="botao botao-secundario" id="abrir-email" aria-expanded="false" aria-controls="area-email">Receber o resultado por e-mail</button>
+            <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar com a Maria Clara</button>
+            <a class="botao botao-principal" href="../#/agendar/1">Agendar sessão</a>
+            <button type="button" class="link link-centro" id="refazer-quiz">Refazer o quiz</button>
+          </div>
+
+          <!-- Envio do resultado por e-mail (simulado: nada é enviado nem guardado) -->
+          <div class="area-email" id="area-email" hidden>
+            <form class="cartao-c form-email" id="form-email" novalidate>
+              <div class="campo">
+                <label for="email-quiz">Seu e-mail</label>
+                <input type="email" id="email-quiz" name="email" autocomplete="email" aria-describedby="erro-email-quiz">
+                <p class="erro" id="erro-email-quiz"></p>
+              </div>
+              <div class="campo">
+                <label class="caixa-selecao" for="consentimento-quiz">
+                  <input type="checkbox" id="consentimento-quiz" name="consentimento" aria-describedby="erro-consentimento-quiz">
+                  <span>Quero receber meu resultado neste e-mail. O e-mail é usado só para este envio e não fica guardado.</span>
+                </label>
+                <p class="erro" id="erro-consentimento-quiz"></p>
+              </div>
+              <button type="submit" class="botao botao-principal">Enviar resultado</button>
+            </form>
+            <p class="cartao-c email-enviado" id="email-enviado" role="status" tabindex="-1"></p>
+          </div>
         </div>
       </div>
     </section>
