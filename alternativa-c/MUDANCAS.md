@@ -39,6 +39,8 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 **Baralho**
 - Atrás do cartão da frente aparecem os que ainda faltam (até dois); no último, não há nada atrás.
 - Se o botão com foco é desativado (nas pontas), o foco vai para o cartão.
+- "Anterior" espelha "Próximo": o cartão da frente sai para a direita e volta para trás da pilha, e o anterior sobe da pilha (em vez de atravessar a tela pela esquerda, o que cruzaria dois cartões em sentidos opostos).
+- No Início, a navegação é só por setas em botões redondos discretos, padrão de carrossel conhecido; o nome fica no `aria-label` e o contador "Cartão X de 4" continua visível. No quiz, "Voltar" e "Próxima" mantêm o texto com a seta ao lado, porque ali são passos de formulário.
 - O cartão é um botão que cobre o cartão inteiro, e não o cartão dentro de um botão: o verso tem links, que não podem ficar dentro de um botão. O verso fica `inert` e `aria-hidden` enquanto fechado.
 
 **Animação de entrada**
@@ -66,7 +68,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 | 10 | Rodapé com o CVV discreto e a linha de registro | Mudança global (também na A) |
 | — | Barra flutuante em pílula e voltar ao topo | Substituem o botão flutuante de WhatsApp |
 
-Só o topo tem a altura da tela. Na rolagem, a imagem fica parada e o quadro de texto sobe por cima dela; a base arredondada do quadro da imagem sobe junto (o quadro recolhe de baixo para cima) e a seção seguinte vem logo atrás, sem vão. O topo do quadro desce na medida da rolagem (`inicio-c.js`), então fica sempre logo abaixo do cabeçalho com os cantos arredondados; o fundo "fixo" do CSS não foi usado porque não funciona no Safari do iPhone; o encaixe na rolagem (herdado da B) saiu, porque puxava a página de volta e brigava com esse efeito.
+Só o topo tem a altura da tela. Na rolagem, o topo sobe inteiro, com a imagem e o quadro de texto juntos. Os efeitos de imagem parada testados (quadro de texto subindo sobre a imagem) saíram por ora e ficam para a implementação final; o encaixe na rolagem herdado da B também saiu.
 
 ## 5. Linha visual (estrutura, não estética)
 
