@@ -17,7 +17,6 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 ## 2. Riscos para o teste
 
 - **Altura do baralho do quiz:** os cartões ocupam a mesma célula, então o cartão do resultado tem a altura da pergunta mais longa e fica com espaço em branco quando há um só tema.
-- **Deslize lateral com troca vertical:** deslizar o dedo para os lados continua sendo atalho para Anterior e Próximo (como pede a especificação), mas a troca dos cartões agora é vertical. Deslizar para cima e para baixo não foi usado porque disputaria com a rolagem da página.
 
 ## 3. Decisões que a especificação não definia
 
@@ -27,7 +26,8 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 - "Voltar" no cabeçalho das páginas internas e do quiz leva ao Início da C. No agendamento, "Voltar" no passo 1 devolve à página da C de onde a pessoa veio.
 
 **Vídeo do canal**
-- O player é criado só no toque, a partir de `youtube-nocookie.com`; antes disso, nenhuma chamada ao YouTube. O título do iframe é o título do episódio da página (ainda um espaço reservado).
+- O player é criado só no toque, a partir de `youtube-nocookie.com`; antes disso, nenhuma chamada ao YouTube. O título do iframe é o título do vídeo mostrado abaixo dele (h3).
+- "Inscrever-se no canal" é secundário: a ação principal (escura) continua reservada para "Agendar sessão".
 
 **Barra em pílula e voltar ao topo**
 - Uma regra para todas as páginas: a barra aparece quando as ações marcadas com `data-acoes` (as de agendar e conversar de cada tela; no quiz, também "Começar" e "Voltar"/"Próxima") estão fora de vista.
@@ -71,7 +71,7 @@ A C segue a referência de estrutura e cartões em tons de cinza, para que a fas
 
 - **Formas:** cantos de 24 px em cartões e blocos e 16 px em controles; botões com texto em pílula; botões só de ícone redondos (menu, Voltar, voltar ao topo, meses do calendário).
 - **Cartões:** só o quadro, sem sombra. A sombra fica só no que flutua (barra em pílula, voltar ao topo, bloco do passo 1).
-- **Baralho:** cartões empilhados e alinhados na vertical, com troca para cima e para baixo. A mesma peça serve aos flash cards, às perguntas e ao resultado do quiz.
+- **Baralho:** cartões empilhados e alinhados na vertical, com hierarquia tonal (quanto mais ao fundo, mais escuro) e troca para os lados, no mesmo sentido do deslize do dedo. A mesma peça serve aos flash cards, às perguntas e ao resultado do quiz.
 - **Componentes repetidos em todas as páginas:** chips (sentimentos, temporadas), listas em cartões, listas numeradas com o número num círculo, cartão de destaque para as ações finais, Dúvidas em cartões que abrem, dias e horários em pílula.
 - **Hierarquia de títulos:** h1 das páginas internas e do quiz (32 px) > título das seções e do topo (24 px) > título dentro dos cartões (22 px) > texto (16 px) > apoio (14 a 15 px).
 - **Espaço:** respiro generoso entre seções, sem linhas divisórias.
