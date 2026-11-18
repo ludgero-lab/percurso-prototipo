@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Conteúdo · Maria Clara Vinotti (alternativa C)</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="estilo-c.css">
+</head>
+<!-- Cabeçalho, menu, rodapé, barra em pílula e voltar ao topo vêm de comum-c.js -->
+<body data-pagina="conteudo">
+<div class="app">
+  <main id="conteudo-principal">
+
+    <section class="secao" aria-labelledby="titulo-pagina">
+      <h1 id="titulo-pagina" tabindex="-1">Conteúdo</h1>
+      <p>Um vídeo por semana, em temporadas, sobre um tema escolhido pela Maria Clara.</p>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-destaque">
+      <p class="rotulo">Episódio em destaque</p>
+      <div class="reservado reservado-16x9">
+        <button type="button" class="botao-play" data-aviso="video" aria-labelledby="titulo-destaque">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <p id="titulo-destaque"><strong>[Título do episódio]</strong></p>
+      <p class="apoio">Temporada [n] · Episódio [n]</p>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-temporadas">
+      <h2 id="titulo-temporadas">Temporadas</h2>
+      <!-- Temporadas em chips (aria-pressed); a lista de episódios é montada por conteudo-c.js -->
+      <div class="chips chips-temporadas" role="group" aria-labelledby="titulo-temporadas">
+        <button type="button" class="chip" data-temporada="1" aria-pressed="true">Temporada 1</button>
+        <button type="button" class="chip" data-temporada="2" aria-pressed="false">Temporada 2</button>
+        <button type="button" class="chip" data-temporada="3" aria-pressed="false">Temporada 3</button>
+      </div>
+      <ul class="episodios episodios-c" id="lista-episodios"></ul>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-youtube">
+      <h2 id="titulo-youtube">Acompanhe no YouTube</h2>
+      <div class="botoes">
+        <button type="button" class="botao botao-principal" data-aviso="youtube">Inscrever-se no canal</button>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-conversar">
+      <div class="cartao-c cartao-destaque">
+        <h2 id="titulo-conversar">Quer conversar antes de marcar?</h2>
+        <div class="botoes" data-acoes>
+          <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal" href="agendar.html">Agendar sessão</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="comum-c.js"></script>
+<script src="conteudo-c.js"></script>
+</body>
+</html>

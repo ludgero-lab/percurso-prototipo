@@ -4,6 +4,8 @@ Esta especificação cria a alternativa C, em `alternativa-c/`, a partir da alte
 
 Todos os textos marcados como **(rascunho)** foram escritos a partir das respostas da Maria Clara no briefing e ainda serão validados por ela. Use-os exatamente como estão; não crie outros textos.
 
+**Revisão 2 (aprovada):** a C passa a ter também as páginas internas e o agendamento próprios (seção 3A), com a mesma linha visual e de usabilidade do Início. Entraram também seis ajustes no Início: sem o botão redondo do WhatsApp no topo (2.1), baralho alinhado na vertical com troca para cima e para baixo (2.3), convite do quiz só com o quadro (2.4), novos textos em rascunho para três seções (2.5) e o botão de voltar ao topo (2.7).
+
 ## 1. Mudanças globais (alternativas A e C)
 
 ### 1.1 CVV discreto, só no rodapé
@@ -41,23 +43,23 @@ Substituir os espaços reservados:
 
 | Ordem | Seção |
 |---|---|
-| 1 | Topo em tela cheia: imagem da identidade visual, composição tipográfica e ações |
+| 1 | Topo em tela cheia: imagem da identidade visual, composição tipográfica e "Agendar sessão" |
 | 2 | "Com o que você está chegando hoje?": escolha de um sentimento e resposta na própria página |
 | 3 | Baralho de flash cards: O que é, Como pode ajudar, Como é uma sessão, Quem sou eu |
 | 4 | Convite para o quiz de autoconhecimento |
-| 5 | Acolhimento e sigilo |
-| 6 | Online ou presencial |
+| 5 | Acolhimento e sigilo ("Aqui você pode falar à vontade") |
+| 6 | Online ou presencial ("Online ou no consultório: você escolhe") |
 | 7 | O que dizem no Google |
-| 8 | No YouTube, em temporadas |
+| 8 | YouTube ("Um vídeo novo toda semana no YouTube") |
 | 9 | Quer conversar antes de marcar? |
 | 10 | Rodapé (seção 1.1) |
-| — | Barra flutuante em pílula com WhatsApp e Agendar sessão |
+| — | Barra flutuante em pílula com WhatsApp e Agendar sessão (2.6) e botão de voltar ao topo (2.7) |
 
 Em relação à B, sai do Início: o seletor em arco com emoções, o botão "Continuar" e a seção "Como é uma sessão" em lista (ela vira um cartão do baralho). Os blocos de tela cheia com rolagem que encaixa ficam só no topo (seção 1); as demais seções têm a altura do próprio conteúdo.
 
-O cabeçalho continua só com o botão de menu. O menu leva às páginas da alternativa A (`../#/sobre`, `../#/atendimento`, `../#/conteudo`, `../#/duvidas`), já que a C só tem o Início e o quiz.
+O cabeçalho do Início continua só com o botão de menu. O menu e o rodapé levam às páginas da própria C (seção 3A): `sobre.html`, `atendimento.html`, `conteudo.html` e `duvidas.html`.
 
-Todo "Agendar sessão" da C leva ao fluxo de agendamento da A (`../#/agendar/1`). "Agendar online" leva a `../#/agendar/1` com Online marcado, como na A. "Ver rota" leva a `../#/atendimento/presencial`. Usar sempre "Agendar sessão" (não "Agendar uma sessão").
+Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar online" leva a `agendar.html?modalidade=online`, que abre o passo 1 com Online marcado. "Ver rota" leva a `atendimento.html#presencial`. Usar sempre "Agendar sessão" (não "Agendar uma sessão").
 
 ### 2.1 Topo
 
@@ -68,7 +70,7 @@ Todo "Agendar sessão" da C leva ao fluxo de agendamento da A (`../#/agendar/1`)
   - "Parapsicóloga clínica" em itálico, mesma família serifada, 20 px.
   - h1: "Parapsicologia clínica feita com acolhimento e parceria" (fonte do sistema, 24 px).
   - Apoio: "Um espaço para olhar para os seus desafios no seu ritmo, entender a sua história e conduzir o seu caminho com mais consciência, online ou em Florianópolis."
-- Ações, lado a lado na base do bloco: pílula principal "Agendar sessão" e botão redondo de 48 px com ícone do WhatsApp (`aria-label="Conversar no WhatsApp"`, mostra o aviso do WhatsApp).
+- Ação na base do bloco: pílula principal "Agendar sessão". (Revisão 2: sai o botão redondo do WhatsApp; o WhatsApp continua na barra em pílula e em "Quer conversar antes de marcar?".)
 - Animação de entrada (só como marcação de intenção): os textos aparecem com um fade de 400 ms, em sequência (nome, profissão, título, apoio, ações), uma vez ao abrir a página. Com "reduzir movimento" ativado, tudo aparece sem animação. A animação da imagem fica para a fase visual e não entra no protótipo.
 
 ### 2.2 "Com o que você está chegando hoje?"
@@ -98,7 +100,8 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 ### 2.3 Baralho de flash cards
 
 - h2: "Para entender em poucas palavras" (com `tabindex="-1"`, para receber o foco vindo de "Ver como funciona").
-- Quatro cartões empilhados: o da frente inteiro e os de trás levemente deslocados para baixo e para os lados, mostrando que há mais cartões.
+- Quatro cartões empilhados: o da frente inteiro e os de trás alinhados no centro, um pouco mais estreitos e deslocados para baixo, mostrando que há mais cartões. Os cartões não têm sombra: só o quadro.
+- Troca de cartão na vertical: em "Próximo", o cartão da frente sobe e some enquanto o seguinte sobe para o lugar; em "Anterior", o cartão volta descendo. Movimento suave e perceptível (560 ms, curva suave). Com "reduzir movimento", vira troca de opacidade.
 - Acima do baralho: "Cartão X de 4". Abaixo: botões "Anterior" e "Próximo" (desativados nas pontas). Deslizar o cartão com o dedo para os lados é um atalho, nunca a única forma de navegar.
 - Frente de cada cartão: a pergunta em destaque e o apoio "Toque para ver a resposta".
 - Tocar na frente vira o cartão (giro em Y de 450 ms) e mostra o verso. Tocar de novo volta para a frente. O cartão é um `button` com `aria-expanded`; o verso fica no DOM e é lido por leitor de tela quando aberto. Com "reduzir movimento", o giro vira uma troca de opacidade.
@@ -108,16 +111,16 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 
 1. **Frente:** "O que é a parapsicologia clínica?"
    **Verso (rascunho):** "A parapsicologia do Sistema Grisa busca entender como funciona a mente humana. A mente é uma só, mas funciona como duas: a consciente, racional, e a subconsciente, emocional. Ela dialoga com a psicologia, a psicanálise e a psiquiatria como aliadas importantes."
-   Link: "Mais dúvidas" → `../#/duvidas`.
+   Link: "Mais dúvidas" → `duvidas.html`.
 2. **Frente:** "Como ela pode ajudar?"
    **Verso (rascunho):** "Quem procura costuma trazer angústia, ansiedade, raiva, culpa ou a sensação de não merecer as próprias conquistas. Não prometemos milagres: o caminho é ficar mais consciente do próprio poder de pensar, decidir e conduzir a própria vida."
-   Link: "Ver o atendimento" → `../#/atendimento`.
+   Link: "Ver o atendimento" → `atendimento.html`.
 3. **Frente:** "Como é uma sessão?"
    **Verso:** "Cerca de 1h30, online ou presencial." e a lista numerada: 1. Conhecer a sua história. 2. Olhar para os sentimentos que mais marcam a sua vida. 3. Definir metas a curto, médio e longo prazo, juntos. 4. Tarefas entre as sessões, no seu tempo.
-   Link: "Ver as 8 etapas" → `../#/atendimento/etapas`.
+   Link: "Ver as 8 etapas" → `atendimento.html#etapas`.
 4. **Frente:** "Quem sou eu?"
    **Verso:** a biografia curta (seção 1.2).
-   Link: "Formação e vínculos" → `../#/sobre`.
+   Link: "Formação e vínculos" → `sobre.html`.
 
 ### 2.4 Convite para o quiz
 
@@ -125,17 +128,42 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 - Texto: "São 6 perguntas rápidas sobre como você tem vivido os seus desafios. Leva cerca de 2 minutos."
 - Pílula "Começar o quiz" → abre o quiz.
 - `details` "O que é o quiz?": "Não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão."
+- Só o quadro do cartão, sem formas atrás nem sombra.
 
 ### 2.5 Demais seções
 
-"Acolhimento e sigilo", "Online ou presencial", "O que dizem no Google", "No YouTube, em temporadas" e "Quer conversar antes de marcar?" ficam como estão na B, só com os links corrigidos para as páginas da A (seção 2) e "Agendar sessão" no lugar de "Agendar uma sessão".
+"O que dizem no Google" e "Quer conversar antes de marcar?" ficam como estão na B, só com os links para as páginas da C (seção 2) e "Agendar sessão" no lugar de "Agendar uma sessão".
+
+As outras três seções ganham textos novos, na voz da Maria Clara (primeira pessoa, como "Me chame no WhatsApp" e "Quem sou eu?"), para ficarem mais naturais.
+
+**Acolhimento e sigilo (rascunho):**
+- h2: "Aqui você pode falar à vontade"
+- **Sem julgamentos.** O que você fez não define quem você é: aqui, a regra é separar o ato da pessoa.
+- **Tudo fica entre nós.** O que você conta nas sessões é guardado em sigilo absoluto.
+- **Construímos o caminho juntos.** Entre uma sessão e outra, você recebe tarefas, áudios e filmes para seguir no seu ritmo.
+
+**Online ou presencial (rascunho):**
+- h2: "Online ou no consultório: você escolhe"
+- Cartão **Online**: "De qualquer lugar do Brasil ou do exterior, por Google Meet ou WhatsApp. Você vê os horários no seu fuso." Link "Agendar online".
+- Cartão **Presencial**: "No consultório no Balneário, Estreito, em Florianópolis (SC)." Link "Ver rota".
+
+**YouTube (rascunho):**
+- h2: "Um vídeo novo toda semana no YouTube" (no lugar de "No YouTube, em temporadas"); o resto da seção não muda.
 
 ### 2.6 Barra flutuante em pílula
 
 - Substitui o botão flutuante de WhatsApp.
 - Pílula flutuante centralizada, a 16 px da base, com dois botões: "WhatsApp" (secundário, mostra o aviso) e "Agendar sessão" (principal).
-- Só aparece depois que as ações do topo saem da tela (usar IntersectionObserver), para não repetir os mesmos botões na mesma tela. Aparece e some com fade de 200 ms (sem animação com "reduzir movimento").
+- Só aparece depois que as ações principais da tela saem de vista (usar IntersectionObserver), para não repetir os mesmos botões nem cobrir os da página. No Início, são as ações do topo e de "Quer conversar antes de marcar?"; nas demais páginas, as ações de cada uma. Aparece e some com fade de 200 ms (sem animação com "reduzir movimento").
+- Está em todas as páginas da C, exceto no agendamento.
 - O conteúdo e o rodapé têm espaço no fim para não ficarem escondidos atrás dela.
+
+### 2.7 Voltar ao topo
+
+- Botão redondo de 48 px com seta para cima (`aria-label="Voltar ao topo"`), à direita, acima da barra em pílula.
+- Aparece quando a página desce (depois de meia tela) e some no topo, com o mesmo fade da barra.
+- Leva ao topo (rolagem suave, sem animação com "reduzir movimento") e o foco ao h1 da página.
+- Está em todas as páginas da C, exceto no agendamento.
 
 ## 3. Quiz de autoconhecimento
 
@@ -152,7 +180,7 @@ Página própria da C: `alternativa-c/quiz.html`, com o mesmo cabeçalho, rodap�
 - Mesma linguagem visual do baralho do Início: cartão da frente com a pergunta e os de trás deslocados.
 - Acima do baralho: "Pergunta X de 6".
 - Opções como botões grandes (rádios nativos estilizados, mínimo 44 px de altura). Tocar numa opção marca a escolha.
-- "Próxima" (desativado até haver escolha) faz o cartão deslizar para fora (300 ms) e revela o próximo. "Voltar" traz o cartão anterior de volta, com a resposta mantida. Com "reduzir movimento", deslize vira troca de opacidade.
+- "Próxima" (desativado até haver escolha) faz o cartão subir e sumir e revela o próximo, com o mesmo movimento vertical dos flash cards (seção 2.3). "Voltar" traz o cartão anterior de volta, descendo, com a resposta mantida. Com "reduzir movimento", vira troca de opacidade.
 - Ao trocar de cartão, o foco vai para o título da pergunta.
 - A ordem das opções abaixo é a de exibição. A letra indica o tema e não aparece na tela.
 
@@ -191,6 +219,14 @@ Abaixo do resultado:
 - Validação própria (`novalidate`), como no agendamento: campo vazio mostra "Preencha este campo."; e-mail sem "@" mostra "Digite um e-mail válido."; caixa desmarcada mostra "Confirme que quer receber o resultado neste e-mail." O foco vai para o primeiro erro.
 - Envio válido: o formulário é trocado pela mensagem "Pronto! Neste ponto o resultado seria enviado para o seu e-mail." (`role="status"`). Nada é enviado nem guardado.
 
+## 3A. Páginas internas e agendamento da C
+
+A C tem as mesmas páginas da A, em arquivos próprios: `sobre.html`, `atendimento.html` (âncoras `#presencial` e `#etapas`), `conteudo.html`, `duvidas.html` e `agendar.html` (passos `#/1`, `#/2` e `#/3`).
+
+- **Conteúdo e textos:** os da especificação da A, com as mudanças globais da seção 1. Duas exceções, para a C falar do mesmo jeito em todas as páginas: em Atendimento, a seção "Online ou presencial" usa o título e os textos da seção 2.5; em Dúvidas, a resposta de "O que é parapsicologia clínica?" usa o verso do primeiro flash card (seção 2.3).
+- **Linha visual e usabilidade:** as mesmas do Início e do quiz: cabeçalho com Voltar (leva ao Início da C) e menu redondos, menu com a página atual, título da página como o do quiz, seções em cartões arredondados, listas numeradas com o número num círculo, temporadas em chips, Dúvidas em cartões que abrem, ações finais em cartão de destaque, barra em pílula (2.6), voltar ao topo (2.7) e o mesmo rodapé.
+- **Agendamento:** mesmo comportamento da A, com a linha visual da C (progresso em pílula, calendário num cartão, dias e horários em pílula, bloco do passo 1 flutuante). Sem menu, sem barra em pílula e com o rodapé curto. "Voltar" no passo 1 devolve à página da C de onde a pessoa veio; "Voltar ao início" leva ao Início da C. A lógica do agendamento é a mesma da A (`agendamento.js`).
+
 ## 4. Fidelidade e regras
 
 Valem as regras do `CLAUDE.md`: tons de cinza, uma cor escura para ações principais, nenhuma fonte externa, nenhuma chamada de rede, estado só em memória, alvos de toque de no mínimo 44 px, contraste AA, foco visível e navegação por teclado. A única exceção nova é a fonte serifada do sistema no nome e na profissão do topo (seção 2.1).
@@ -212,13 +248,17 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] O CVV aparece só no rodapé, como aviso discreto, em todas as telas da A e da C, incluindo os três passos do agendamento. Nenhuma caixa "Em sofrimento intenso?" restante.
 - [ ] A linha "Registro FATECPR · Associada à ABPSIG" aparece no rodapé da A e da C.
 - [ ] Biografia e trajetória substituem os espaços reservados na A.
-- [ ] Topo da C: nome em serifa, "Parapsicóloga clínica" em itálico, h1 e apoio sobre o espaço reservado da imagem, com contraste AA; pílula "Agendar sessão" e botão redondo do WhatsApp.
+- [ ] Topo da C: nome em serifa, "Parapsicóloga clínica" em itálico, h1 e apoio sobre o espaço reservado da imagem, com contraste AA; pílula "Agendar sessão", sem o botão redondo do WhatsApp.
 - [ ] Animação de entrada só acontece uma vez e não acontece com "reduzir movimento".
 - [ ] Os 7 chips funcionam com toque e teclado; cada um mostra a resposta certa; só "Tristeza" mostra a linha do 188.
 - [ ] "Ver como funciona" rola até o baralho e leva o foco ao título.
 - [ ] Baralho: "Cartão X de 4", Anterior e Próximo, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
-- [ ] Os links dos cartões e do menu levam às páginas certas da A.
-- [ ] A barra flutuante só aparece depois que as ações do topo saem da tela e não esconde conteúdo nem o rodapé.
+- [ ] Baralho alinhado na vertical, sem sombra, com troca para cima e para baixo; o mesmo no quiz.
+- [ ] Os links dos cartões, das seções e do menu levam às páginas certas da C; nenhum link sai da C.
+- [ ] A barra flutuante só aparece depois que as ações principais da tela saem de vista e não esconde conteúdo nem o rodapé.
+- [ ] O botão de voltar ao topo aparece quando a página desce, leva ao topo e o foco ao h1.
+- [ ] Páginas internas da C com o conteúdo da A e a linha visual da C; âncoras `#presencial` e `#etapas` levam o foco ao título.
+- [ ] Agendamento da C cumpre os critérios do agendamento da A ("Agendar online", calendário, Lisboa, "Continuar" sem escolhas, resumo, "Alterar", validação, passo 3).
 - [ ] Quiz: 6 perguntas em baralho, "Próxima" desativado sem escolha, "Voltar" mantém a resposta, resultado correto para respostas todas A, todas B, todas C, todas D e para um empate.
 - [ ] Resultado vira ao toque; e-mail simulado valida os três erros e mostra a mensagem de sucesso sem enviar nada.
 - [ ] "Refazer o quiz" limpa tudo.

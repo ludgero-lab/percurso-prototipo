@@ -11,11 +11,12 @@
 :root {
   --raio: 16px;                   /* controles e blocos internos (na A são 8 px) */
   --raio-cartao: 24px;            /* cartões, seções em cartão e baralhos */
-  --fonte-titulo-secao: 1.5rem;   /* h2 das seções e h1 do topo (24 px) */
+  --fonte-titulo-secao: 1.5rem;   /* h2 das seções e h1 do topo (24 px); h1 das demais páginas: 32 px */
   --fonte-titulo-cartao: 1.375rem; /* títulos dentro dos cartões: pergunta e resultado */
   --altura-cabecalho: 64px;       /* botão de 48 px + 8 px em cima e embaixo */
   --altura-barra: 88px;           /* espaço no fim da página para a barra em pílula */
-  --sombra: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --sombra-flutuante: 0 8px 28px rgba(0, 0, 0, 0.18); /* só no que flutua: barra e voltar ao topo */
+  --curva-suave: cubic-bezier(0.4, 0, 0.2, 1);   /* troca e giro dos cartões */
   --serifa: ui-serif, Georgia, "Times New Roman", serif; /* só no nome e na profissão do topo */
   /* só o topo "encaixa" na rolagem; as demais seções têm a altura do conteúdo */
   scroll-snap-type: y proximity;
@@ -123,7 +124,7 @@
   border-bottom: 0;
 }
 
-.cabecalho-quiz {
+.cabecalho-voltar {
   justify-content: space-between;
 }
 
@@ -138,7 +139,8 @@
 
 .rodape-c {
   margin-top: 40px;
-  padding: 32px 20px calc(var(--altura-barra) + 24px);
+  /* espaço no fim para a barra em pílula e o botão de voltar ao topo */
+  padding: 32px 20px calc(var(--altura-barra) + 72px);
   border-top: 0;
   border-radius: var(--raio-cartao) var(--raio-cartao) 0 0;
 }
@@ -166,7 +168,7 @@
   padding: 8px;
   border-radius: 999px;
   background: var(--fundo);
-  box-shadow: 0 0 0 1px var(--linha), 0 8px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 0 1px var(--linha), var(--sombra-flutuante);
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
@@ -174,6 +176,25 @@
 }
 
 .barra-pilula.visivel {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 200ms ease, visibility 0s;
+}
+
+/* ---------- Voltar ao topo: redondo, à direita, acima da barra em pílula ---------- */
+
+.botao-topo {
+  position: fixed;
+  right: max(16px, calc((100vw - 480px) / 2 + 16px));
+  bottom: calc(16px + 64px + 12px + env(safe-area-inset-bottom));
+  z-index: 30;
+  box-shadow: var(--sombra-flutuante);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 0s linear 200ms;
+}
+
+.botao-topo.visivel {
   opacity: 1;
   visibility: visible;
   transition: opacity 200ms ease, visibility 0s;
@@ -188,6 +209,17 @@
 .secao h2 {
   font-size: var(--fonte-titulo-secao);
   letter-spacing: -0.01em;
+}
+
+/* Título das páginas internas e do quiz (o Início usa o topo) */
+.secao h1 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Âncoras (#presencial, #etapas): o cabeçalho já entra no scroll-padding */
+[id] {
+  scroll-margin-top: 16px;
 }
 
 main > .secao:last-child {
@@ -295,7 +327,8 @@ main > .secao:last-child {
   margin: 16px 0 0;
 }
 
-/* Rádio nativo, escondido sob o chip, continua recebendo toque, setas e leitor de tela */
+/* Chip: rádio nativo escondido sob o rótulo (sentimentos) ou botão com aria-pressed
+   (temporadas). O rádio continua recebendo toque, setas e leitor de tela. */
 .chip {
   position: relative;
   display: inline-flex;
@@ -305,7 +338,9 @@ main > .secao:last-child {
   border: 2px solid var(--borda);
   border-radius: 999px;
   background: var(--fundo);
+  font: inherit;
   font-weight: 600;
+  color: var(--texto);
   cursor: pointer;
 }
 
@@ -319,6 +354,7 @@ main > .secao:last-child {
   cursor: pointer;
 }
 
+.chip[aria-pressed="true"],
 .chip:has(input:checked) {
   border-color: var(--escuro);
   background: var(--escuro);
@@ -356,41 +392,6 @@ main > .secao:last-child {
 
 /* ---------- 4. Convite para o quiz ---------- */
 
-/* Contexto próprio: os cartões de trás (z-index -1) ficam atrás do convite e à frente da página */
-.secao-convite {
-  position: relative;
-  isolation: isolate;
-}
-
-/* Dois cartões de trás, só de forma, antecipam o baralho do quiz */
-.convite-quiz {
-  position: relative;
-  margin-bottom: 20px;
-  box-shadow: var(--sombra);
-}
-
-.convite-quiz::before,
-.convite-quiz::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  height: 40px;
-  border-radius: var(--raio-cartao);
-  background: var(--superficie-forte);
-}
-
-.convite-quiz::before {
-  transform: translate(-6px, 10px) rotate(-2deg);
-}
-
-.convite-quiz::after {
-  transform: translate(6px, 18px) rotate(1.5deg);
-  background: var(--linha);
-}
-
 .convite-quiz .botao {
   margin: 4px 0;
 }
@@ -412,6 +413,181 @@ main > .secao:last-child {
   margin-bottom: 0;
 }
 
+/* ================= 4b. Páginas internas (Sobre, Atendimento, Conteúdo, Dúvidas) ================= */
+
+/* Lista numerada em cartões: o número fica num círculo (como sessões e 8 etapas) */
+.lista-numerada {
+  counter-reset: item;
+}
+
+.lista-numerada > li {
+  counter-increment: item;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.lista-numerada > li::before {
+  content: counter(item);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fundo);
+  font-weight: 700;
+}
+
+.cartao-c .reservado {
+  margin: 12px 0;
+}
+
+.cartao-c .botao {
+  margin-top: 4px;
+}
+
+/* Conteúdo: temporadas em chips e episódios em linhas */
+.chips-temporadas {
+  margin: 0 0 16px;
+}
+
+.episodios-c {
+  gap: 4px;
+}
+
+.episodios-c .episodio {
+  grid-template-columns: 112px 1fr;
+  min-height: 80px;
+  padding: 8px;
+  border-radius: var(--raio-cartao);
+}
+
+.episodios-c .episodio:hover {
+  background: var(--superficie);
+}
+
+.episodios-c .reservado {
+  border-radius: var(--raio);
+}
+
+/* Dúvidas: cada pergunta num cartão que abre */
+.acordeao-c {
+  display: grid;
+  gap: 12px;
+}
+
+.acordeao-c details {
+  border-radius: var(--raio-cartao);
+  background: var(--superficie);
+}
+
+.acordeao-c summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 16px 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.acordeao-c summary::-webkit-details-marker {
+  display: none;
+}
+
+/* + / − num círculo, como os botões redondos */
+.acordeao-c summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fundo);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.acordeao-c details[open] summary::after {
+  content: "−";
+}
+
+.acordeao-c .resposta {
+  padding: 0 20px 20px;
+}
+
+.acordeao-c .resposta > :last-child {
+  margin-bottom: 0;
+}
+
+/* ================= 4c. Agendamento (agendar.html) ================= */
+
+.cabecalho-fluxo-c {
+  border-bottom: 0;
+  padding: 8px 20px 12px 12px;
+}
+
+.cabecalho-fluxo-c .fluxo-topo {
+  gap: 8px;
+}
+
+.cabecalho-fluxo-c .progresso,
+.cabecalho-fluxo-c .progresso-barra {
+  border-radius: 999px;
+}
+
+.passo .secao:first-child {
+  padding-top: 24px;
+}
+
+/* Opções (modalidade) no mesmo estilo das opções do quiz */
+.passo .cartao-radio {
+  background: var(--fundo);
+}
+
+.calendario-c .calendario {
+  margin-bottom: 8px;
+}
+
+.calendario-c .apoio {
+  margin-bottom: 0;
+}
+
+/* Dias e horários em pílula, como os chips */
+.passo .dia,
+.passo .horario {
+  border-radius: 999px;
+}
+
+.passo .area-horarios {
+  margin-top: 24px;
+}
+
+.passo .area-horarios h2 {
+  font-size: var(--fonte-titulo-cartao);
+}
+
+/* Bloco do passo 1: flutua na base, com cantos arredondados, como a barra em pílula */
+.rodape-passo-c {
+  left: 16px;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  max-width: 448px;
+  padding: 12px 16px 8px;
+  border-top: 0;
+  border-radius: var(--raio-cartao);
+  box-shadow: 0 0 0 1px var(--linha), var(--sombra-flutuante);
+}
+
+.resumo .link {
+  margin-top: 0;
+}
+
 /* ================= 5. Baralho de cartões (flash cards e quiz) ================= */
 
 .baralho-contador {
@@ -424,7 +600,7 @@ main > .secao:last-child {
 /* Todos os cartões ocupam a mesma célula: a altura é a do cartão mais alto */
 .baralho {
   display: grid;
-  margin: 0 0 36px; /* espaço para os cartões de trás, deslocados para baixo */
+  margin: 0 0 40px; /* espaço para os cartões de trás, que aparecem embaixo */
 }
 
 .baralho-deslizar {
@@ -437,35 +613,35 @@ main > .secao:last-child {
   display: grid;
   perspective: 1200px;
   transform-origin: 50% 100%;
-  transition: transform 300ms ease, opacity 300ms ease;
+  transition: transform 560ms var(--curva-suave), opacity 460ms var(--curva-suave);
 }
 
 .carta[data-pos="0"] {
   z-index: 4;
 }
 
-/* Cartões de trás: levemente deslocados para baixo e para os lados */
+/* Cartões de trás: alinhados no centro, mais estreitos e um pouco abaixo */
 .carta[data-pos="1"] {
   z-index: 3;
-  transform: translate(-8px, 14px) rotate(-2.5deg) scale(0.97);
+  transform: translateY(16px) scale(0.94);
 }
 
 .carta[data-pos="2"] {
   z-index: 2;
-  transform: translate(8px, 26px) rotate(2deg) scale(0.94);
+  transform: translateY(32px) scale(0.88);
 }
 
 .carta[data-pos="atras"] {
   z-index: 1;
   opacity: 0;
-  transform: translateY(26px) scale(0.94);
+  transform: translateY(32px) scale(0.88);
 }
 
-/* Cartão que já passou: desliza para fora pela esquerda */
+/* Cartão que já passou: sobe e some; "Anterior" o traz de volta descendo */
 .carta[data-pos="saiu"] {
   z-index: 5;
   opacity: 0;
-  transform: translateX(-115%) rotate(-8deg);
+  transform: translateY(-56px) scale(1.02);
   pointer-events: none;
 }
 
@@ -474,7 +650,7 @@ main > .secao:last-child {
   z-index: 2;
   display: grid;
   transform-style: preserve-3d;
-  transition: transform 450ms cubic-bezier(0.3, 0.7, 0.3, 1);
+  transition: transform 450ms var(--curva-suave);
 }
 
 .carta.virada .carta-giro {
@@ -489,14 +665,13 @@ main > .secao:last-child {
   padding: 24px;
   border-radius: var(--raio-cartao);
   background: var(--superficie);
-  box-shadow: var(--sombra);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transition: background-color 300ms ease;
+  transition: background-color 460ms var(--curva-suave);
 }
 
 .carta-face > * {
-  transition: opacity 300ms ease;
+  transition: opacity 400ms var(--curva-suave);
 }
 
 /* Atrás, o cartão é só a forma: o conteúdo aparece quando ele chega à frente */
@@ -515,7 +690,7 @@ main > .secao:last-child {
 .carta-verso {
   transform: rotateY(180deg);
   background: var(--fundo);
-  box-shadow: 0 0 0 1px var(--linha), var(--sombra);
+  box-shadow: 0 0 0 1px var(--linha);
 }
 
 .carta-verso > :last-child {
@@ -605,11 +780,6 @@ main > .secao:last-child {
 }
 
 /* ================= 6. Quiz ================= */
-
-.quiz h1 {
-  font-size: 2rem;
-  letter-spacing: -0.01em;
-}
 
 .quiz-abertura .botoes {
   margin-top: 24px;
@@ -704,12 +874,14 @@ main > .secao:last-child {
 /* "Reduzir movimento": sem entrada, sem deslize nem giro; só troca de opacidade */
 @media (prefers-reduced-motion: reduce) {
   .barra-pilula,
-  .barra-pilula.visivel {
+  .barra-pilula.visivel,
+  .botao-topo,
+  .botao-topo.visivel {
     transition: none;
   }
 
   .carta {
-    transition: opacity 200ms ease;
+    transition: opacity 300ms ease;
   }
 
   .carta[data-pos="saiu"] {

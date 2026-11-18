@@ -16,7 +16,8 @@ Protótipo navegável, em fidelidade baixa, do site da Maria Clara Vinotti, para
 ## Stack
 
 - HTML, CSS e JavaScript puros, sem framework, sem build e sem dependências externas (nada de CDN).
-- A alternativa A é um único `index.html` com rotas por hash (`#/inicio`, `#/sobre`, `#/agendar/1` etc.), para funcionar direto no GitHub Pages. B e C são páginas nas próprias pastas e usam as rotas da A para as demais páginas e o agendamento.
+- A alternativa A é um único `index.html` com rotas por hash (`#/inicio`, `#/sobre`, `#/agendar/1` etc.), para funcionar direto no GitHub Pages. A B tem só o Início e usa as rotas da A para o resto. A C tem uma página por tela, na própria pasta, e a moldura comum (cabeçalho, menu, rodapé, barra) é montada por `alternativa-c/comum-c.js`.
+- A lógica do agendamento (calendário, fusos, validação) fica em `agendamento.js`, usada pela A e pela C.
 - Estado guardado só em memória (variáveis JS). Nada de localStorage, cookies ou envio de dados.
 
 ## Regras de conteúdo
@@ -30,7 +31,7 @@ Protótipo navegável, em fidelidade baixa, do site da Maria Clara Vinotti, para
 - Fidelidade baixa: só tons de cinza neutros, uma cor escura para botões principais, fonte `system-ui`.
 - Sem cores de marca, ilustrações, fotos ou animações decorativas. Imagens e vídeos são caixas cinza tracejadas com rótulo entre colchetes.
 - Mobile first (390 px). No desktop, centralizar com largura máxima de 480 px.
-- Exceções da C, definidas na especificação dela: serifa do sistema no nome e na profissão do topo, e animações só como marcação de intenção (entrada do topo, giro e troca dos cartões, barra flutuante), sempre desligadas com "reduzir movimento".
+- Exceções da C, definidas na especificação dela: serifa do sistema no nome e na profissão do topo, e animações só como marcação de intenção (entrada do topo, giro e troca vertical dos cartões, barra flutuante, voltar ao topo), sempre desligadas com "reduzir movimento".
 
 ## Acessibilidade
 

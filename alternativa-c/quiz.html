@@ -9,18 +9,8 @@
   <link rel="stylesheet" href="../estilo.css">
   <link rel="stylesheet" href="estilo-c.css">
 </head>
-<body>
+<body data-pagina="quiz">
 <div class="app">
-
-  <!-- Cabeçalho: Voltar (Início da C) e menu -->
-  <header class="cabecalho cabecalho-c cabecalho-quiz" id="cabecalho">
-    <a class="botao-icone botao-redondo" href="./" aria-label="Voltar">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-    </a>
-    <button type="button" class="botao-icone botao-redondo" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-    </button>
-  </header>
 
   <main id="conteudo-principal">
     <section class="secao secao-baralho quiz" aria-labelledby="titulo-quiz">
@@ -29,7 +19,7 @@
       <!-- Abertura -->
       <div class="quiz-abertura" id="quiz-abertura">
         <p>São 6 perguntas rápidas sobre como você tem vivido os seus desafios. Não existe resposta certa, e não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão.</p>
-        <div class="botoes" data-acoes-quiz>
+        <div class="botoes" data-acoes>
           <button type="button" class="botao botao-principal" id="quiz-comecar">Começar</button>
         </div>
         <p class="apoio">Leva cerca de 2 minutos.</p>
@@ -53,7 +43,7 @@
             </div>
           </div>
         </form>
-        <div class="baralho-nav" data-acoes-quiz>
+        <div class="baralho-nav" data-acoes>
           <button type="button" class="botao botao-secundario" id="quiz-voltar" disabled>Voltar</button>
           <button type="button" class="botao botao-principal" id="quiz-proxima" disabled>Próxima</button>
         </div>
@@ -61,10 +51,10 @@
         <!-- Depois de virar o resultado -->
         <div class="quiz-depois" id="quiz-depois" hidden>
           <p>Este quiz não é um diagnóstico. Ele é um ponto de partida para uma conversa.</p>
-          <div class="botoes" data-acoes-quiz>
+          <div class="botoes" data-acoes>
             <button type="button" class="botao botao-secundario" id="abrir-email" aria-expanded="false" aria-controls="area-email">Receber o resultado por e-mail</button>
             <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar com a Maria Clara</button>
-            <a class="botao botao-principal" href="../#/agendar/1">Agendar sessão</a>
+            <a class="botao botao-principal" href="agendar.html">Agendar sessão</a>
             <button type="button" class="link link-centro" id="refazer-quiz">Refazer o quiz</button>
           </div>
 
@@ -92,49 +82,7 @@
     </section>
   </main>
 
-  <!-- Rodapé (CVV discreto, só aqui) -->
-  <footer class="rodape rodape-c" id="rodape">
-    <p class="rodape-nome">Maria Clara Vinotti</p>
-    <p>Parapsicóloga clínica · Florianópolis e online</p>
-    <ul>
-      <li><a href="./">Início</a></li>
-      <li><a href="../#/sobre">Sobre</a></li>
-      <li><a href="../#/atendimento">Atendimento</a></li>
-      <li><a href="../#/conteudo">Conteúdo</a></li>
-      <li><a href="../#/duvidas">Dúvidas</a></li>
-    </ul>
-    <p class="aviso-crise">Este site não oferece atendimento imediato em situações de crise. Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito, ou acesse <button type="button" class="link-inline" data-aviso="cvv">cvv.org.br</button>. Em emergência, procure o hospital mais próximo.</p>
-    <p class="rodape-legal">
-      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
-      <span aria-hidden="true">·</span>
-      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
-    </p>
-    <p class="rodape-registro">Registro FATECPR · Associada à ABPSIG</p>
-  </footer>
-
 </div>
-
-<!-- Barra flutuante em pílula: aparece quando as ações do quiz (Começar, navegação, resultado) estão fora da tela -->
-<div class="barra-pilula" id="barra-pilula">
-  <button type="button" class="botao botao-secundario" data-aviso="whatsapp">WhatsApp</button>
-  <a class="botao botao-principal" href="../#/agendar/1">Agendar sessão</a>
-</div>
-
-<!-- Menu: leva às páginas da alternativa A -->
-<div class="menu-fundo" id="menu-fundo" hidden></div>
-<nav class="menu menu-c" id="menu" tabindex="-1" hidden>
-  <ul>
-    <li><a href="./">Início</a></li>
-    <li><a href="../#/sobre">Sobre</a></li>
-    <li><a href="../#/atendimento">Atendimento</a></li>
-    <li><a href="../#/conteudo">Conteúdo</a></li>
-    <li><a href="../#/duvidas">Dúvidas</a></li>
-  </ul>
-  <button type="button" class="botao botao-secundario" id="botao-fechar-menu">Fechar</button>
-</nav>
-
-<!-- Aviso temporário das interações simuladas -->
-<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
 
 <script src="comum-c.js"></script>
 <script src="quiz-c.js"></script>

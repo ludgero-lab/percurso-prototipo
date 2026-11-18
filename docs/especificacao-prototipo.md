@@ -119,8 +119,6 @@ Sem menu e sem barra fixa de WhatsApp/Agendar. Cabeçalho com seta "Voltar" (`ar
 
 Os três passos têm um rodapé curto no fim do conteúdo, com o aviso do CVV e a linha "Política de privacidade · Termos de uso". No passo 1, o rodapé curto fica acima do espaço reservado à barra fixa do passo, sem ficar escondido por ela.
 
-Quem chega de outra página (alternativa C) pode usar `#/agendar/online`, que abre o passo 1 com Online marcado. Se o fluxo foi aberto a partir da alternativa C, "Voltar" no passo 1 e "Voltar ao início" no passo 3 retornam para ela.
-
 ### Passo 1: "Modalidade, dia e horário"
 
 - **"Como você prefere?"** (fieldset com legend): rádios em cartão "**Online** / Google Meet ou WhatsApp" e "**Presencial** / Balneário, Estreito". Nenhum marcado por padrão, exceto quando a pessoa chega por "Agendar online".
