@@ -14,7 +14,7 @@ A especificação completa está em `docs/especificacao-prototipo.md`. Ela é a 
 
 - Usar exatamente os textos da especificação. Não criar textos novos. Onde houver colchetes, manter o colchete como espaço reservado.
 - Vocabulário: "cliente", nunca "paciente" nem "problema". Sem promessa de cura ou resultado. Sem preços.
-- O aviso do CVV (188) aparece em todas as telas.
+- O aviso do CVV (188) aparece no rodapé de todas as telas, de forma discreta.
 
 ## Regras visuais
 

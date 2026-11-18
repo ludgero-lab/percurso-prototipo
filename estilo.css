@@ -567,6 +567,8 @@ h3[tabindex="-1"]:focus {
   min-height: 44px;
 }
 
+/* Caixa destacada do CVV: não é mais usada pela A nem pela C,
+   mas continua aqui porque a alternativa B (congelada) depende dela */
 .caixa-cvv {
   border: 2px solid var(--escuro);
   border-radius: var(--raio);
@@ -585,6 +587,55 @@ h3[tabindex="-1"]:focus {
   flex-wrap: wrap;
   gap: 0 8px;
   font-size: 0.9375rem;
+}
+
+/* Aviso de crise: parágrafo discreto, fundo levemente diferente, sem borda, ícone ou destaque */
+.aviso-crise {
+  margin: 0 0 12px;
+  padding: 12px 16px;
+  border-radius: var(--raio);
+  background: var(--superficie-forte);
+  color: var(--texto-suave); /* 5,6:1 sobre --superficie-forte */
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Botão dentro do texto: mantém a linha, mas a área de toque chega a 44 px */
+.link-inline {
+  position: relative;
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.link-inline::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
+}
+
+.rodape-registro {
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+/* No agendamento, o rodapé fica curto: só o aviso do CVV e a linha legal */
+.rodape-curto .rodape-completo {
+  display: none;
+}
+
+.rodape-curto {
+  padding-top: 16px;
 }
 
 /* ---------- Fluxo de agendamento ---------- */
@@ -899,12 +950,6 @@ select {
 
 .rodape-passo .link {
   justify-self: center;
-}
-
-.cvv-linha {
-  margin: 0;
-  font-size: 0.9375rem;
-  text-align: center;
 }
 
 /* ---------- Aviso temporário ---------- */

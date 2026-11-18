@@ -1,0 +1,752 @@
+/* Alternativa C: só o que muda em relação a ../estilo.css.
+   Estrutura moderna (referência de cartões): cantos bem arredondados, pílulas,
+   botões redondos, cartões empilhados, barra flutuante e respiro generoso.
+   Continua em fidelidade baixa: tons de cinza, uma cor escura, fontes do sistema. */
+
+:root {
+  --raio: 16px;              /* controles (na A são 8 px) */
+  --raio-cartao: 24px;       /* cartões, blocos e baralhos */
+  --altura-cabecalho: 64px;  /* botão de 48 px + 8 px em cima e embaixo */
+  --altura-barra: 88px;      /* espaço no fim da página para a barra em pílula */
+  --sombra: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --serifa: ui-serif, Georgia, "Times New Roman", serif;
+  /* só o topo "encaixa" na rolagem; as demais seções têm a altura do conteúdo */
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--altura-cabecalho);
+}
+
+.so-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* O espaço para a barra em pílula fica dentro do rodapé (ver .rodape-c) */
+.app {
+  padding-bottom: 0;
+}
+
+/* ---------- Botões: tudo em pílula ---------- */
+
+.botao,
+.botao-pilula {
+  border-radius: 999px;
+}
+
+.botao-secundario {
+  border-color: var(--borda);
+}
+
+.botao-redondo {
+  border-radius: 50%;
+  background: var(--superficie);
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho-c {
+  justify-content: flex-end;
+  min-height: var(--altura-cabecalho);
+  padding: 8px 12px;
+  border-bottom: 0;
+}
+
+.cabecalho-quiz {
+  justify-content: space-between;
+}
+
+.botao-icone.botao-redondo {
+  color: var(--texto);
+  text-decoration: none;
+}
+
+/* ---------- 1. Topo em tela cheia ---------- */
+
+.topo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(100vh - var(--altura-cabecalho));
+  min-height: calc(100svh - var(--altura-cabecalho));
+  padding: 0 12px 12px;
+  scroll-snap-align: start;
+  scroll-margin-top: 0;
+}
+
+/* Imagem da identidade visual: ocupa todo o bloco, com o rótulo no alto */
+.topo-imagem {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  margin: 0;
+  padding: 20px;
+  border-radius: var(--raio-cartao);
+  place-items: start;
+  text-align: left;
+}
+
+.topo-conteudo {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding: 72px 12px 12px;
+}
+
+/* Fundo claro semitransparente sobre a imagem: garante contraste AA */
+.topo-texto {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.topo-nome {
+  margin: 0 0 4px;
+  font-family: var(--serifa);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.topo-profissao {
+  margin: 0 0 20px;
+  font-family: var(--serifa);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--texto-suave);
+}
+
+.topo-titulo {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.topo-apoio {
+  margin: 0;
+}
+
+/* Ações lado a lado: pílula principal + botão redondo do WhatsApp */
+.topo-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topo-acoes .botao {
+  flex: 1;
+  width: auto;
+}
+
+.botao-whatsapp {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 2px solid var(--escuro);
+  border-radius: 50%;
+  background: var(--fundo);
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.botao-whatsapp svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* Animação de entrada (marcação de intenção): fade de 400 ms, em sequência, uma vez.
+   Com "reduzir movimento", tudo aparece sem animação. */
+@media (prefers-reduced-motion: no-preference) {
+  .entrada {
+    animation: surgir 400ms ease-out both;
+    animation-delay: calc(var(--ordem, 0) * 150ms);
+  }
+}
+
+@keyframes surgir {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------- Seções (altura do próprio conteúdo) ---------- */
+
+.secao {
+  padding: 40px 20px 0;
+}
+
+.secao h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+main > .secao:last-child {
+  padding-bottom: 40px;
+}
+
+.lista-c {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.item-c,
+.cartao-c {
+  padding: 20px;
+  border-radius: var(--raio-cartao);
+  background: var(--superficie);
+}
+
+.item-c > :last-child,
+.cartao-c > :last-child {
+  margin-bottom: 0;
+}
+
+.cartao-c .link {
+  margin-top: 4px;
+}
+
+.cartao-destaque .botoes {
+  margin-bottom: 0;
+}
+
+/* Avaliações: rolagem de ponta a ponta, com respiro nas laterais */
+.rolagem-c {
+  margin: 16px -20px 8px;
+  padding: 0 20px 8px;
+  scroll-padding-left: 20px;
+}
+
+.rolagem-c > li {
+  flex-basis: 82%;
+}
+
+.secao .reservado {
+  border-radius: var(--raio-cartao);
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape-c {
+  margin-top: 40px;
+  padding: 32px 20px calc(var(--altura-barra) + 24px);
+  border-top: 0;
+  border-radius: var(--raio-cartao) var(--raio-cartao) 0 0;
+}
+
+.rodape-c .aviso-crise {
+  padding: 16px;
+  border-radius: var(--raio);
+}
+
+.rodape-c li a[aria-current="page"] {
+  font-weight: 600;
+}
+
+/* ---------- Menu ---------- */
+
+.menu-c {
+  border-radius: var(--raio-cartao) 0 0 var(--raio-cartao);
+  border-left: 0;
+}
+
+/* ---------- Barra flutuante em pílula ---------- */
+
+.barra-pilula {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8px;
+  width: min(calc(100% - 32px), 448px);
+  padding: 8px;
+  border-radius: 999px;
+  background: var(--fundo);
+  box-shadow: 0 0 0 1px var(--linha), 0 8px 28px rgba(0, 0, 0, 0.18);
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 0s linear 200ms;
+}
+
+.barra-pilula.visivel {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 200ms ease, visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barra-pilula,
+  .barra-pilula.visivel {
+    transition: none;
+  }
+}
+
+/* ---------- 2. Com o que você está chegando hoje? ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+}
+
+/* Rádio nativo, escondido sob o chip, continua recebendo toque, setas e leitor de tela */
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 2px solid var(--borda);
+  border-radius: 999px;
+  background: var(--fundo);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.chip:has(input:checked) {
+  border-color: var(--escuro);
+  background: var(--escuro);
+  color: var(--sobre-escuro);
+}
+
+.chip:has(input:focus-visible) {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.resposta-sentimento:not(:empty) {
+  margin-top: 16px;
+}
+
+.resposta-cvv {
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+.resposta-acoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ---------- Baralho de cartões (flash cards do Início e perguntas do quiz) ---------- */
+
+/* Recorta na horizontal o cartão que sai pela esquerda, sem criar rolagem lateral */
+.secao-baralho {
+  overflow-x: clip;
+}
+
+.baralho-contador {
+  margin: 4px 0 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+/* Todos os cartões ocupam a mesma célula: a altura é a do cartão mais alto */
+.baralho {
+  display: grid;
+  margin: 0 0 36px; /* espaço para os cartões de trás, deslocados para baixo */
+}
+
+.baralho-deslizar {
+  touch-action: pan-y; /* rolagem vertical continua; o deslize lateral fica com o baralho */
+}
+
+.carta {
+  position: relative;
+  grid-area: 1 / 1;
+  display: grid;
+  perspective: 1200px;
+  transform-origin: 50% 100%;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.carta[data-pos="0"] {
+  z-index: 4;
+}
+
+/* Cartões de trás: levemente deslocados para baixo e para os lados */
+.carta[data-pos="1"] {
+  z-index: 3;
+  transform: translate(-8px, 14px) rotate(-2.5deg) scale(0.97);
+}
+
+.carta[data-pos="2"] {
+  z-index: 2;
+  transform: translate(8px, 26px) rotate(2deg) scale(0.94);
+}
+
+.carta[data-pos="atras"] {
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(26px) scale(0.94);
+}
+
+/* Cartão que já passou: desliza para fora pela esquerda */
+.carta[data-pos="saiu"] {
+  z-index: 5;
+  opacity: 0;
+  transform: translateX(-115%) rotate(-8deg);
+  pointer-events: none;
+}
+
+.carta-giro {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 450ms cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.carta.virada .carta-giro {
+  transform: rotateY(180deg);
+}
+
+.carta-face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  padding: 24px;
+  border-radius: var(--raio-cartao);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: background-color 300ms ease;
+}
+
+.carta-face > * {
+  transition: opacity 300ms ease;
+}
+
+/* Atrás, o cartão é só a forma: o conteúdo aparece quando ele chega à frente */
+.carta:not([data-pos="0"]) .carta-face {
+  background: var(--superficie-forte);
+}
+
+.carta:not([data-pos="0"]) .carta-face > * {
+  opacity: 0;
+}
+
+.carta-frente {
+  justify-content: space-between;
+}
+
+.carta-verso {
+  transform: rotateY(180deg);
+  background: var(--fundo);
+  box-shadow: 0 0 0 1px var(--linha), var(--sombra);
+}
+
+.carta-verso > :last-child {
+  margin-bottom: 0;
+}
+
+.carta-verso .link {
+  margin-top: auto;
+}
+
+.carta-pergunta {
+  margin: 0;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Apoio em pílula, como as etiquetas da referência */
+.carta-dica {
+  align-self: flex-start;
+  margin: 24px 0 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--fundo);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.carta-lista {
+  margin: 0 0 12px;
+  padding-left: 1.25rem;
+}
+
+.carta-lista li + li {
+  margin-top: 4px;
+}
+
+/* Botão que vira o cartão: cobre o cartão inteiro, por baixo das faces.
+   As faces não recebem toque (o toque chega ao botão), exceto os links do verso. */
+.carta-virar {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--raio-cartao);
+  background: transparent;
+  cursor: pointer;
+}
+
+.carta-virar:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 4px;
+}
+
+.carta-viravel .carta-giro {
+  pointer-events: none;
+}
+
+.carta-viravel .carta-verso a,
+.carta-viravel .carta-verso button {
+  position: relative;
+  pointer-events: auto;
+}
+
+.sem-transicao .carta-giro,
+.sem-transicao .carta-face,
+.sem-transicao .carta-face > * {
+  transition: none !important;
+}
+
+/* Anterior e Próximo (e Voltar e Próxima, no quiz) */
+.baralho-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.baralho-nav .botao:disabled {
+  border-color: var(--linha);
+  color: #8a8a8a;
+  cursor: default;
+}
+
+/* Com "reduzir movimento": sem deslize nem giro, só troca de opacidade */
+@media (prefers-reduced-motion: reduce) {
+  .carta {
+    transition: opacity 200ms ease;
+  }
+
+  .carta[data-pos="saiu"] {
+    transform: none;
+  }
+
+  .carta-giro,
+  .carta.virada .carta-giro {
+    transform: none;
+    transition: none;
+  }
+
+  .carta-face {
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    transition: opacity 200ms ease;
+  }
+
+  .carta-verso {
+    transform: none;
+    opacity: 0;
+  }
+
+  .carta.virada .carta-verso {
+    opacity: 1;
+  }
+
+  .carta.virada .carta-frente {
+    opacity: 0;
+  }
+}
+
+/* ---------- 4. Convite para o quiz ---------- */
+
+/* Dois cartões de trás, só de forma, antecipam o baralho do quiz */
+.convite-quiz {
+  position: relative;
+  margin-bottom: 20px;
+  box-shadow: var(--sombra);
+}
+
+.convite-quiz::before,
+.convite-quiz::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  border-radius: var(--raio-cartao);
+  background: var(--superficie-forte);
+  z-index: -1;
+}
+
+.convite-quiz::before {
+  transform: translate(-6px, 10px) rotate(-2deg);
+}
+
+.convite-quiz::after {
+  transform: translate(6px, 18px) rotate(1.5deg);
+  background: var(--linha);
+}
+
+.convite-quiz .botao {
+  margin: 4px 0 4px;
+}
+
+.detalhe-c summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.detalhe-c summary::-webkit-details-marker {
+  display: none;
+}
+
+.detalhe-c p {
+  margin: 4px 0 0;
+}
+
+/* ---------- Quiz ---------- */
+
+.quiz h1 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.quiz-abertura .botoes {
+  margin-top: 24px;
+}
+
+.carta-quiz .carta-face {
+  min-height: 0;
+}
+
+.quiz-pergunta {
+  margin: 0;
+}
+
+.quiz-pergunta legend {
+  margin-bottom: 16px;
+}
+
+.quiz-titulo {
+  font-size: 1.375rem;
+}
+
+/* Opções como botões grandes (rádios nativos, no estilo .cartao-radio da A) */
+.opcao-quiz {
+  min-height: 56px;
+  margin-bottom: 8px;
+  background: var(--fundo);
+  line-height: 1.35;
+}
+
+.opcao-quiz:last-child {
+  margin-bottom: 0;
+}
+
+.opcao-quiz:has(input:checked) {
+  background: var(--fundo);
+  font-weight: 600;
+}
+
+/* contexto próprio para os cartões de trás (z-index -1) ficarem atrás do convite e à frente da página */
+.secao-convite {
+  position: relative;
+  isolation: isolate;
+}
+
+/* ---------- Quiz: resultado, ações e e-mail ---------- */
+
+.carta-resultado .carta-frente {
+  min-height: 240px;
+}
+
+.resultado-tema + .resultado-tema {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linha);
+}
+
+.resultado-titulo {
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+}
+
+.resultado-tema > :last-child {
+  margin-bottom: 0;
+}
+
+.quiz-depois {
+  margin-top: 24px;
+}
+
+.link-centro {
+  justify-self: center;
+  align-self: center;
+}
+
+.form-email {
+  margin-top: 8px;
+}
+
+.form-email .botao {
+  margin-top: 4px;
+}
+
+.email-enviado {
+  margin: 8px 0 0;
+  font-weight: 600;
+}
+
+.email-enviado:empty {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.email-enviado:focus {
+  outline: none;
+}
+
+/* "Ver como funciona": o cabeçalho já entra no scroll-padding; sem margem extra da A ([id]) */
+.secao-baralho {
+  scroll-margin-top: 0;
+}

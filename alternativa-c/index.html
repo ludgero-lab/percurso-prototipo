@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Maria Clara Vinotti (alternativa C)</title>
+  <link rel="icon" href="data:,">
+  <!-- Base visual da alternativa A + a linha da C (cartões arredondados, pílulas, baralhos) -->
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="estilo-c.css">
+</head>
+<body class="c-inicio">
+<div class="app">
+
+  <!-- Cabeçalho: só o botão de menu -->
+  <header class="cabecalho cabecalho-c" id="cabecalho">
+    <button type="button" class="botao-icone botao-redondo" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- 1. Topo em tela cheia -->
+    <section class="topo" aria-labelledby="titulo-topo">
+      <div class="reservado topo-imagem">[imagem da identidade visual: busto com flores, do header do YouTube]</div>
+      <div class="topo-conteudo">
+        <div class="topo-texto">
+          <p class="topo-nome entrada" style="--ordem: 0">Maria Clara Vinotti</p>
+          <p class="topo-profissao entrada" style="--ordem: 1">Parapsicóloga clínica</p>
+          <h1 class="topo-titulo entrada" id="titulo-topo" style="--ordem: 2">Parapsicologia clínica feita com acolhimento e parceria</h1>
+          <p class="topo-apoio entrada" style="--ordem: 3">Um espaço para olhar para os seus desafios no seu ritmo, entender a sua história e conduzir o seu caminho com mais consciência, online ou em Florianópolis.</p>
+        </div>
+        <div class="topo-acoes entrada" id="topo-acoes" style="--ordem: 4">
+          <a class="botao botao-principal botao-pilula" href="../#/agendar/1">Agendar sessão</a>
+          <button type="button" class="botao-whatsapp" data-aviso="whatsapp" aria-label="Conversar no WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/><path d="M9 8.6c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .5-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.2.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.5.4-1.3.6-2 .4-2.3-.6-4.4-2.7-5-5-.2-.7 0-1.5.4-2z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Com o que você está chegando hoje? -->
+    <section class="secao" aria-labelledby="titulo-chegando">
+      <h2 id="titulo-chegando">Com o que você está chegando hoje?</h2>
+      <p class="apoio">Escolha uma opção. Sua resposta não é guardada.</p>
+      <fieldset class="chips" id="chips-sentimento">
+        <legend class="so-leitor">Com o que você está chegando hoje?</legend>
+        <label class="chip"><input type="radio" name="sentimento" value="culpa"><span>Culpa</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="raiva"><span>Raiva</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="medo"><span>Medo</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="inseguranca"><span>Insegurança</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="tristeza"><span>Tristeza</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="magoa"><span>Mágoa</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="conhecendo"><span>Só estou conhecendo</span></label>
+      </fieldset>
+      <!-- Resposta: o cartão é criado na primeira escolha; depois só o texto muda -->
+      <div class="resposta-sentimento" id="resposta-sentimento" aria-live="polite"></div>
+    </section>
+
+    <!-- 3. Baralho de flash cards -->
+    <section class="secao secao-baralho" id="baralho" aria-labelledby="titulo-baralho">
+      <h2 id="titulo-baralho" tabindex="-1">Para entender em poucas palavras</h2>
+      <p class="baralho-contador" id="contador-cartoes" aria-live="polite">Cartão 1 de 4</p>
+      <!-- Cada cartão: um botão que cobre o cartão inteiro (vira) + frente (só visual) + verso (lido quando aberto) -->
+      <div class="baralho baralho-deslizar" id="baralho-cartoes">
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-1" aria-expanded="false" aria-controls="verso-1"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-1">O que é a parapsicologia clínica?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-1" inert aria-hidden="true">
+              <p>A parapsicologia do Sistema Grisa busca entender como funciona a mente humana. A mente é uma só, mas funciona como duas: a consciente, racional, e a subconsciente, emocional. Ela dialoga com a psicologia, a psicanálise e a psiquiatria como aliadas importantes.</p>
+              <a class="link" href="../#/duvidas">Mais dúvidas</a>
+            </div>
+          </div>
+        </div>
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-2" aria-expanded="false" aria-controls="verso-2"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-2">Como ela pode ajudar?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-2" inert aria-hidden="true">
+              <p>Quem procura costuma trazer angústia, ansiedade, raiva, culpa ou a sensação de não merecer as próprias conquistas. Não prometemos milagres: o caminho é ficar mais consciente do próprio poder de pensar, decidir e conduzir a própria vida.</p>
+              <a class="link" href="../#/atendimento">Ver o atendimento</a>
+            </div>
+          </div>
+        </div>
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-3" aria-expanded="false" aria-controls="verso-3"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-3">Como é uma sessão?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-3" inert aria-hidden="true">
+              <p>Cerca de 1h30, online ou presencial.</p>
+              <ol class="carta-lista">
+                <li>Conhecer a sua história.</li>
+                <li>Olhar para os sentimentos que mais marcam a sua vida.</li>
+                <li>Definir metas a curto, médio e longo prazo, juntos.</li>
+                <li>Tarefas entre as sessões, no seu tempo.</li>
+              </ol>
+              <a class="link" href="../#/atendimento/etapas">Ver as 8 etapas</a>
+            </div>
+          </div>
+        </div>
+        <div class="carta carta-viravel" data-carta>
+          <button type="button" class="carta-virar" aria-labelledby="pergunta-4" aria-expanded="false" aria-controls="verso-4"></button>
+          <div class="carta-giro">
+            <div class="carta-face carta-frente" aria-hidden="true">
+              <p class="carta-pergunta" id="pergunta-4">Quem sou eu?</p>
+              <p class="carta-dica">Toque para ver a resposta</p>
+            </div>
+            <div class="carta-face carta-verso" id="verso-4" inert aria-hidden="true">
+              <p>Professora de Letras (Português e Inglês), especialista em Gestão Escolar e especialista em análise, orientação e hipnoterapia em Parapsicologia Clínica pelo Sistema Grisa. Atendo há sete anos.</p>
+              <a class="link" href="../#/sobre">Formação e vínculos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="baralho-nav">
+        <button type="button" class="botao botao-secundario" id="cartao-anterior" disabled>Anterior</button>
+        <button type="button" class="botao botao-secundario" id="cartao-proximo">Próximo</button>
+      </div>
+    </section>
+
+    <!-- 4. Convite para o quiz (cartão com a pilha atrás, como o baralho do quiz) -->
+    <section class="secao secao-convite" aria-labelledby="titulo-convite-quiz">
+      <div class="cartao-c convite-quiz">
+        <h2 id="titulo-convite-quiz">Quiz de autoconhecimento</h2>
+        <p>São 6 perguntas rápidas sobre como você tem vivido os seus desafios. Leva cerca de 2 minutos.</p>
+        <a class="botao botao-principal botao-pilula" href="quiz.html">Começar o quiz</a>
+        <details class="detalhe-c">
+          <summary>O que é o quiz?</summary>
+          <p>Não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 5. Acolhimento e sigilo -->
+    <section class="secao" aria-labelledby="titulo-acolhimento">
+      <h2 id="titulo-acolhimento">Acolhimento e sigilo</h2>
+      <ul class="lista-c">
+        <li class="item-c"><p><strong>Ninguém é julgado.</strong> Separar o ato da pessoa é a regra que ela segue.</p></li>
+        <li class="item-c"><p><strong>Sigilo absoluto.</strong> O que você conta fica entre vocês.</p></li>
+        <li class="item-c"><p><strong>Cliente como sócio no processo.</strong> Tarefas, áudios e filmes entre as sessões.</p></li>
+      </ul>
+    </section>
+
+    <!-- 6. Online ou presencial -->
+    <section class="secao" aria-labelledby="titulo-modalidades">
+      <h2 id="titulo-modalidades">Online ou presencial</h2>
+      <div class="lista-c">
+        <div class="cartao-c">
+          <h3>Online</h3>
+          <p>Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso.</p>
+          <a class="link" href="../#/agendar/online">Agendar online</a>
+        </div>
+        <div class="cartao-c">
+          <h3>Presencial</h3>
+          <p>Balneário, Estreito, Florianópolis (SC).</p>
+          <a class="link" href="../#/atendimento/presencial">Ver rota</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. O que dizem no Google -->
+    <section class="secao" aria-labelledby="titulo-avaliacoes">
+      <h2 id="titulo-avaliacoes">O que dizem no Google</h2>
+      <p>[nota] · [nº] avaliações</p>
+      <ul class="rolagem-horizontal rolagem-c" tabindex="0" role="region" aria-labelledby="titulo-avaliacoes">
+        <li class="cartao-c">
+          <p>[texto da avaliação publicada no Google]</p>
+          <p class="apoio">[nome] · [data]</p>
+        </li>
+        <li class="cartao-c">
+          <p>[texto da avaliação publicada no Google]</p>
+          <p class="apoio">[nome] · [data]</p>
+        </li>
+      </ul>
+      <button type="button" class="link" data-aviso="avaliacoes">Ver todas no Google</button>
+    </section>
+
+    <!-- 8. No YouTube, em temporadas -->
+    <section class="secao" aria-labelledby="titulo-youtube">
+      <h2 id="titulo-youtube">No YouTube, em temporadas</h2>
+      <button type="button" class="reservado reservado-16x9 botao-reservado" data-aviso="video" aria-labelledby="titulo-episodio-c">[miniatura do episódio]</button>
+      <p id="titulo-episodio-c"><strong>[Título do episódio]</strong></p>
+      <p class="apoio">Temporada [n] · Episódio [n]</p>
+      <a class="link" href="../#/conteudo">Ver todos os episódios</a>
+    </section>
+
+    <!-- 9. Quer conversar antes de marcar? -->
+    <section class="secao" aria-labelledby="titulo-conversar">
+      <div class="cartao-c cartao-destaque">
+        <h2 id="titulo-conversar">Quer conversar antes de marcar?</h2>
+        <p>Me chame no WhatsApp. Se já sabe o dia, escolha o horário aqui no site.</p>
+        <div class="botoes">
+          <button type="button" class="botao botao-secundario botao-pilula" data-aviso="whatsapp">Conversar no WhatsApp</button>
+          <a class="botao botao-principal botao-pilula" href="../#/agendar/1">Agendar sessão</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 10. Rodapé (CVV discreto, só aqui) -->
+  <footer class="rodape rodape-c" id="rodape">
+    <p class="rodape-nome">Maria Clara Vinotti</p>
+    <p>Parapsicóloga clínica · Florianópolis e online</p>
+    <ul>
+      <li><a href="./" aria-current="page">Início</a></li>
+      <li><a href="../#/sobre">Sobre</a></li>
+      <li><a href="../#/atendimento">Atendimento</a></li>
+      <li><a href="../#/conteudo">Conteúdo</a></li>
+      <li><a href="../#/duvidas">Dúvidas</a></li>
+    </ul>
+    <p class="aviso-crise">Este site não oferece atendimento imediato em situações de crise. Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito, ou acesse <button type="button" class="link-inline" data-aviso="cvv">cvv.org.br</button>. Em emergência, procure o hospital mais próximo.</p>
+    <p class="rodape-legal">
+      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
+      <span aria-hidden="true">·</span>
+      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
+    </p>
+    <p class="rodape-registro">Registro FATECPR · Associada à ABPSIG</p>
+  </footer>
+
+</div>
+
+<!-- Barra flutuante em pílula: aparece quando as ações do topo saem da tela -->
+<div class="barra-pilula" id="barra-pilula">
+  <button type="button" class="botao botao-secundario botao-pilula" data-aviso="whatsapp">WhatsApp</button>
+  <a class="botao botao-principal botao-pilula" href="../#/agendar/1">Agendar sessão</a>
+</div>
+
+<!-- Menu: leva às páginas da alternativa A -->
+<div class="menu-fundo" id="menu-fundo" hidden></div>
+<nav class="menu menu-c" id="menu" tabindex="-1" hidden>
+  <ul>
+    <li><a href="./" aria-current="page">Início</a></li>
+    <li><a href="../#/sobre">Sobre</a></li>
+    <li><a href="../#/atendimento">Atendimento</a></li>
+    <li><a href="../#/conteudo">Conteúdo</a></li>
+    <li><a href="../#/duvidas">Dúvidas</a></li>
+  </ul>
+  <button type="button" class="botao botao-secundario botao-pilula" id="botao-fechar-menu">Fechar</button>
+</nav>
+
+<!-- Aviso temporário das interações simuladas -->
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="comum-c.js"></script>
+<script src="inicio-c.js"></script>
+</body>
+</html>

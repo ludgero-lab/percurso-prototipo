@@ -108,6 +108,7 @@
     transcricao: 'Neste ponto abriria a transcrição do vídeo.',
     avaliacoes: 'Neste ponto abririam as avaliações no Google.',
     youtube: 'Neste ponto abriria o canal no YouTube.',
+    cvv: 'Neste ponto abriria o site do CVV.',
     pagina: 'Esta página ainda não existe no protótipo.'
   };
 
@@ -136,7 +137,19 @@
 
   let primeiraRota = true;
   zerarEstado();
-  estado.origem = ROTA_PADRAO;
+  estado.origem = null; // última página fora do fluxo visitada nesta alternativa
+
+  // Agendamento aberto a partir da alternativa C (outra página do mesmo site):
+  // "Voltar" no passo 1 e "Voltar ao início" retornam para a C, e não para o Início da A.
+  const paginaDaC = (function () {
+    try {
+      const ref = new URL(document.referrer);
+      if (ref.origin === location.origin && /\/alternativa-c\//.test(ref.pathname)) {
+        return { pagina: ref.href, inicio: new URL('./', ref).href };
+      }
+    } catch (erro) { /* sem referência: segue o comportamento da A */ }
+    return null;
+  })();
 
   // ---------------------------------------------------------------
   // Roteador
@@ -147,6 +160,16 @@
 
   function aplicarRota() {
     const caminho = lerRota();
+
+    // Rota de apoio para links de outras páginas (alternativa C): abre o passo 1 com Online marcado
+    if (caminho === 'agendar/online') {
+      zerarEstado();
+      zerarFormularioDados();
+      estado.modalidade = 'online';
+      location.replace('#/agendar/1');
+      return;
+    }
+
     const rota = ROTAS[caminho];
 
     if (!rota) {
@@ -182,7 +205,7 @@
 
     const noFluxo = Boolean(rota.fluxo);
     cabecalhoGlobal.hidden = noFluxo;
-    rodape.hidden = noFluxo;
+    rodape.classList.toggle('rodape-curto', noFluxo);
     barraFixa.hidden = noFluxo;
     cabecalhoFluxo.hidden = !noFluxo;
     if (noFluxo) atualizarCabecalhoFluxo(rota);
@@ -229,7 +252,13 @@
 
   botaoVoltar.addEventListener('click', () => {
     const rota = ROTAS[lerRota()];
-    location.hash = rota && rota.fluxo === 2 ? '#/agendar/1' : (estado.origem || ROTA_PADRAO);
+    if (rota && rota.fluxo === 2) {
+      location.hash = '#/agendar/1';
+    } else if (!estado.origem && paginaDaC) {
+      location.href = paginaDaC.pagina;
+    } else {
+      location.hash = estado.origem || ROTA_PADRAO;
+    }
   });
 
   // "Agendar sessão" (de fora do fluxo) começa do zero; "Agendar online" já marca Online
@@ -611,6 +640,10 @@
   $('#voltar-inicio').addEventListener('click', () => {
     zerarEstado();
     zerarFormularioDados();
+    if (!estado.origem && paginaDaC) {
+      location.href = paginaDaC.inicio;
+      return;
+    }
     location.hash = ROTA_PADRAO;
   });
 
