@@ -42,7 +42,7 @@ Protótipo navegável, em fidelidade baixa, do site da Maria Clara Vinotti, para
 ## Privacidade e publicação
 
 - `<meta name="robots" content="noindex, nofollow">` em todas as páginas HTML e um `robots.txt` bloqueando tudo.
-- Nenhum analytics, nenhuma chamada de rede.
+- Nenhum analytics, nenhuma chamada de rede. Única exceção, na C: o vídeo do canal no Início, que só carrega de `youtube-nocookie.com` quando a pessoa toca no play.
 
 ## Forma de trabalhar
 

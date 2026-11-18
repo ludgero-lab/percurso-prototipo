@@ -180,7 +180,13 @@
     <!-- 8. YouTube (título em rascunho) -->
     <section class="secao" aria-labelledby="titulo-youtube">
       <h2 id="titulo-youtube">Conheça meu canal no YouTube</h2>
-      <button type="button" class="reservado reservado-16x9 botao-reservado" data-aviso="video" aria-labelledby="titulo-episodio-c">[miniatura do episódio]</button>
+      <!-- Vídeo do canal: só carrega (youtube-nocookie.com) quando a pessoa toca no play.
+           Exceção à regra de "nenhuma chamada de rede", registrada no CLAUDE.md e na especificação da C. -->
+      <div class="reservado reservado-16x9 video-c">
+        <button type="button" class="botao-play" data-video="3LOUZY9A1qo" aria-labelledby="titulo-episodio-c">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+        </button>
+      </div>
       <p id="titulo-episodio-c"><strong>[Título do episódio]</strong></p>
       <p class="apoio">Temporada [n] · Episódio [n]</p>
       <a class="link" href="conteudo.html">Ver todos os episódios</a>
