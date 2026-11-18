@@ -102,8 +102,8 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 
 - h2: "Para entender em poucas palavras" (com `tabindex="-1"`, para receber o foco vindo de "Ver como funciona").
 - Quatro cartões empilhados: o da frente inteiro e os de trás alinhados no centro, um pouco mais estreitos e deslocados para baixo, mostrando que há mais cartões. **Regra de hierarquia tonal:** quanto mais ao fundo, mais escuro o cartão (frente #f2f2f2, primeiro de trás #e0e0e0, último #cbcbcb). Os cartões não têm sombra: só o quadro.
-- Troca de cartão para os lados: em "Próximo", o cartão da frente desliza inteiro para fora pela esquerda, girando de leve, e some só no fim, enquanto o seguinte sobe para o lugar; em "Anterior", o cartão volta pelo mesmo lado. Movimento evidente e suave (650 ms, começa e termina devagar). Com "reduzir movimento", vira troca de opacidade.
-- Acima do baralho: "Cartão X de 4". Abaixo: botões "Anterior" e "Próximo" (desativados nas pontas). Deslizar o cartão com o dedo para os lados é um atalho, nunca a única forma de navegar.
+- Troca de cartão para os lados: em "Próximo", o cartão da frente desliza inteiro para fora pela esquerda, girando de leve, e some só no fim, enquanto o seguinte sobe para o lugar; em "Anterior", o movimento se espelha: o cartão da frente desliza para a direita e volta para trás da pilha, enquanto o anterior sobe da pilha para a frente. Movimento evidente e suave (650 ms, começa e termina devagar). Com "reduzir movimento", vira troca de opacidade.
+- Acima do baralho: "Cartão X de 4". Abaixo, centralizados: dois botões redondos discretos de 48 px, só com a seta (‹ e ›), contorno fino e nome para leitor de tela ("Cartão anterior" e "Próximo cartão"); desativados nas pontas. Deslizar o cartão com o dedo é um atalho (para a esquerda, próximo; para a direita, anterior), nunca a única forma de navegar.
 - Frente de cada cartão: a pergunta em destaque e o apoio "Toque para ver a resposta".
 - Tocar na frente vira o cartão (giro em Y de 450 ms) e mostra o verso. Tocar de novo volta para a frente. O cartão é um `button` com `aria-expanded`; o verso fica no DOM e é lido por leitor de tela quando aberto. Com "reduzir movimento", o giro vira uma troca de opacidade.
 - Ao trocar de cartão, o novo aparece sempre pela frente.
@@ -185,7 +185,7 @@ Página própria da C: `alternativa-c/quiz.html`, com o mesmo cabeçalho, rodap�
 - Mesma linguagem visual do baralho do Início: cartão da frente com a pergunta e os de trás deslocados.
 - Acima do baralho: "Pergunta X de 6".
 - Opções como botões grandes (rádios nativos estilizados, mínimo 44 px de altura). Tocar numa opção marca a escolha.
-- "Próxima" (desativado até haver escolha) faz o cartão deslizar para fora pela esquerda e revela o próximo, com o mesmo movimento dos flash cards (seção 2.3). "Voltar" traz o cartão anterior de volta pelo mesmo lado, com a resposta mantida. Com "reduzir movimento", vira troca de opacidade.
+- "Próxima" (desativado até haver escolha) faz o cartão deslizar para fora pela esquerda e revela o próximo, com o mesmo movimento dos flash cards (seção 2.3). "Voltar" espelha o movimento (o cartão vai para a direita e o anterior volta da pilha), com a resposta mantida. Os dois botões mantêm o texto, com a seta ao lado: aqui são decisões de um formulário, não só navegação. Com "reduzir movimento", vira troca de opacidade.
 - Ao trocar de cartão, o foco vai para o título da pergunta.
 - A ordem das opções abaixo é a de exibição. A letra indica o tema e não aparece na tela.
 
@@ -257,7 +257,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] Animação de entrada só acontece uma vez e não acontece com "reduzir movimento".
 - [ ] Os 7 chips funcionam com toque e teclado; cada um mostra a resposta certa; só "Tristeza" mostra a linha do 188.
 - [ ] "Ver como funciona" rola até o baralho e leva o foco ao título.
-- [ ] Baralho: "Cartão X de 4", Anterior e Próximo, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
+- [ ] Baralho: "Cartão X de 4", setas de anterior e próximo com nome acessível, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
 - [ ] Baralho alinhado na vertical, sem sombra, com hierarquia tonal (cada cartão de trás mais escuro) e troca para os lados, evidente e suave; o mesmo no quiz.
 - [ ] Os links dos cartões, das seções e do menu levam às páginas certas da C; nenhum link sai da C.
 - [ ] A barra flutuante só aparece depois que as ações principais da tela saem de vista e não esconde conteúdo nem o rodapé.

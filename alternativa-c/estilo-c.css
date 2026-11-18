@@ -693,6 +693,55 @@ main > .secao:last-child {
   transition: transform var(--duracao-troca) var(--curva-troca), opacity var(--duracao-troca) ease-in;
 }
 
+/* "Anterior": espelho do "Próximo". O cartão da frente vai para a direita e
+   volta para trás da pilha; o anterior sobe da pilha para a frente, sem
+   atravessar a tela. Na primeira metade, o que sai fica por cima. */
+@keyframes carta-para-tras {
+  0% {
+    transform: none;
+    z-index: 6;
+  }
+  50% {
+    transform: translateX(70%) rotate(6deg);
+    z-index: 6;
+  }
+  51% {
+    z-index: 1;
+  }
+  100% {
+    transform: translateY(16px) scale(0.94);
+    z-index: 1;
+  }
+}
+
+@keyframes carta-volta-da-pilha {
+  0%,
+  35% {
+    transform: translateY(16px) scale(0.94);
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.carta.indo-para-tras {
+  animation: carta-para-tras var(--duracao-troca) var(--curva-troca);
+}
+
+.carta.voltando-da-pilha {
+  animation: carta-volta-da-pilha var(--duracao-troca) var(--curva-troca);
+}
+
+.baralho .carta.indo-para-tras .carta-face {
+  background: var(--tom-carta-frente);
+}
+
+.baralho .carta.indo-para-tras .carta-face > * {
+  opacity: 1;
+}
+
 .carta-giro {
   position: relative;
   z-index: 2;
@@ -837,10 +886,49 @@ main > .secao:last-child {
   gap: 12px;
 }
 
+/* Seta + texto: o rótulo continua visível; a seta indica o sentido do movimento */
+.baralho-nav .botao {
+  gap: 6px;
+}
+
+.baralho-nav .botao svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
 .baralho-nav .botao:disabled {
   border-color: var(--linha);
   color: #8a8a8a;
   cursor: default;
+}
+
+/* Início: só as setas, em botões redondos discretos e centralizados (padrão de
+   carrossel). O nome fica no aria-label; o contador "Cartão X de 4" segue visível. */
+.baralho-nav-icones {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.botao-seta {
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--linha);
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.baralho-nav .botao-seta svg {
+  width: 22px;
+  height: 22px;
+}
+
+.baralho-nav .botao-seta:disabled {
+  border-color: var(--linha);
+  color: #b0b0b0;
 }
 
 /* ================= 6. Quiz ================= */

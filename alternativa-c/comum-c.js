@@ -296,8 +296,20 @@ window.PercursoC = (function () {
       if (indice < 0 || indice >= lista.length || indice === atual) return false;
       const anterior = lista[atual];
       const tinhaFoco = anterior.contains(document.activeElement);
+      const voltando = indice < atual;
       atual = indice;
       posicionar();
+      // Voltando (espelho do Próximo), o cartão da frente vai para a direita e volta
+      // para trás da pilha, e o anterior sobe da pilha para a frente
+      if (voltando && !reduzirMovimento.matches) {
+        const novo = lista[atual];
+        [[anterior, 'indo-para-tras'], [novo, 'voltando-da-pilha']].forEach(([carta, classe]) => {
+          carta.classList.remove(classe);
+          void carta.offsetWidth;
+          carta.classList.add(classe);
+          setTimeout(() => carta.classList.remove(classe), DURACAO_TROCA + 20);
+        });
+      }
       // O novo cartão aparece sempre pela frente; o que saiu desvira depois de sair de vista
       if (anterior.classList.contains('virada')) {
         setTimeout(() => {
@@ -328,7 +340,7 @@ window.PercursoC = (function () {
       else virarCarta(carta, !carta.classList.contains('virada'));
     });
 
-    // Deslizar para os lados é só um atalho para Anterior e Próximo
+    // Deslizar para os lados é só um atalho: para a esquerda, Próximo; para a direita, Anterior
     if (opcoes.deslizar) {
       let inicio = null;
       raiz.addEventListener('pointerdown', (evento) => {
