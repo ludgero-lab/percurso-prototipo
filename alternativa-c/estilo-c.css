@@ -11,7 +11,7 @@
 :root {
   --raio: 16px;                   /* controles e blocos internos (na A são 8 px) */
   --raio-cartao: 24px;            /* cartões, seções em cartão e baralhos */
-  --fonte-titulo-secao: 1.5rem;   /* h2 das seções e h1 do topo (24 px) */
+  --fonte-titulo-secao: 1.5rem;   /* h2 das seções e h1 do topo (24 px); h1 das demais páginas: 32 px */
   --fonte-titulo-cartao: 1.375rem; /* títulos dentro dos cartões: pergunta e resultado */
   --altura-cabecalho: 64px;       /* botão de 48 px + 8 px em cima e embaixo */
   --altura-barra: 88px;           /* espaço no fim da página para a barra em pílula */
@@ -211,6 +211,17 @@
   letter-spacing: -0.01em;
 }
 
+/* Título das páginas internas e do quiz (o Início usa o topo) */
+.secao h1 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Âncoras (#presencial, #etapas): o cabeçalho já entra no scroll-padding */
+[id] {
+  scroll-margin-top: 16px;
+}
+
 main > .secao:last-child {
   padding-bottom: 40px;
 }
@@ -316,7 +327,8 @@ main > .secao:last-child {
   margin: 16px 0 0;
 }
 
-/* Rádio nativo, escondido sob o chip, continua recebendo toque, setas e leitor de tela */
+/* Chip: rádio nativo escondido sob o rótulo (sentimentos) ou botão com aria-pressed
+   (temporadas). O rádio continua recebendo toque, setas e leitor de tela. */
 .chip {
   position: relative;
   display: inline-flex;
@@ -326,7 +338,9 @@ main > .secao:last-child {
   border: 2px solid var(--borda);
   border-radius: 999px;
   background: var(--fundo);
+  font: inherit;
   font-weight: 600;
+  color: var(--texto);
   cursor: pointer;
 }
 
@@ -340,6 +354,7 @@ main > .secao:last-child {
   cursor: pointer;
 }
 
+.chip[aria-pressed="true"],
 .chip:has(input:checked) {
   border-color: var(--escuro);
   background: var(--escuro);
@@ -395,6 +410,118 @@ main > .secao:last-child {
 }
 
 .cartao-destaque .botoes {
+  margin-bottom: 0;
+}
+
+/* ================= 4b. Páginas internas (Sobre, Atendimento, Conteúdo, Dúvidas) ================= */
+
+/* Lista numerada em cartões: o número fica num círculo (como sessões e 8 etapas) */
+.lista-numerada {
+  counter-reset: item;
+}
+
+.lista-numerada > li {
+  counter-increment: item;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.lista-numerada > li::before {
+  content: counter(item);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fundo);
+  font-weight: 700;
+}
+
+.cartao-c .reservado {
+  margin: 12px 0;
+}
+
+.cartao-c .botao {
+  margin-top: 4px;
+}
+
+/* Conteúdo: temporadas em chips e episódios em linhas */
+.chips-temporadas {
+  margin: 0 0 16px;
+}
+
+.episodios-c {
+  gap: 4px;
+}
+
+.episodios-c .episodio {
+  grid-template-columns: 112px 1fr;
+  min-height: 80px;
+  padding: 8px;
+  border-radius: var(--raio-cartao);
+}
+
+.episodios-c .episodio:hover {
+  background: var(--superficie);
+}
+
+.episodios-c .reservado {
+  border-radius: var(--raio);
+}
+
+/* Dúvidas: cada pergunta num cartão que abre */
+.acordeao-c {
+  display: grid;
+  gap: 12px;
+}
+
+.acordeao-c details {
+  border-radius: var(--raio-cartao);
+  background: var(--superficie);
+}
+
+.acordeao-c summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 16px 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.acordeao-c summary::-webkit-details-marker {
+  display: none;
+}
+
+/* + / − num círculo, como os botões redondos */
+.acordeao-c summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fundo);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.acordeao-c details[open] summary::after {
+  content: "−";
+}
+
+.acordeao-c .resposta {
+  padding: 0 20px 20px;
+}
+
+.acordeao-c .resposta > :last-child {
   margin-bottom: 0;
 }
 
@@ -590,11 +717,6 @@ main > .secao:last-child {
 }
 
 /* ================= 6. Quiz ================= */
-
-.quiz h1 {
-  font-size: 2rem;
-  letter-spacing: -0.01em;
-}
 
 .quiz-abertura .botoes {
   margin-top: 24px;
