@@ -251,7 +251,7 @@ window.PercursoC = (function () {
   // Baralho de cartões empilhados (flash cards do Início e perguntas do quiz)
   // ---------------------------------------------------------------
   // Cada [data-carta] recebe data-pos conforme a distância até o cartão atual:
-  // "0" na frente, "1" e "2" atrás (alinhados, um pouco abaixo), "atras" escondido, "saiu" (saiu pela esquerda).
+  // "0" na frente, "1" e "2" atrás (alinhados, um pouco abaixo), "atras" escondido, "saiu" (saiu pela direita).
   // Só o cartão da frente fica fora do inert. Cartões que viram têm um botão
   // .carta-virar (aria-expanded) e um .carta-verso, que fica inert enquanto fechado.
   const DURACAO_TROCA = 650; // igual a --duracao-troca no CSS
@@ -299,7 +299,7 @@ window.PercursoC = (function () {
       const voltando = indice < atual;
       atual = indice;
       posicionar();
-      // Voltando (espelho do Próximo), o cartão da frente vai para a direita e volta
+      // Voltando (espelho do Próximo), o cartão da frente vai para a esquerda e volta
       // para trás da pilha, e o anterior sobe da pilha para a frente
       if (voltando && !reduzirMovimento.matches) {
         const novo = lista[atual];
@@ -340,7 +340,7 @@ window.PercursoC = (function () {
       else virarCarta(carta, !carta.classList.contains('virada'));
     });
 
-    // Deslizar para os lados é só um atalho: para a esquerda, Próximo; para a direita, Anterior
+    // Deslizar para os lados é só um atalho, no mesmo sentido das setas: para a direita, Próximo; para a esquerda, Anterior
     if (opcoes.deslizar) {
       let inicio = null;
       raiz.addEventListener('pointerdown', (evento) => {
@@ -355,7 +355,7 @@ window.PercursoC = (function () {
         if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
         ignorarClique = true;
         setTimeout(() => { ignorarClique = false; }, 400);
-        irPara(atual + (dx < 0 ? 1 : -1));
+        irPara(atual + (dx > 0 ? 1 : -1));
       });
       raiz.addEventListener('pointercancel', () => { inicio = null; });
     }

@@ -39,7 +39,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 **Baralho**
 - Atrás do cartão da frente aparecem os que ainda faltam (até dois); no último, não há nada atrás.
 - Se o botão com foco é desativado (nas pontas), o foco vai para o cartão.
-- "Anterior" espelha "Próximo": o cartão da frente sai para a direita e volta para trás da pilha, e o anterior sobe da pilha (em vez de atravessar a tela pela esquerda, o que cruzaria dois cartões em sentidos opostos).
+- O cartão anda no sentido da seta: "Próximo" (›) o leva para fora pela direita; "Anterior" (‹) o leva para a esquerda e para trás da pilha, e o anterior sobe da pilha (em vez de voltar atravessando a tela, o que cruzaria dois cartões em sentidos opostos). O deslize com o dedo segue o mesmo sentido: para a direita avança, para a esquerda volta.
 - No Início, a navegação é só por setas em botões redondos discretos, padrão de carrossel conhecido; o nome fica no `aria-label` e o contador "Cartão X de 4" continua visível. No quiz, "Voltar" e "Próxima" mantêm o texto com a seta ao lado, porque ali são passos de formulário.
 - O cartão é um botão que cobre o cartão inteiro, e não o cartão dentro de um botão: o verso tem links, que não podem ficar dentro de um botão. O verso fica `inert` e `aria-hidden` enquanto fechado.
 
