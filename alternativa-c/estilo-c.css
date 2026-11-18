@@ -745,3 +745,8 @@ main > .secao:last-child {
 .email-enviado:focus {
   outline: none;
 }
+
+/* "Ver como funciona": o cabeçalho já entra no scroll-padding; sem margem extra da A ([id]) */
+.secao-baralho {
+  scroll-margin-top: 0;
+}

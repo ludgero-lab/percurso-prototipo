@@ -53,7 +53,7 @@ A C segue a referência de estrutura e cartões, ainda em tons de cinza, para qu
 - **Chips:** rádios nativos num `fieldset` com legenda escondida, nenhum marcado. A resposta aparece numa área `aria-live="polite"`; trocar de opção troca o texto. Só "Tristeza" mostra a linha do 188. "Ver como funciona" rola até o baralho e leva o foco ao título dele.
 - **Flash cards:**
   - "Cartão X de 4" é anunciado por leitor de tela. "Anterior" e "Próximo" ficam desativados nas pontas; se o botão com foco for desativado, o foco vai para o cartão.
-  - Cada cartão é um botão (`aria-expanded`) que cobre o cartão inteiro. O verso fica no DOM, fora do alcance do leitor de tela enquanto fechado (`inert`), e o link dele continua clicável.
+  - Cada cartão é um botão (`aria-expanded`) que cobre o cartão inteiro. O verso fica no DOM, fora do alcance do leitor de tela enquanto fechado (`inert` e `aria-hidden`), e o link dele continua clicável.
   - Giro em Y de 450 ms; a troca de cartão desliza em 300 ms. Com "reduzir movimento", os dois viram troca de opacidade.
   - Deslizar o dedo para os lados é atalho para Anterior e Próximo, nunca a única forma.
   - O novo cartão aparece sempre pela frente. Atrás do cartão da frente aparecem os que ainda faltam; no último, não há nada atrás.

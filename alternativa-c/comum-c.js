@@ -121,7 +121,12 @@ window.PercursoC = (function () {
     const botao = $('.carta-virar', carta);
     const verso = $('.carta-verso', carta);
     if (botao) botao.setAttribute('aria-expanded', String(aberta));
-    if (verso) verso.inert = !aberta;
+    if (verso) {
+      // inert tira do foco e da árvore de acessibilidade; aria-hidden reforça para leitores mais antigos
+      verso.inert = !aberta;
+      if (aberta) verso.removeAttribute('aria-hidden');
+      else verso.setAttribute('aria-hidden', 'true');
+    }
   }
 
   // Volta à frente sem mostrar o giro (cartão que já saiu da frente)
