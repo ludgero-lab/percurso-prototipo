@@ -50,7 +50,7 @@ Substituir os espaços reservados:
 | 5 | Acolhimento e sigilo ("Aqui você pode falar à vontade") |
 | 6 | Online ou presencial ("Online ou no consultório: você escolhe") |
 | 7 | O que dizem no Google |
-| 8 | YouTube ("Um vídeo novo toda semana no YouTube") |
+| 8 | YouTube ("Conheça meu canal no YouTube") |
 | 9 | Quer conversar antes de marcar? |
 | 10 | Rodapé (seção 1.1) |
 | — | Barra flutuante em pílula com WhatsApp e Agendar sessão (2.6) e botão de voltar ao topo (2.7) |
@@ -148,7 +148,7 @@ As outras três seções ganham textos novos, na voz da Maria Clara (primeira pe
 - Cartão **Presencial**: "No consultório no Balneário, Estreito, em Florianópolis (SC)." Link "Ver rota".
 
 **YouTube (rascunho):**
-- h2: "Um vídeo novo toda semana no YouTube" (no lugar de "No YouTube, em temporadas"); o resto da seção não muda.
+- h2: "Conheça meu canal no YouTube" (no lugar de "No YouTube, em temporadas"): um convite a conhecer o canal, sem prometer uma frequência de vídeos. O resto da seção não muda.
 
 ### 2.6 Barra flutuante em pílula
 

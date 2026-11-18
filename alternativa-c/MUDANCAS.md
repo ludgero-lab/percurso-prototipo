@@ -8,7 +8,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 
 ## 1. Em aberto (para validar com a Maria Clara)
 
-1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe" e "Um vídeo novo toda semana no YouTube".
+1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe" e "Conheça meu canal no YouTube".
 2. Lista final de sentimentos.
 3. Se o quiz entra no MVP (estava previsto para a V2).
 4. Texto do aviso do CVV no rodapé.
@@ -55,7 +55,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 | 4 | Convite para o quiz | Substitui o convite para o teste de perfil |
 | 5–6 | "Aqui você pode falar à vontade" e "Online ou no consultório: você escolhe" | Mesmo conteúdo, textos novos (rascunho) |
 | 7 | O que dizem no Google | Igual |
-| 8 | "Um vídeo novo toda semana no YouTube" | Título novo (rascunho) |
+| 8 | "Conheça meu canal no YouTube" | Título novo (rascunho) |
 | 9 | Quer conversar antes de marcar? | "Agendar sessão" |
 | 10 | Rodapé com o CVV discreto e a linha de registro | Mudança global (também na A) |
 | — | Barra flutuante em pílula e voltar ao topo | Substituem o botão flutuante de WhatsApp |
