@@ -26,7 +26,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 - "Voltar" no cabeçalho das páginas internas e do quiz leva ao Início da C. No agendamento, "Voltar" no passo 1 devolve à página da C de onde a pessoa veio.
 
 **Imagem do topo**
-- A foto original (paisagem, busto à esquerda) foi recortada em retrato com o busto no centro e a parede de cima reduzida, para a figura caber inteira acima do painel de texto no celular (390 × 844). A mesa continua para baixo com a cor média dela, numa mistura gradual. Em telas mais baixas (667 px), o painel cobre parte do busto.
+- A foto original (paisagem, busto à esquerda, em cores) foi convertida para tons de cinza e recortada em retrato com o busto no centro e a parede de cima reduzida, para a figura caber inteira acima do painel de texto no celular (390 × 844). A mesa continua para baixo com a cor média dela, numa mistura gradual. Em telas mais baixas (667 px), o painel cobre parte do busto.
 
 **Vídeo do canal**
 - O player é criado só no toque, a partir de `youtube-nocookie.com`; antes disso, nenhuma chamada ao YouTube. O título do iframe é o título do vídeo mostrado abaixo dele (h3).
@@ -66,7 +66,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 | 10 | Rodapé com o CVV discreto e a linha de registro | Mudança global (também na A) |
 | — | Barra flutuante em pílula e voltar ao topo | Substituem o botão flutuante de WhatsApp |
 
-Só o topo tem a altura da tela e "encaixa" na rolagem.
+Só o topo tem a altura da tela. No começo da rolagem, a imagem fica parada e o quadro de texto sobe por cima dela; o encaixe na rolagem (herdado da B) saiu, porque puxava a página de volta e brigava com esse efeito.
 
 ## 5. Linha visual (estrutura, não estética)
 

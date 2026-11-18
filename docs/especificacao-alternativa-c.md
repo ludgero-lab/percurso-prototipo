@@ -55,7 +55,7 @@ Substituir os espaços reservados:
 | 10 | Rodapé (seção 1.1) |
 | — | Barra flutuante em pílula com WhatsApp e Agendar sessão (2.6) e botão de voltar ao topo (2.7) |
 
-Em relação à B, sai do Início: o seletor em arco com emoções, o botão "Continuar" e a seção "Como é uma sessão" em lista (ela vira um cartão do baralho). Os blocos de tela cheia com rolagem que encaixa ficam só no topo (seção 1); as demais seções têm a altura do próprio conteúdo.
+Em relação à B, sai do Início: o seletor em arco com emoções, o botão "Continuar" e a seção "Como é uma sessão" em lista (ela vira um cartão do baralho). Só o topo (seção 1) tem a altura da tela; as demais seções têm a altura do próprio conteúdo. Não há encaixe na rolagem (ver seção 2.1).
 
 O cabeçalho do Início continua só com o botão de menu. O menu e o rodapé levam às páginas da própria C (seção 3A): `sobre.html`, `atendimento.html`, `conteudo.html` e `duvidas.html`.
 
@@ -64,7 +64,8 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 ### 2.1 Topo
 
 - Ocupa a altura da tela do celular (menos o cabeçalho).
-- Fundo: a imagem da identidade visual (busto com flores), em `alternativa-c/img/topo.jpg`, no lugar do espaço reservado. Ela foi recortada em retrato com o busto no centro da faixa de cima, acima do painel de texto; abaixo, a superfície da mesa continua sem emenda. É decorativa (`alt=""`), local (sem chamada de rede) e a única foto do protótipo. O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
+- Rolagem: no começo da rolagem, a imagem fica parada e o quadro de texto sobe por cima dela, até cobri-la (trecho de 35% da altura da tela); depois, tudo segue rolando. Com "reduzir movimento", a imagem rola junto com o texto. Sem encaixe na rolagem, que brigaria com esse efeito.
+- Fundo: a imagem da identidade visual (busto com flores), em tons de cinza, em `alternativa-c/img/topo.jpg`, no lugar do espaço reservado. Ela foi recortada em retrato com o busto no centro da faixa de cima, acima do painel de texto; abaixo, a superfície da mesa continua sem emenda. É decorativa (`alt=""`), local (sem chamada de rede) e a única foto do protótipo. O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
 - Composição tipográfica, de cima para baixo:
   - "Maria Clara Vinotti" em tamanho grande (40 px no celular), fonte serifada do sistema (`ui-serif, Georgia, serif`), sem fontes externas.
   - "Parapsicóloga clínica" em itálico, mesma família serifada, 20 px.
