@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Maria Clara Vinotti (alternativa B)</title>
+  <link rel="icon" href="data:,">
+  <!-- Reaproveita a base visual da alternativa A e acrescenta só o que é novo -->
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="estilo-b.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Cabeçalho: só o botão de menu, como no esboço -->
+  <header class="cabecalho cabecalho-b" id="cabecalho">
+    <button type="button" class="botao-icone" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- Bloco 1 (altura da tela): nome grande, foto, cards e agendamento -->
+    <section class="bloco tela-cheia abertura-b">
+      <div class="hero-grade">
+        <div class="hero-texto">
+          <h1 class="hero-nome">Maria Clara</h1>
+          <p class="hero-profissao">Parapsicóloga clínica</p>
+          <p class="hero-frase">Parapsicologia clínica feita com acolhimento e parceria</p>
+        </div>
+        <div class="reservado hero-foto">[foto]</div>
+      </div>
+
+      <ul class="cards-tema">
+        <li><button type="button" class="card-tema" data-aviso="pagina">Quem sou eu?</button></li>
+        <li><button type="button" class="card-tema" data-aviso="pagina">A parapsicologia clínica</button></li>
+        <li><button type="button" class="card-tema" data-aviso="pagina">Como a parapsicologia pode ajudar</button></li>
+      </ul>
+
+      <button type="button" class="botao botao-principal botao-pilula" data-aviso="pagina">Agendar uma sessão</button>
+    </section>
+
+    <!-- Bloco 2 (altura da tela): Como você se sente hoje? -->
+    <section class="bloco tela-cheia humor" aria-labelledby="titulo-humor">
+      <h2 id="titulo-humor">Como você se sente hoje?</h2>
+      <fieldset class="mostrador" id="mostrador">
+        <legend class="so-leitor">Como você se sente hoje?</legend>
+        <svg class="mostrador-arco" id="mostrador-arco" aria-hidden="true" focusable="false"></svg>
+        <!-- As emoções são posicionadas no arco pelo alternativa-b/app-b.js -->
+        <div class="emocoes" id="emocoes"></div>
+        <p class="emocao-escolhida" id="emocao-escolhida" aria-live="polite"></p>
+      </fieldset>
+      <!-- Confirmação que leva ao bloco 3; o espaço fica reservado para a tela não pular -->
+      <div class="confirmacao">
+        <button type="button" class="botao botao-secundario botao-pilula botao-continuar" id="botao-continuar" aria-controls="teste-perfil" hidden>
+          Continuar
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Bloco 3 (altura da tela): convite para o teste de perfil, liberado após a resposta -->
+    <section class="bloco tela-cheia teste-perfil" id="teste-perfil" aria-labelledby="titulo-teste" hidden>
+      <h2 id="titulo-teste" tabindex="-1">Você gostaria de fazer um teste de perfil?</h2>
+      <p>É bem rapidinho!</p>
+      <button type="button" class="botao botao-principal botao-pilula" data-aviso="pagina">Fazer o teste</button>
+      <details class="sobre-teste">
+        <summary>O que é o teste de perfil?</summary>
+        <p>[Explicação do teste de perfil, a definir com a Maria Clara.]</p>
+      </details>
+    </section>
+
+    <!-- 4. Seções mantidas da alternativa A -->
+    <section class="bloco">
+      <h2>Como é uma sessão</h2>
+      <p>Cerca de 1h30, online ou presencial. Você não chega para receber respostas prontas.</p>
+      <ol class="cartoes cartoes-numerados">
+        <li class="cartao"><p><strong>Conhecer a sua história.</strong> Ficha escrita e tabela familiar.</p></li>
+        <li class="cartao"><p><strong>Olhar para os sentimentos</strong> que mais marcam a sua vida.</p></li>
+        <li class="cartao"><p><strong>Definir metas</strong> a curto, médio e longo prazo, juntos.</p></li>
+        <li class="cartao"><p><strong>Tarefas entre as sessões:</strong> áudios, filmes e exercícios, no seu tempo.</p></li>
+      </ol>
+      <button type="button" class="link" data-aviso="pagina">Ver as 8 etapas</button>
+    </section>
+
+    <section class="bloco">
+      <h2>Acolhimento e sigilo</h2>
+      <ul class="cartoes">
+        <li class="cartao"><p><strong>Ninguém é julgado.</strong> Separar o ato da pessoa é a regra que ela segue.</p></li>
+        <li class="cartao"><p><strong>Sigilo absoluto.</strong> O que você conta fica entre vocês.</p></li>
+        <li class="cartao"><p><strong>Cliente como sócio no processo.</strong> Tarefas, áudios e filmes entre as sessões.</p></li>
+      </ul>
+    </section>
+
+    <section class="bloco">
+      <h2>Online ou presencial</h2>
+      <div class="cartoes">
+        <div class="cartao">
+          <h3>Online</h3>
+          <p>Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso.</p>
+          <button type="button" class="link" data-aviso="pagina">Agendar online</button>
+        </div>
+        <div class="cartao">
+          <h3>Presencial</h3>
+          <p>Balneário, Estreito, Florianópolis (SC).</p>
+          <button type="button" class="link" data-aviso="pagina">Ver rota</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloco">
+      <h2 id="titulo-avaliacoes">O que dizem no Google</h2>
+      <p>[nota] · [nº] avaliações</p>
+      <ul class="rolagem-horizontal" tabindex="0" role="region" aria-labelledby="titulo-avaliacoes">
+        <li class="cartao">
+          <p>[texto da avaliação publicada no Google]</p>
+          <p class="apoio">[nome] · [data]</p>
+        </li>
+        <li class="cartao">
+          <p>[texto da avaliação publicada no Google]</p>
+          <p class="apoio">[nome] · [data]</p>
+        </li>
+      </ul>
+      <button type="button" class="link" data-aviso="avaliacoes">Ver todas no Google</button>
+    </section>
+
+    <section class="bloco">
+      <h2>No YouTube, em temporadas</h2>
+      <button type="button" class="reservado reservado-16x9 botao-reservado" data-aviso="video" aria-labelledby="titulo-episodio-b">[miniatura do episódio]</button>
+      <p id="titulo-episodio-b"><strong>[Título do episódio]</strong></p>
+      <p class="apoio">Temporada [n] · Episódio [n]</p>
+      <button type="button" class="link" data-aviso="pagina">Ver todos os episódios</button>
+    </section>
+
+    <section class="bloco">
+      <h2>Quer conversar antes de marcar?</h2>
+      <p>Me chame no WhatsApp. Se já sabe o dia, escolha o horário aqui no site.</p>
+      <div class="botoes">
+        <button type="button" class="botao botao-secundario botao-pilula" data-aviso="whatsapp">Conversar no WhatsApp</button>
+        <button type="button" class="botao botao-principal botao-pilula" data-aviso="pagina">Agendar uma sessão</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé (com o CVV) -->
+  <footer class="rodape" id="rodape">
+    <p class="rodape-nome">Maria Clara Vinotti</p>
+    <p>Parapsicóloga clínica · Florianópolis e online</p>
+    <ul>
+      <li><a href="./">Início</a></li>
+      <li><button type="button" class="link-rodape" data-aviso="pagina">Sobre</button></li>
+      <li><button type="button" class="link-rodape" data-aviso="pagina">Atendimento</button></li>
+      <li><button type="button" class="link-rodape" data-aviso="pagina">Conteúdo</button></li>
+      <li><button type="button" class="link-rodape" data-aviso="pagina">Dúvidas</button></li>
+    </ul>
+    <div class="caixa-cvv">
+      <p><strong>Em sofrimento intenso?</strong></p>
+      <p>Ligue 188 (CVV), 24 horas, gratuito.</p>
+    </div>
+    <p class="rodape-legal">
+      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
+      <span aria-hidden="true">·</span>
+      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Botão flutuante de WhatsApp (substitui a barra fixa da alternativa A) -->
+<button type="button" class="whatsapp-flutuante" id="whatsapp-flutuante" data-aviso="whatsapp" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/><path d="M9 8.6c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .5-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.2.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.5.4-1.3.6-2 .4-2.3-.6-4.4-2.7-5-5-.2-.7 0-1.5.4-2z" fill="currentColor"/></svg>
+</button>
+
+<!-- Menu -->
+<div class="menu-fundo" id="menu-fundo" hidden></div>
+<nav class="menu" id="menu" tabindex="-1" hidden>
+  <ul>
+    <li><a href="./" aria-current="page">Início</a></li>
+    <li><button type="button" data-aviso="pagina">Sobre</button></li>
+    <li><button type="button" data-aviso="pagina">Atendimento</button></li>
+    <li><button type="button" data-aviso="pagina">Conteúdo</button></li>
+    <li><button type="button" data-aviso="pagina">Dúvidas</button></li>
+  </ul>
+  <button type="button" class="botao botao-secundario" id="botao-fechar-menu">Fechar</button>
+</nav>
+
+<!-- Aviso temporário das interações simuladas -->
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="app-b.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+/* Alternativa B: só o que muda em relação a ../estilo.css.
+   Mesmas regras visuais: tons de cinza, uma cor escura, system-ui, sem animações. */
+
+:root {
+  /* espaço no fim da página para o botão flutuante de WhatsApp */
+  --altura-barra: 88px;
+  /* altura do cabeçalho fixo (botão de 48 px + 8 px em cima e embaixo) */
+  --altura-cabecalho: 64px;
+  /* os blocos de tela cheia "encaixam" na rolagem, sem prender o resto da página */
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--altura-cabecalho);
+}
+
+/* ---------- Blocos com a altura da tela do celular ---------- */
+
+.tela-cheia {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--altura-cabecalho));
+  min-height: calc(100svh - var(--altura-cabecalho));
+  /* deixa livre a faixa do botão flutuante de WhatsApp */
+  padding-bottom: 88px;
+  scroll-snap-align: start;
+  /* anula a margem de rolagem das âncoras da A ([id] em ../estilo.css); o cabeçalho já entra no scroll-padding */
+  scroll-margin-top: 0;
+}
+
+.so-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Cabeçalho só com o menu ---------- */
+
+.cabecalho-b {
+  justify-content: flex-end;
+  border-bottom: 0;
+}
+
+/* ---------- Abertura ---------- */
+
+.abertura-b {
+  padding-top: 8px;
+}
+
+/* o botão "Agendar uma sessão" fica ancorado na base do primeiro bloco */
+.abertura-b > .botao-pilula {
+  margin-top: auto;
+}
+
+.hero-grade {
+  display: grid;
+  grid-template-columns: 1fr 136px;
+  gap: 16px;
+  align-items: start;
+}
+
+.hero-nome {
+  font-size: 2.5rem;
+  line-height: 1.05;
+  margin: 0 0 8px;
+}
+
+.hero-profissao {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-suave);
+  margin-bottom: 16px;
+}
+
+.hero-frase {
+  font-size: 1.0625rem;
+  margin: 0;
+}
+
+.hero-foto {
+  aspect-ratio: 2 / 3;
+  margin: 0;
+}
+
+/* Cards em rolagem horizontal, o terceiro aparece cortado de propósito */
+.cards-tema {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 16px;
+  margin: 24px -16px 20px;
+  padding: 0 16px 8px;
+}
+
+.cards-tema > li {
+  flex: 0 0 40%;
+  scroll-snap-align: start;
+}
+
+.card-tema {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  min-height: 168px;
+  padding: 16px;
+  border: 2px solid var(--borda);
+  border-radius: 12px;
+  background: var(--superficie);
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.botao-pilula {
+  border-radius: 999px;
+}
+
+/* ---------- Como você se sente hoje? ---------- */
+
+.humor h2 {
+  margin-bottom: 4px;
+}
+
+.mostrador {
+  position: relative;
+  height: 252px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* largura e altura vêm do app-b.js (100% não funciona dentro de fieldset em layout flex) */
+.mostrador-arco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+
+.mostrador-arco .marca-arco {
+  stroke: var(--borda);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.mostrador-arco .ponteiro {
+  stroke: var(--escuro);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.mostrador-arco .ponteiro-vazio {
+  stroke: var(--linha);
+}
+
+.mostrador-arco .centro {
+  fill: var(--escuro);
+}
+
+.emocao {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px; /* centraliza no ponto calculado */
+  border-radius: 50%;
+  color: var(--texto);
+  background: var(--fundo);
+  cursor: pointer;
+}
+
+.emocao input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.emocao svg {
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+
+.emocao:has(input:checked) {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  background: var(--escuro);
+  color: var(--sobre-escuro);
+}
+
+.emocao:has(input:checked) svg {
+  width: 38px;
+  height: 38px;
+}
+
+.emocao:has(input:focus-visible) {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.emocao-escolhida {
+  position: absolute;
+  margin: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.emocao-escolhida:not(:empty) {
+  padding: 2px 12px;
+  border: 2px solid var(--escuro);
+  border-radius: 999px;
+  background: var(--fundo);
+}
+
+/* ---------- Teste de perfil ---------- */
+
+.humor {
+  justify-content: center;
+}
+
+.confirmacao {
+  display: flex;
+  justify-content: center;
+  min-height: 56px;
+  margin-top: 16px;
+}
+
+.botao-continuar {
+  width: auto;
+  gap: 8px;
+  padding-left: 28px;
+  padding-right: 20px;
+}
+
+.botao-continuar svg {
+  width: 22px;
+  height: 22px;
+}
+
+.teste-perfil {
+  justify-content: center;
+  text-align: center;
+}
+
+.teste-perfil h2 {
+  font-size: 1.5rem;
+}
+
+.teste-perfil .botao {
+  margin: 8px 0 4px;
+}
+
+.sobre-teste summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sobre-teste summary::-webkit-details-marker {
+  display: none;
+}
+
+.sobre-teste p {
+  margin-top: 8px;
+}
+
+/* ---------- Links que viram botões (páginas da B ainda não criadas) ---------- */
+
+.menu li button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 8px;
+  border: 0;
+  border-bottom: 1px solid var(--linha);
+  background: none;
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: left;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.link-rodape {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--texto);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Botão flutuante de WhatsApp ---------- */
+
+.whatsapp-flutuante {
+  position: fixed;
+  right: max(16px, calc((100vw - 480px) / 2 + 16px));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--fundo);
+  border-radius: 50%;
+  background: var(--escuro);
+  color: var(--sobre-escuro);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.whatsapp-flutuante svg {
+  width: 28px;
+  height: 28px;
+}
