@@ -31,7 +31,7 @@ Protótipo navegável, em fidelidade baixa, do site da Maria Clara Vinotti, para
 - Fidelidade baixa: só tons de cinza neutros, uma cor escura para botões principais, fonte `system-ui`.
 - Sem cores de marca, ilustrações, fotos ou animações decorativas. Imagens e vídeos são caixas cinza tracejadas com rótulo entre colchetes.
 - Mobile first (390 px). No desktop, centralizar com largura máxima de 480 px.
-- Exceções da C, definidas na especificação dela: serifa do sistema no nome e na profissão do topo, e animações só como marcação de intenção (entrada do topo, giro e troca dos cartões, barra flutuante, voltar ao topo), sempre desligadas com "reduzir movimento".
+- Exceções da C, definidas na especificação dela: a imagem da identidade visual no topo do Início (`alternativa-c/img/topo.jpg`, no lugar da caixa tracejada), serifa do sistema no nome e na profissão do topo, e animações só como marcação de intenção (entrada do topo, giro e troca dos cartões, barra flutuante, voltar ao topo), sempre desligadas com "reduzir movimento".
 
 ## Acessibilidade
 

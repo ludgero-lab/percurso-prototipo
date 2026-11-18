@@ -250,18 +250,18 @@ main > .secao:last-child {
   scroll-margin-top: 0;
 }
 
-/* Imagem da identidade visual: ocupa todo o bloco, com o rótulo no alto */
+/* Imagem da identidade visual: ocupa todo o bloco; o busto fica no centro da faixa de cima,
+   acima do painel de texto. Em telas mais baixas, o recorte acompanha pelo alto. */
 .topo-imagem {
   position: absolute;
   top: 0;
-  right: 12px;
-  bottom: 12px;
   left: 12px;
-  margin: 0;
-  padding: 20px;
+  width: calc(100% - 24px);
+  height: calc(100% - 12px);
   border-radius: var(--raio-cartao);
-  place-items: start;
-  text-align: left;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--superficie-forte); /* enquanto a imagem carrega */
 }
 
 .topo-conteudo {

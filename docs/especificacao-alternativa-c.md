@@ -64,7 +64,7 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 ### 2.1 Topo
 
 - Ocupa a altura da tela do celular (menos o cabeçalho).
-- Fundo: espaço reservado em tela cheia, cinza com borda tracejada, com o rótulo "[imagem da identidade visual: busto com flores, do header do YouTube]". O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
+- Fundo: a imagem da identidade visual (busto com flores), em `alternativa-c/img/topo.jpg`, no lugar do espaço reservado. Ela foi recortada em retrato com o busto no centro da faixa de cima, acima do painel de texto; abaixo, a superfície da mesa continua sem emenda. É decorativa (`alt=""`), local (sem chamada de rede) e a única foto do protótipo. O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
 - Composição tipográfica, de cima para baixo:
   - "Maria Clara Vinotti" em tamanho grande (40 px no celular), fonte serifada do sistema (`ui-serif, Georgia, serif`), sem fontes externas.
   - "Parapsicóloga clínica" em itálico, mesma família serifada, 20 px.
