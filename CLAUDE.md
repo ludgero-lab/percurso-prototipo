@@ -2,13 +2,22 @@
 
 Protótipo navegável, em fidelidade baixa, do site da Maria Clara Vinotti, parapsicóloga clínica. Ele existe só para o teste de usabilidade de guerrilha com 5 pessoas, no celular. É descartável: o site final será outro repositório, com outra stack.
 
-A especificação completa está em `docs/especificacao-prototipo.md`. Ela é a fonte da verdade para telas, textos e interações.
+## Alternativas e fontes da verdade
+
+| Alternativa | Onde | Fonte da verdade para telas, textos e interações |
+|---|---|---|
+| A | Raiz (`index.html`) | `docs/especificacao-prototipo.md` |
+| B | `alternativa-b/` | Congelada como registro: não alterar nenhum arquivo |
+| C | `alternativa-c/` | `docs/especificacao-alternativa-c.md`, com o guia `docs/referencias-visuais.md` |
+
+- Cada alternativa registra no próprio `MUDANCAS.md` o que muda em relação às outras e as decisões que a especificação não definia.
+- B e C reaproveitam o `estilo.css` da A. Nele, só acrescentar regras, para não mudar a aparência da B.
 
 ## Stack
 
 - HTML, CSS e JavaScript puros, sem framework, sem build e sem dependências externas (nada de CDN).
-- Um único `index.html` com rotas por hash (`#/inicio`, `#/sobre`, `#/agendar/1` etc.), para funcionar direto no GitHub Pages.
-- Estado do agendamento guardado só em memória (variáveis JS). Nada de localStorage, cookies ou envio de dados.
+- A alternativa A é um único `index.html` com rotas por hash (`#/inicio`, `#/sobre`, `#/agendar/1` etc.), para funcionar direto no GitHub Pages. B e C são páginas nas próprias pastas e usam as rotas da A para as demais páginas e o agendamento.
+- Estado guardado só em memória (variáveis JS). Nada de localStorage, cookies ou envio de dados.
 
 ## Regras de conteúdo
 
@@ -21,6 +30,7 @@ A especificação completa está em `docs/especificacao-prototipo.md`. Ela é a 
 - Fidelidade baixa: só tons de cinza neutros, uma cor escura para botões principais, fonte `system-ui`.
 - Sem cores de marca, ilustrações, fotos ou animações decorativas. Imagens e vídeos são caixas cinza tracejadas com rótulo entre colchetes.
 - Mobile first (390 px). No desktop, centralizar com largura máxima de 480 px.
+- Exceções da C, definidas na especificação dela: serifa do sistema no nome e na profissão do topo, e animações só como marcação de intenção (entrada do topo, giro e troca dos cartões, barra flutuante), sempre desligadas com "reduzir movimento".
 
 ## Acessibilidade
 
@@ -30,7 +40,7 @@ A especificação completa está em `docs/especificacao-prototipo.md`. Ela é a 
 
 ## Privacidade e publicação
 
-- `<meta name="robots" content="noindex, nofollow">` no `index.html` e um `robots.txt` bloqueando tudo.
+- `<meta name="robots" content="noindex, nofollow">` em todas as páginas HTML e um `robots.txt` bloqueando tudo.
 - Nenhum analytics, nenhuma chamada de rede.
 
 ## Forma de trabalhar

@@ -3,7 +3,7 @@
 'use strict';
 
 (function () {
-  const { $, mostrarBarra, comportamentoRolagem, criarBaralho } = window.PercursoC;
+  const { $, mostrarBarraForaDeVista, comportamentoRolagem, criarBaralho } = window.PercursoC;
 
   // ---------------------------------------------------------------
   // Com o que você está chegando hoje? (respostas em rascunho)
@@ -79,17 +79,7 @@
   botaoProximo.addEventListener('click', () => baralho.irPara(baralho.atual() + 1));
 
   // ---------------------------------------------------------------
-  // Barra em pílula: só aparece depois que as ações do topo saem da tela
+  // Barra em pílula: aparece quando as ações do topo saem da tela
   // ---------------------------------------------------------------
-  const acoesTopo = $('#topo-acoes');
-  const alturaCabecalho = $('#cabecalho').offsetHeight;
-
-  if ('IntersectionObserver' in window) {
-    const observador = new IntersectionObserver((entradas) => {
-      entradas.forEach((entrada) => mostrarBarra(!entrada.isIntersecting));
-    }, { rootMargin: '-' + alturaCabecalho + 'px 0px 0px 0px' });
-    observador.observe(acoesTopo);
-  } else {
-    mostrarBarra(true);
-  }
+  mostrarBarraForaDeVista([$('#topo-acoes')]);
 })();

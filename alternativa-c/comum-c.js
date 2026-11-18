@@ -96,10 +96,25 @@ window.PercursoC = (function () {
   });
 
   // ---------------------------------------------------------------
-  // Barra flutuante em pílula (fade de 200 ms no CSS, sem animação com "reduzir movimento")
+  // Barra flutuante em pílula: só aparece quando as ações principais da tela
+  // (as do topo, no Início; Começar, navegação e resultado, no quiz) estão fora de vista,
+  // para não repetir os mesmos botões nem cobrir os do quiz.
+  // Fade de 200 ms no CSS, sem animação com "reduzir movimento".
   // ---------------------------------------------------------------
-  function mostrarBarra(visivel) {
-    barraPilula.classList.toggle('visivel', visivel);
+  function mostrarBarraForaDeVista(elementos) {
+    if (!('IntersectionObserver' in window)) {
+      barraPilula.classList.add('visivel');
+      return;
+    }
+    const visiveis = new Set();
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) visiveis.add(entrada.target);
+        else visiveis.delete(entrada.target);
+      });
+      barraPilula.classList.toggle('visivel', visiveis.size === 0);
+    }, { rootMargin: '-' + $('#cabecalho').offsetHeight + 'px 0px 0px 0px' });
+    elementos.forEach((el) => observador.observe(el));
   }
 
   // Rolagem suave, a não ser que o celular peça para reduzir movimento
@@ -224,5 +239,5 @@ window.PercursoC = (function () {
     };
   }
 
-  return { $, $$, reduzirMovimento, mostrarAviso, mostrarBarra, comportamentoRolagem, criarBaralho };
+  return { $, $$, mostrarBarraForaDeVista, comportamentoRolagem, criarBaralho };
 })();
