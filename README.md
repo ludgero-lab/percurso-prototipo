@@ -18,7 +18,8 @@ As regras do projeto (conteúdo, visual, acessibilidade e privacidade) estão em
 
 | Caminho | Conteúdo |
 |---|---|
-| `index.html`, `app.js` | Alternativa A: todas as telas, rotas por hash, agendamento (estado só em memória), calendário, fusos, validação e avisos |
+| `index.html`, `app.js` | Alternativa A: todas as telas, rotas por hash, menu e avisos |
+| `agendamento.js` | Lógica do agendamento, usada pela A e pela C: estado só em memória, calendário, fusos, horários, validação e resumo |
 | `estilo.css` | Base visual de todas as alternativas: tons de cinza, mobile first, até 480 px no desktop. B e C só acrescentam ao que está aqui |
 | `alternativa-b/` | Alternativa B (não alterar) |
 | `alternativa-c/` | Alternativa C: `index.html`, `quiz.html`, `estilo-c.css` e os scripts `comum-c.js`, `inicio-c.js` e `quiz-c.js` |
@@ -30,7 +31,6 @@ As regras do projeto (conteúdo, visual, acessibilidade e privacidade) estão em
 `#/inicio` (padrão), `#/sobre`, `#/atendimento`, `#/atendimento/presencial`, `#/atendimento/etapas`, `#/conteudo`, `#/duvidas`, `#/agendar/1`, `#/agendar/2`, `#/agendar/3`.
 
 - As âncoras da especificação (`presencial` e `etapas`) viraram rotas para não conflitar com o roteamento por hash.
-- `#/agendar/online` é uma rota de apoio para links da alternativa C: abre o passo 1 com Online marcado.
 
 ## Abrir no computador
 
