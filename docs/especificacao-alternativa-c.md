@@ -1,6 +1,6 @@
 # Especificação da alternativa C
 
-Esta especificação cria a alternativa C, em `alternativa-c/`, a partir da alternativa B. A B (`alternativa-b/`) é a tradução fiel do esboço à mão e fica **congelada como registro**: não alterar nenhum arquivo dela. A C parte de uma cópia da B e aplica a revisão abaixo. A alternativa A continua seguindo `docs/especificacao-prototipo.md`, com as mudanças globais da seção 1.
+Esta especificação cria a alternativa C, em `site/`, a partir da alternativa B. A B (`alternativa-b/`) é a tradução fiel do esboço à mão e fica **congelada como registro**: não alterar nenhum arquivo dela. A C parte de uma cópia da B e aplica a revisão abaixo. A alternativa A continua seguindo `docs/especificacao-prototipo.md`, com as mudanças globais da seção 1.
 
 Todos os textos marcados como **(rascunho)** foram escritos a partir das respostas da Maria Clara no briefing e ainda serão validados por ela. Use-os exatamente como estão; não crie outros textos.
 
@@ -65,7 +65,7 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 
 - Ocupa a altura da tela do celular (menos o cabeçalho).
 - Rolagem: o topo rola inteiro, com a imagem e o quadro de texto juntos, sem efeito. Sem encaixe na rolagem. (Efeitos de imagem parada ficam para a implementação final.)
-- Fundo: a imagem da identidade visual (busto com flores), em tons de cinza, em `alternativa-c/img/topo.jpg`, no lugar do espaço reservado. Ela foi recortada em retrato com o busto no centro da faixa de cima, acima do painel de texto; abaixo, a superfície da mesa continua sem emenda. É decorativa (`alt=""`), local (sem chamada de rede) e a única foto do protótipo. O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
+- Fundo: a imagem da identidade visual (busto com flores), em tons de cinza, em `site/img/topo.jpg`, no lugar do espaço reservado. Ela foi recortada em retrato com o busto no centro da faixa de cima, acima do painel de texto; abaixo, a superfície da mesa continua sem emenda. É decorativa (`alt=""`), local (sem chamada de rede) e a única foto do protótipo. O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
 - Composição tipográfica, de cima para baixo:
   - "Maria Clara Vinotti" em tamanho grande (40 px no celular), fonte serifada do sistema (`ui-serif, Georgia, serif`), sem fontes externas.
   - "Parapsicóloga clínica" em itálico, mesma família serifada, 20 px.
@@ -172,7 +172,7 @@ As outras três seções ganham textos novos, na voz da Maria Clara (primeira pe
 
 ## 3. Quiz de autoconhecimento
 
-Página própria da C: `alternativa-c/quiz.html`, com o mesmo cabeçalho, rodapé e barra flutuante. "Voltar" no cabeçalho leva ao Início da C.
+Página própria da C: `site/quiz.html`, com o mesmo cabeçalho, rodapé e barra flutuante. "Voltar" no cabeçalho leva ao Início da C.
 
 ### 3.1 Abertura
 
@@ -236,7 +236,7 @@ A C tem as mesmas páginas da A, em arquivos próprios: `sobre.html`, `atendimen
 
 Valem as regras do `CLAUDE.md`: tons de cinza, uma cor escura para ações principais, nenhuma fonte externa, nenhuma chamada de rede, estado só em memória, alvos de toque de no mínimo 44 px, contraste AA, foco visível e navegação por teclado. A única exceção nova é a fonte serifada do sistema no nome e na profissão do topo (seção 2.1).
 
-## 5. Criar `alternativa-c/MUDANCAS.md`
+## 5. Criar `site/MUDANCAS.md`
 
 Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B e à A: estrutura, comportamento, textos em rascunho e a lista de pontos em aberto abaixo.
 
@@ -269,5 +269,5 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] "Refazer o quiz" limpa tudo.
 - [ ] Nenhum texto fora desta especificação e da especificação da A; nenhuma cor além dos cinzas e da cor escura; nenhuma chamada de rede, exceto o vídeo do canal depois do toque no play.
 - [ ] Nenhum arquivo de `alternativa-b/` foi alterado.
-- [ ] `alternativa-c/MUDANCAS.md` criado; `CLAUDE.md` e `docs/especificacao-prototipo.md` atualizados.
+- [ ] `site/MUDANCAS.md` criado; `CLAUDE.md` e `docs/especificacao-prototipo.md` atualizados.
 - [ ] O README do repositório lista as três alternativas com os links publicados.

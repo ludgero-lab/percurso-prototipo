@@ -30,7 +30,7 @@
   const origem = (function () {
     try {
       const ref = new URL(document.referrer);
-      if (ref.origin === location.origin && ref.pathname.includes('/alternativa-c/') && !ref.pathname.endsWith('agendar.html')) {
+      if (ref.origin === location.origin && ref.pathname.includes('/site/') && !ref.pathname.endsWith('agendar.html')) {
         return ref.href;
       }
     } catch (erro) { /* sem referência */ }
