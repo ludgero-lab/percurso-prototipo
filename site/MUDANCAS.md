@@ -2,7 +2,9 @@
 
 A C parte de uma cópia da B (congelada como registro) e aplica a revisão de [`docs/especificacao-alternativa-c.md`](../docs/especificacao-alternativa-c.md), que é a fonte da verdade para telas, textos e interações. Este arquivo registra só o que a especificação não diz: as decisões de implementação, os riscos para o teste e o que ainda está em aberto.
 
-Publicação: <https://ludgero-lab.github.io/percurso-prototipo/alternativa-c/>
+Publicação: <https://ludgero-lab.github.io/percurso-prototipo/site/>
+
+A pasta se chama `site/` (antes `alternativa-c/`) para o link do teste não mostrar "alternativa C" às pessoas participantes. O nome "alternativa C" continua na documentação.
 
 A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, Conteúdo, Dúvidas) e agendamento, todos com a mesma linha visual e de usabilidade. Nenhum link sai da C.
 
