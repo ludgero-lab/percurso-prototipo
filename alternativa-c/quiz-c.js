@@ -3,7 +3,7 @@
 'use strict';
 
 (function () {
-  const { $, $$, criarBaralho, mostrarBarra } = window.PercursoC;
+  const { $, $$, criarBaralho, mostrarBarraForaDeVista } = window.PercursoC;
 
   // A ordem das opções é a de exibição. A letra indica o tema e não aparece na tela.
   const PERGUNTAS = [
@@ -103,7 +103,7 @@
     carta.innerHTML =
       '<div class="carta-giro"><div class="carta-face carta-frente">' +
         '<fieldset class="quiz-pergunta">' +
-          '<legend><h2 class="carta-pergunta quiz-titulo" id="quiz-p' + n + '" tabindex="-1">' + pergunta.titulo + '</h2></legend>' +
+          '<legend><h2 class="carta-pergunta" id="quiz-p' + n + '" tabindex="-1">' + pergunta.titulo + '</h2></legend>' +
           pergunta.opcoes.map(([texto, tema]) =>
             '<label class="cartao-radio opcao-quiz">' +
               '<input type="radio" name="p' + n + '" value="' + tema + '">' +
@@ -306,20 +306,8 @@
   });
 
   // ---------------------------------------------------------------
-  // Barra em pílula: como no Início, só aparece quando as ações da tela saíram de vista
-  // (assim ela não cobre "Voltar" e "Próxima" nem repete os botões do resultado)
+  // Barra em pílula: aparece quando as ações do quiz (Começar, navegação, resultado)
+  // estão fora de vista, para não cobrir "Voltar" e "Próxima"
   // ---------------------------------------------------------------
-  if ('IntersectionObserver' in window) {
-    const visiveis = new Set();
-    const observador = new IntersectionObserver((entradas) => {
-      entradas.forEach((entrada) => {
-        if (entrada.isIntersecting) visiveis.add(entrada.target);
-        else visiveis.delete(entrada.target);
-      });
-      mostrarBarra(visiveis.size === 0);
-    }, { rootMargin: '-' + $('#cabecalho').offsetHeight + 'px 0px 0px 0px' });
-    $$('[data-acoes-quiz]').forEach((el) => observador.observe(el));
-  } else {
-    mostrarBarra(true);
-  }
+  mostrarBarraForaDeVista($$('[data-acoes-quiz]'));
 })();
