@@ -19,7 +19,8 @@ Vale para as páginas Início, Sobre, Atendimento, Conteúdo e Dúvidas.
 - **Cabeçalho fixo:** à esquerda, "Maria Clara Vinotti" com "Parapsicóloga clínica" embaixo (leva ao Início). À direita, botão de menu (três linhas, `aria-label="Abrir menu"`).
 - **Menu:** painel com Início, Sobre, Atendimento, Conteúdo, Dúvidas e botão "Fechar". Fecha com Esc e ao escolher um item. O foco vai para o painel ao abrir e volta ao botão ao fechar.
 - **Barra fixa na base:** botão secundário "WhatsApp" e botão principal "Agendar sessão". O conteúdo da página tem espaço no fim para não ficar escondido atrás da barra.
-- **Rodapé:** "Maria Clara Vinotti" / "Parapsicóloga clínica · Florianópolis e online"; links Início, Sobre, Atendimento, Conteúdo, Dúvidas; caixa destacada "Em sofrimento intenso?" / "Ligue 188 (CVV), 24 horas, gratuito."; links "Política de privacidade" · "Termos de uso".
+- **Rodapé:** "Maria Clara Vinotti" / "Parapsicóloga clínica · Florianópolis e online"; links Início, Sobre, Atendimento, Conteúdo, Dúvidas; aviso do CVV; links "Política de privacidade" · "Termos de uso"; última linha "Registro FATECPR · Associada à ABPSIG".
+- **Aviso do CVV:** parágrafo em texto pequeno (14 px), num bloco discreto com fundo levemente diferente do rodapé e cantos arredondados, sem borda, sem negrito, sem ícone e sem cor de destaque, com contraste AA: "Este site não oferece atendimento imediato em situações de crise. Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito, ou acesse cvv.org.br. Em emergência, procure o hospital mais próximo." "cvv.org.br" é um botão que mostra um aviso (ver Interações simuladas).
 - Ao mudar de rota, a página volta ao topo e o foco vai para o título principal (h1).
 
 ## Página Início (`#/inicio`, rota padrão)
@@ -45,19 +46,21 @@ Vale para as páginas Início, Sobre, Atendimento, Conteúdo e Dúvidas.
    - Cartão **Online**: "Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso." Link "Agendar online" (abre o agendamento com Online já marcado).
    - Cartão **Presencial**: "Balneário, Estreito, Florianópolis (SC)." Link "Ver rota" (vai para Atendimento, seção Presencial).
 6. **h2 "O que dizem no Google":** "[nota] · [nº] avaliações"; dois cartões em rolagem horizontal com "[texto da avaliação publicada no Google]" e "[nome] · [data]"; link "Ver todas no Google".
-7. **Sobre resumido:** [foto]; h2 "Maria Clara Vinotti"; "Parapsicóloga clínica pelo Sistema Grisa. [Bio curta, com as palavras dela]"; link "Formação e vínculos" (vai para Sobre).
+7. **Sobre resumido:** [foto]; h2 "Maria Clara Vinotti"; "Parapsicóloga clínica pelo Sistema Grisa." seguido da biografia curta (abaixo); link "Formação e vínculos" (vai para Sobre).
+
+   **Biografia curta (rascunho):** "Professora de Letras (Português e Inglês), especialista em Gestão Escolar e especialista em análise, orientação e hipnoterapia em Parapsicologia Clínica pelo Sistema Grisa. Atendo há sete anos."
 8. **h2 "No YouTube, em temporadas":** [miniatura do episódio]; "[Título do episódio]" / "Temporada [n] · Episódio [n]"; link "Ver todos os episódios" (vai para Conteúdo).
 9. **h2 "Quer conversar antes de marcar?":** "Me chame no WhatsApp. Se já sabe o dia, escolha o horário aqui no site." Botões "Conversar no WhatsApp" e "Agendar sessão".
 
 ## Página Sobre (`#/sobre`)
 
-- [foto profissional] grande (4:3); h1 "Maria Clara Vinotti"; "Parapsicóloga clínica pelo Sistema Grisa"; "[Biografia curta, com as palavras dela: quem é, há quanto tempo atende e como chegou à parapsicologia clínica.]"; botão "Agendar sessão".
+- [foto profissional] grande (4:3); h1 "Maria Clara Vinotti"; "Parapsicóloga clínica pelo Sistema Grisa"; a biografia curta (ver Início, Sobre resumido); botão "Agendar sessão".
 - **h2 "Formação e vínculos"**, quatro cartões:
   - **Sistema Grisa.** Formação inicial pelo IPAPPI e continuidade no Método Grisa.
   - **Registro FATECPR,** Curitiba.
   - **ABPSIG.** Associada, com carteira de parapsicóloga clínica.
   - **Aprimoramento em hipnose,** pelo Método Grisa.
-- **h2 "Como cheguei à parapsicologia":** "[Trajetória pessoal, nas palavras dela.]"
+- **h2 "Como cheguei à parapsicologia" (rascunho):** "A parapsicologia chegou em minha vida pela curiosidade que tinha sobre alguns fenômenos que aconteciam comigo. Compreender a minha história, me deparar com minhas inseguranças e tantos medos, me fez perceber quantos talentos haviam desabrochado."
 - **h2 "Como eu trabalho":**
   - **Ninguém é julgado.** Separo o ato da pessoa.
   - **Sigilo absoluto.**
@@ -114,6 +117,10 @@ Vale para as páginas Início, Sobre, Atendimento, Conteúdo e Dúvidas.
 
 Sem menu e sem barra fixa de WhatsApp/Agendar. Cabeçalho com seta "Voltar" (`aria-label="Voltar"`) e o título "Agendar sessão". Abaixo, o texto "Passo X de 3 · [nome do passo]" e uma barra de progresso (33%, 66%, 100%).
 
+Os três passos têm um rodapé curto no fim do conteúdo, com o aviso do CVV e a linha "Política de privacidade · Termos de uso". No passo 1, o rodapé curto fica acima do espaço reservado à barra fixa do passo, sem ficar escondido por ela.
+
+Quem chega de outra página (alternativa C) pode usar `#/agendar/online`, que abre o passo 1 com Online marcado. Se o fluxo foi aberto a partir da alternativa C, "Voltar" no passo 1 e "Voltar ao início" no passo 3 retornam para ela.
+
 ### Passo 1: "Modalidade, dia e horário"
 
 - **"Como você prefere?"** (fieldset com legend): rádios em cartão "**Online** / Google Meet ou WhatsApp" e "**Presencial** / Balneário, Estreito". Nenhum marcado por padrão, exceto quando a pessoa chega por "Agendar online".
@@ -128,7 +135,7 @@ Sem menu e sem barra fixa de WhatsApp/Agendar. Cabeçalho com seta "Voltar" (`ar
   - Exibição convertida para o fuso escolhido, com deslocamento fixo: Lisboa e Londres +3 h, Nova York −2 h.
   - Ao trocar o fuso, a grade e qualquer horário já escolhido são atualizados.
   - Apoio: "Cada sessão dura cerca de 1h30."
-- **Rodapé fixo do passo:** botão "Continuar"; link "Prefere conversar antes? WhatsApp"; "Em sofrimento intenso? Ligue 188 (CVV)."
+- **Rodapé fixo do passo:** botão "Continuar"; link "Prefere conversar antes? WhatsApp".
 - Se a pessoa tocar em "Continuar" sem modalidade, dia ou horário, mostrar a mensagem "Escolha a modalidade, um dia e um horário para continuar." perto do botão, sem avançar.
 
 ### Passo 2: "Seus dados"
@@ -140,7 +147,7 @@ Sem menu e sem barra fixa de WhatsApp/Agendar. Cabeçalho com seta "Voltar" (`ar
   - "WhatsApp" (`type="tel"`), com apoio "Com DDD, ou com o código do país se você mora fora."
   - "Como conheceu?": select com Pesquisa no Google, Indicação, YouTube, Redes sociais, Outro.
   - Caixa de seleção: "Li a política de privacidade. Nome, e-mail e telefone são usados só para marcar e confirmar a sessão, e vistos pela Maria Clara e pela ferramenta de agendamento."
-- Botão "Enviar solicitação". Apoio: "Na primeira sessão, a Maria Clara confirma o horário." e "Em sofrimento intenso? Ligue 188 (CVV)."
+- Botão "Enviar solicitação". Apoio: "Na primeira sessão, a Maria Clara confirma o horário."
 - Validação ao enviar: campo vazio ou e-mail sem "@" mostra "Preencha este campo." ou "Digite um e-mail válido." abaixo do campo. A caixa de privacidade não marcada mostra "Confirme que leu a política de privacidade." O foco vai para o primeiro campo com erro.
 - Nada do que for digitado é salvo nem enviado.
 
@@ -154,7 +161,7 @@ Sem menu e sem barra fixa de WhatsApp/Agendar. Cabeçalho com seta "Voltar" (`ar
   1. Você recebe a confirmação do horário.
   2. Se for online, o convite com o link do Google Meet chega no seu e-mail. Se for presencial, a rota para o consultório.
   3. Na primeira sessão, você preenche uma ficha escrita sobre a sua história.
-- Botões "Conversar no WhatsApp" e "Voltar ao início" (limpa o estado do agendamento). Caixa do CVV.
+- Botões "Conversar no WhatsApp" e "Voltar ao início" (limpa o estado do agendamento).
 
 ## Interações simuladas
 
@@ -168,6 +175,7 @@ Botões que levariam para fora do site não abrem nada externo. Eles mostram um 
 | Ler a transcrição | Neste ponto abriria a transcrição do vídeo. |
 | Ver todas no Google | Neste ponto abririam as avaliações no Google. |
 | Inscrever-se no canal | Neste ponto abriria o canal no YouTube. |
+| cvv.org.br (aviso do CVV no rodapé) | Neste ponto abriria o site do CVV. |
 | Política de privacidade, Termos de uso | Esta página ainda não existe no protótipo. |
 
 ## Critérios de aceite
@@ -181,7 +189,8 @@ Botões que levariam para fora do site não abrem nada externo. Eles mostram um 
 - [ ] "Alterar" volta ao passo 1 com as escolhas mantidas.
 - [ ] A validação do passo 2 funciona e leva o foco ao primeiro erro.
 - [ ] Todos os botões externos mostram o aviso correto.
-- [ ] O CVV aparece em todas as telas.
+- [ ] O CVV aparece só no rodapé, como aviso discreto, em todas as telas, incluindo os três passos do agendamento.
+- [ ] A linha "Registro FATECPR · Associada à ABPSIG" aparece no rodapé.
 - [ ] Nenhum texto fora desta especificação. Nenhuma cor além de cinzas e da cor escura dos botões.
 - [ ] Áreas de toque com no mínimo 44 px; navegação por teclado funciona em todo o fluxo.
 - [ ] `noindex` no HTML e `robots.txt` bloqueando tudo. Nenhuma chamada de rede.
