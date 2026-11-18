@@ -64,7 +64,7 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 ### 2.1 Topo
 
 - Ocupa a altura da tela do celular (menos o cabeçalho).
-- Rolagem: no começo da rolagem, a imagem fica parada e o quadro de texto sobe por cima dela, até cobri-la (trecho de 35% da altura da tela); depois, tudo segue rolando. Com "reduzir movimento", a imagem rola junto com o texto. Sem encaixe na rolagem, que brigaria com esse efeito.
+- Rolagem: a imagem fica parada atrás da página e o quadro de texto sobe por cima dela; logo abaixo do quadro vem a seção seguinte, de fundo branco e cantos de cima arredondados, que cobre a imagem como uma folha (sem vão vazio). Com "reduzir movimento", a imagem rola junto com o texto. Sem encaixe na rolagem, que brigaria com esse efeito.
 - Fundo: a imagem da identidade visual (busto com flores), em tons de cinza, em `alternativa-c/img/topo.jpg`, no lugar do espaço reservado. Ela foi recortada em retrato com o busto no centro da faixa de cima, acima do painel de texto; abaixo, a superfície da mesa continua sem emenda. É decorativa (`alt=""`), local (sem chamada de rede) e a única foto do protótipo. O texto fica por cima, numa área com fundo claro semitransparente que garante contraste AA.
 - Composição tipográfica, de cima para baixo:
   - "Maria Clara Vinotti" em tamanho grande (40 px no celular), fonte serifada do sistema (`ui-serif, Georgia, serif`), sem fontes externas.

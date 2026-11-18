@@ -237,48 +237,57 @@ main > .secao:last-child {
 
 /* ---------- 1. Topo em tela cheia ---------- */
 
-/* O topo tem a altura da tela e mais um trecho de rolagem (--topo-rolagem). Nesse trecho a
-   imagem fica parada (sticky) e o quadro de texto sobe por cima dela; depois, tudo segue rolando. */
-.topo {
-  --altura-imagem: calc(100vh - var(--altura-cabecalho) - 12px);
-  --topo-rolagem: 35vh;
-  position: relative;
-  display: grid;
-  grid-template-rows: minmax(var(--altura-imagem), auto) var(--topo-rolagem);
-  padding: 0 12px 12px;
-  scroll-margin-top: 0;
-}
-
-@supports (height: 100svh) {
-  .topo {
-    --altura-imagem: calc(100svh - var(--altura-cabecalho) - 12px);
-    --topo-rolagem: 35svh;
-  }
-}
-
-/* Imagem da identidade visual (tons de cinza): ocupa a primeira tela; o busto fica no centro
-   da faixa de cima, acima do quadro de texto. Ocupa as duas linhas para poder ficar parada. */
+/* Imagem da identidade visual (tons de cinza): fica parada (sticky) atrás da página.
+   O quadro do topo e as seções seguintes, com fundo branco, sobem por cima dela,
+   então abaixo do quadro nunca aparece um vão vazio. */
 .topo-imagem {
-  grid-column: 1;
-  grid-row: 1 / 3;
-  align-self: start;
+  --altura-imagem: calc(100vh - var(--altura-cabecalho) - 12px);
   position: sticky;
   top: var(--altura-cabecalho);
-  width: 100%;
+  display: block;
+  width: calc(100% - 24px);
   height: var(--altura-imagem);
+  margin: 0 12px calc(-1 * var(--altura-imagem));
   border-radius: var(--raio-cartao);
   object-fit: cover;
   object-position: center top;
   background: var(--superficie-forte); /* enquanto a imagem carrega */
 }
 
-/* Quadro de texto e ação: na base da primeira tela, por cima da imagem */
-.topo-conteudo {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: end;
+@supports (height: 100svh) {
+  .topo-imagem {
+    --altura-imagem: calc(100svh - var(--altura-cabecalho) - 12px);
+  }
+}
+
+/* Topo: a primeira tela, com o quadro de texto e a ação na base, por cima da imagem */
+.topo {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(100vh - var(--altura-cabecalho));
+  min-height: calc(100svh - var(--altura-cabecalho));
+  padding: 0 12px 12px;
+  scroll-margin-top: 0;
+}
+
+/* As seções têm fundo branco e ficam acima da imagem parada */
+main > .secao {
+  position: relative;
+  z-index: 1;
+  background: var(--fundo);
+}
+
+/* A seção logo depois do topo entra como uma folha de cantos arredondados sobre a imagem */
+.topo + .secao {
+  border-radius: var(--raio-cartao) var(--raio-cartao) 0 0;
+}
+
+/* Quadro de texto e ação */
+.topo-conteudo {
+  position: relative;
   display: grid;
   gap: 12px;
   padding: 12px;
@@ -942,12 +951,9 @@ main > .secao:last-child {
 /* "Reduzir movimento": sem entrada, sem deslize nem giro; só troca de opacidade.
    No topo, a imagem não fica parada: rola junto com o texto. */
 @media (prefers-reduced-motion: reduce) {
-  .topo {
-    --topo-rolagem: 0px;
-  }
-
   .topo-imagem {
-    position: static;
+    position: relative;
+    top: 0;
   }
 
   .barra-pilula,
