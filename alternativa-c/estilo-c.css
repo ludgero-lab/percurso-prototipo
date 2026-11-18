@@ -398,7 +398,7 @@ main > .secao:last-child {
 
 /* ---------- 3. Flash cards (o baralho em si está na parte 5) ---------- */
 
-/* Recorta o cartão que sai pela esquerda sem criar rolagem lateral.
+/* Recorta o cartão que sai para os lados sem criar rolagem lateral.
    Sem margem de rolagem extra: o cabeçalho já entra no scroll-padding ("Ver como funciona"). */
 .secao-baralho {
   overflow-x: clip;
@@ -683,17 +683,17 @@ main > .secao:last-child {
   transform: translateY(32px) scale(0.88);
 }
 
-/* Cartão que já passou: desliza para fora pela esquerda, girando de leve, e some só no fim;
-   "Anterior" o traz de volta pelo mesmo lado */
+/* Cartão que já passou ("Próximo", seta da direita): desliza para fora pela direita,
+   girando de leve, e some só no fim */
 .carta[data-pos="saiu"] {
   z-index: 5;
   opacity: 0;
-  transform: translateX(-112%) rotate(-6deg);
+  transform: translateX(112%) rotate(6deg);
   pointer-events: none;
   transition: transform var(--duracao-troca) var(--curva-troca), opacity var(--duracao-troca) ease-in;
 }
 
-/* "Anterior": espelho do "Próximo". O cartão da frente vai para a direita e
+/* "Anterior" (seta da esquerda): espelho do "Próximo". O cartão da frente vai para a esquerda e
    volta para trás da pilha; o anterior sobe da pilha para a frente, sem
    atravessar a tela. Na primeira metade, o que sai fica por cima. */
 @keyframes carta-para-tras {
@@ -702,7 +702,7 @@ main > .secao:last-child {
     z-index: 6;
   }
   50% {
-    transform: translateX(70%) rotate(6deg);
+    transform: translateX(-70%) rotate(-6deg);
     z-index: 6;
   }
   51% {
