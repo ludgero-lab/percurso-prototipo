@@ -41,6 +41,24 @@
       </div>
     </section>
 
+    <!-- 2. Com o que você está chegando hoje? -->
+    <section class="secao" aria-labelledby="titulo-chegando">
+      <h2 id="titulo-chegando">Com o que você está chegando hoje?</h2>
+      <p class="apoio">Escolha uma opção. Sua resposta não é guardada.</p>
+      <fieldset class="chips" id="chips-sentimento">
+        <legend class="so-leitor">Com o que você está chegando hoje?</legend>
+        <label class="chip"><input type="radio" name="sentimento" value="culpa"><span>Culpa</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="raiva"><span>Raiva</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="medo"><span>Medo</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="inseguranca"><span>Insegurança</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="tristeza"><span>Tristeza</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="magoa"><span>Mágoa</span></label>
+        <label class="chip"><input type="radio" name="sentimento" value="conhecendo"><span>Só estou conhecendo</span></label>
+      </fieldset>
+      <!-- Resposta: o cartão é criado na primeira escolha; depois só o texto muda -->
+      <div class="resposta-sentimento" id="resposta-sentimento" aria-live="polite"></div>
+    </section>
+
     <!-- 5. Acolhimento e sigilo -->
     <section class="secao" aria-labelledby="titulo-acolhimento">
       <h2 id="titulo-acolhimento">Acolhimento e sigilo</h2>
