@@ -8,7 +8,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 
 ## 1. Em aberto (para validar com a Maria Clara)
 
-1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe", "Conheça meu canal no YouTube" e a abertura de Conteúdo.
+1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe", "Conheça meu canal no YouTube" com o texto de convite (confirmar se os temas citados estão no canal) e a abertura de Conteúdo.
 2. Lista final de sentimentos.
 3. Se o quiz entra no MVP (estava previsto para a V2).
 4. Texto do aviso do CVV no rodapé.
