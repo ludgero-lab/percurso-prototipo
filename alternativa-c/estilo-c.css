@@ -525,6 +525,69 @@ main > .secao:last-child {
   margin-bottom: 0;
 }
 
+/* ================= 4c. Agendamento (agendar.html) ================= */
+
+.cabecalho-fluxo-c {
+  border-bottom: 0;
+  padding: 8px 20px 12px 12px;
+}
+
+.cabecalho-fluxo-c .fluxo-topo {
+  gap: 8px;
+}
+
+.cabecalho-fluxo-c .progresso,
+.cabecalho-fluxo-c .progresso-barra {
+  border-radius: 999px;
+}
+
+.passo .secao:first-child {
+  padding-top: 24px;
+}
+
+/* Opções (modalidade) no mesmo estilo das opções do quiz */
+.passo .cartao-radio {
+  background: var(--fundo);
+}
+
+.calendario-c .calendario {
+  margin-bottom: 8px;
+}
+
+.calendario-c .apoio {
+  margin-bottom: 0;
+}
+
+/* Dias e horários em pílula, como os chips */
+.passo .dia,
+.passo .horario {
+  border-radius: 999px;
+}
+
+.passo .area-horarios {
+  margin-top: 24px;
+}
+
+.passo .area-horarios h2 {
+  font-size: var(--fonte-titulo-cartao);
+}
+
+/* Bloco do passo 1: flutua na base, com cantos arredondados, como a barra em pílula */
+.rodape-passo-c {
+  left: 16px;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  max-width: 448px;
+  padding: 12px 16px 8px;
+  border-top: 0;
+  border-radius: var(--raio-cartao);
+  box-shadow: 0 0 0 1px var(--linha), var(--sombra-flutuante);
+}
+
+.resumo .link {
+  margin-top: 0;
+}
+
 /* ================= 5. Baralho de cartões (flash cards e quiz) ================= */
 
 .baralho-contador {
