@@ -10,15 +10,8 @@
   <link rel="stylesheet" href="../estilo.css">
   <link rel="stylesheet" href="estilo-c.css">
 </head>
-<body>
+<body data-pagina="inicio">
 <div class="app">
-
-  <!-- Cabeçalho: só o botão de menu -->
-  <header class="cabecalho cabecalho-c" id="cabecalho">
-    <button type="button" class="botao-icone botao-redondo" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-    </button>
-  </header>
 
   <main id="conteudo-principal">
 
@@ -29,10 +22,10 @@
         <div class="topo-texto">
           <p class="topo-nome entrada" style="--ordem: 0">Maria Clara Vinotti</p>
           <p class="topo-profissao entrada" style="--ordem: 1">Parapsicóloga clínica</p>
-          <h1 class="topo-titulo entrada" id="titulo-topo" style="--ordem: 2">Parapsicologia clínica feita com acolhimento e parceria</h1>
+          <h1 class="topo-titulo entrada" id="titulo-topo" tabindex="-1" style="--ordem: 2">Parapsicologia clínica feita com acolhimento e parceria</h1>
           <p class="topo-apoio entrada" style="--ordem: 3">Um espaço para olhar para os seus desafios no seu ritmo, entender a sua história e conduzir o seu caminho com mais consciência, online ou em Florianópolis.</p>
         </div>
-        <div class="topo-acoes entrada" id="topo-acoes" style="--ordem: 4">
+        <div class="topo-acoes entrada" id="topo-acoes" data-acoes style="--ordem: 4">
           <a class="botao botao-principal" href="../#/agendar/1">Agendar sessão</a>
           <button type="button" class="botao-icone botao-redondo botao-redondo-contorno" data-aviso="whatsapp" aria-label="Conversar no WhatsApp">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/><path d="M9 8.6c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .5-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.2.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.5.4-1.3.6-2 .4-2.3-.6-4.4-2.7-5-5-.2-.7 0-1.5.4-2z" fill="currentColor"/></svg>
@@ -201,7 +194,7 @@
       <div class="cartao-c cartao-destaque">
         <h2 id="titulo-conversar">Quer conversar antes de marcar?</h2>
         <p>Me chame no WhatsApp. Se já sabe o dia, escolha o horário aqui no site.</p>
-        <div class="botoes">
+        <div class="botoes" data-acoes>
           <button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>
           <a class="botao botao-principal" href="../#/agendar/1">Agendar sessão</a>
         </div>
@@ -210,49 +203,7 @@
 
   </main>
 
-  <!-- 10. Rodapé (CVV discreto, só aqui) -->
-  <footer class="rodape rodape-c" id="rodape">
-    <p class="rodape-nome">Maria Clara Vinotti</p>
-    <p>Parapsicóloga clínica · Florianópolis e online</p>
-    <ul>
-      <li><a href="./" aria-current="page">Início</a></li>
-      <li><a href="../#/sobre">Sobre</a></li>
-      <li><a href="../#/atendimento">Atendimento</a></li>
-      <li><a href="../#/conteudo">Conteúdo</a></li>
-      <li><a href="../#/duvidas">Dúvidas</a></li>
-    </ul>
-    <p class="aviso-crise">Este site não oferece atendimento imediato em situações de crise. Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito, ou acesse <button type="button" class="link-inline" data-aviso="cvv">cvv.org.br</button>. Em emergência, procure o hospital mais próximo.</p>
-    <p class="rodape-legal">
-      <button type="button" class="link" data-aviso="pagina">Política de privacidade</button>
-      <span aria-hidden="true">·</span>
-      <button type="button" class="link" data-aviso="pagina">Termos de uso</button>
-    </p>
-    <p class="rodape-registro">Registro FATECPR · Associada à ABPSIG</p>
-  </footer>
-
 </div>
-
-<!-- Barra flutuante em pílula: aparece quando as ações do topo saem da tela -->
-<div class="barra-pilula" id="barra-pilula">
-  <button type="button" class="botao botao-secundario" data-aviso="whatsapp">WhatsApp</button>
-  <a class="botao botao-principal" href="../#/agendar/1">Agendar sessão</a>
-</div>
-
-<!-- Menu: leva às páginas da alternativa A -->
-<div class="menu-fundo" id="menu-fundo" hidden></div>
-<nav class="menu menu-c" id="menu" tabindex="-1" hidden>
-  <ul>
-    <li><a href="./" aria-current="page">Início</a></li>
-    <li><a href="../#/sobre">Sobre</a></li>
-    <li><a href="../#/atendimento">Atendimento</a></li>
-    <li><a href="../#/conteudo">Conteúdo</a></li>
-    <li><a href="../#/duvidas">Dúvidas</a></li>
-  </ul>
-  <button type="button" class="botao botao-secundario" id="botao-fechar-menu">Fechar</button>
-</nav>
-
-<!-- Aviso temporário das interações simuladas -->
-<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
 
 <script src="comum-c.js"></script>
 <script src="inicio-c.js"></script>

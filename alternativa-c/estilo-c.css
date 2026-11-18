@@ -123,7 +123,7 @@
   border-bottom: 0;
 }
 
-.cabecalho-quiz {
+.cabecalho-voltar {
   justify-content: space-between;
 }
 
@@ -138,7 +138,8 @@
 
 .rodape-c {
   margin-top: 40px;
-  padding: 32px 20px calc(var(--altura-barra) + 24px);
+  /* espaço no fim para a barra em pílula e o botão de voltar ao topo */
+  padding: 32px 20px calc(var(--altura-barra) + 72px);
   border-top: 0;
   border-radius: var(--raio-cartao) var(--raio-cartao) 0 0;
 }
@@ -174,6 +175,25 @@
 }
 
 .barra-pilula.visivel {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 200ms ease, visibility 0s;
+}
+
+/* ---------- Voltar ao topo: redondo, à direita, acima da barra em pílula ---------- */
+
+.botao-topo {
+  position: fixed;
+  right: max(16px, calc((100vw - 480px) / 2 + 16px));
+  bottom: calc(16px + 64px + 12px + env(safe-area-inset-bottom));
+  z-index: 30;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 0s linear 200ms;
+}
+
+.botao-topo.visivel {
   opacity: 1;
   visibility: visible;
   transition: opacity 200ms ease, visibility 0s;
@@ -704,7 +724,9 @@ main > .secao:last-child {
 /* "Reduzir movimento": sem entrada, sem deslize nem giro; só troca de opacidade */
 @media (prefers-reduced-motion: reduce) {
   .barra-pilula,
-  .barra-pilula.visivel {
+  .barra-pilula.visivel,
+  .botao-topo,
+  .botao-topo.visivel {
     transition: none;
   }
 

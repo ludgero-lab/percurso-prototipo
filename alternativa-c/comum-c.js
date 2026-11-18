@@ -1,4 +1,7 @@
-/* Percurso: alternativa C. Partes comuns ao Início e ao quiz.
+/* Percurso: alternativa C. Moldura e componentes comuns a todas as páginas.
+   Cada página declara quem é em <body data-pagina="..."> e traz só o próprio conteúdo
+   (<div class="app"><main>…</main></div>). Este arquivo monta, uma vez para todas:
+   cabeçalho, menu, rodapé, barra em pílula, botão de voltar ao topo e aviso.
    Estado só em memória, nenhuma chamada de rede. */
 'use strict';
 
@@ -6,14 +9,86 @@ window.PercursoC = (function () {
   const $ = (sel, raiz) => (raiz || document).querySelector(sel);
   const $$ = (sel, raiz) => Array.from((raiz || document).querySelectorAll(sel));
   const reduzirMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const pagina = document.body.dataset.pagina;
+  const noAgendamento = pagina === 'agendar';
+
+  // Rolagem suave, a não ser que o celular peça para reduzir movimento
+  function comportamentoRolagem() {
+    return reduzirMovimento.matches ? 'auto' : 'smooth';
+  }
+
+  // ---------------------------------------------------------------
+  // Moldura: páginas, ícones e marcação comum
+  // ---------------------------------------------------------------
+  const PAGINAS = [
+    { id: 'inicio', href: './', nome: 'Início' },
+    { id: 'sobre', href: 'sobre.html', nome: 'Sobre' },
+    { id: 'atendimento', href: 'atendimento.html', nome: 'Atendimento' },
+    { id: 'conteudo', href: 'conteudo.html', nome: 'Conteúdo' },
+    { id: 'duvidas', href: 'duvidas.html', nome: 'Dúvidas' }
+  ];
+  const ICONES = {
+    menu: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>',
+    voltar: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
+    topo: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>'
+  };
+
+  const listaPaginas = () => PAGINAS.map((p) =>
+    '<li><a href="' + p.href + '"' + (p.id === pagina ? ' aria-current="page"' : '') + '>' + p.nome + '</a></li>'
+  ).join('');
+
+  // Cabeçalho: no Início, só o menu; nas demais, Voltar (Início da C) e menu.
+  // O agendamento tem o cabeçalho próprio do fluxo, no HTML da página.
+  const CABECALHO =
+    '<header class="cabecalho cabecalho-c' + (pagina === 'inicio' ? '' : ' cabecalho-voltar') + '" id="cabecalho">' +
+      (pagina === 'inicio' ? '' : '<a class="botao-icone botao-redondo" href="./" aria-label="Voltar">' + ICONES.voltar + '</a>') +
+      '<button type="button" class="botao-icone botao-redondo" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">' + ICONES.menu + '</button>' +
+    '</header>';
+
+  // Rodapé: completo nas páginas; curto no agendamento (só o aviso do CVV e a linha legal)
+  const RODAPE =
+    '<footer class="rodape rodape-c' + (noAgendamento ? ' rodape-curto' : '') + '" id="rodape">' +
+      (noAgendamento ? '' :
+        '<p class="rodape-nome">Maria Clara Vinotti</p>' +
+        '<p>Parapsicóloga clínica · Florianópolis e online</p>' +
+        '<ul>' + listaPaginas() + '</ul>') +
+      '<p class="aviso-crise">Este site não oferece atendimento imediato em situações de crise. Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito, ou acesse <button type="button" class="link-inline" data-aviso="cvv">cvv.org.br</button>. Em emergência, procure o hospital mais próximo.</p>' +
+      '<p class="rodape-legal">' +
+        '<button type="button" class="link" data-aviso="pagina">Política de privacidade</button>' +
+        '<span aria-hidden="true">·</span>' +
+        '<button type="button" class="link" data-aviso="pagina">Termos de uso</button>' +
+      '</p>' +
+      (noAgendamento ? '' : '<p class="rodape-registro">Registro FATECPR · Associada à ABPSIG</p>') +
+    '</footer>';
+
+  // Elementos flutuantes e menu (fora do agendamento, que não tem menu nem barra)
+  const FLUTUANTES = noAgendamento ? '' :
+    '<div class="barra-pilula" id="barra-pilula">' +
+      '<button type="button" class="botao botao-secundario" data-aviso="whatsapp">WhatsApp</button>' +
+      '<a class="botao botao-principal" href="agendar.html">Agendar sessão</a>' +
+    '</div>' +
+    '<button type="button" class="botao-icone botao-redondo botao-redondo-contorno botao-topo" id="botao-topo" aria-label="Voltar ao topo">' + ICONES.topo + '</button>' +
+    '<div class="menu-fundo" id="menu-fundo" hidden></div>' +
+    '<nav class="menu menu-c" id="menu" tabindex="-1" hidden>' +
+      '<ul>' + listaPaginas() + '</ul>' +
+      '<button type="button" class="botao botao-secundario" id="botao-fechar-menu">Fechar</button>' +
+    '</nav>';
+
+  const app = $('.app');
+  if (!noAgendamento) app.insertAdjacentHTML('afterbegin', CABECALHO);
+  app.insertAdjacentHTML('beforeend', RODAPE);
+  document.body.insertAdjacentHTML('beforeend', FLUTUANTES +
+    '<div class="aviso" id="aviso" role="status" aria-live="polite"></div>');
 
   // ---------------------------------------------------------------
   // Avisos das interações simuladas (mesmos textos da alternativa A)
   // ---------------------------------------------------------------
   const AVISOS = {
     whatsapp: 'Neste ponto abriria o WhatsApp.',
+    maps: 'Neste ponto abriria o Google Maps.',
     video: 'Neste ponto o vídeo começaria.',
     avaliacoes: 'Neste ponto abririam as avaliações no Google.',
+    youtube: 'Neste ponto abriria o canal no YouTube.',
     cvv: 'Neste ponto abriria o site do CVV.',
     pagina: 'Esta página ainda não existe no protótipo.'
   };
@@ -34,7 +109,7 @@ window.PercursoC = (function () {
     const gatilho = evento.target.closest('[data-aviso]');
     if (!gatilho) return;
     evento.preventDefault();
-    if (!menu.hidden) fecharMenu(true);
+    if (menu && !menu.hidden) fecharMenu(true);
     const texto = AVISOS[gatilho.dataset.aviso];
     if (texto) mostrarAviso(texto);
   });
@@ -46,14 +121,15 @@ window.PercursoC = (function () {
   const menu = $('#menu');
   const menuFundo = $('#menu-fundo');
   const barraPilula = $('#barra-pilula');
-  const fundoInerte = [$('#cabecalho'), $('#conteudo-principal'), $('#rodape'), barraPilula];
+  const botaoTopo = $('#botao-topo');
+  const fundoInerte = [$('#cabecalho'), $('#conteudo-principal'), $('#rodape'), barraPilula, botaoTopo];
 
   function abrirMenu() {
     menu.hidden = false;
     menuFundo.hidden = false;
     botaoMenu.setAttribute('aria-expanded', 'true');
     document.body.classList.add('menu-aberto');
-    fundoInerte.forEach((el) => { el.inert = true; });
+    fundoInerte.forEach((el) => { if (el) el.inert = true; });
     menu.focus();
   }
 
@@ -63,64 +139,93 @@ window.PercursoC = (function () {
     menuFundo.hidden = true;
     botaoMenu.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-aberto');
-    fundoInerte.forEach((el) => { el.inert = false; });
+    fundoInerte.forEach((el) => { if (el) el.inert = false; });
     if (devolverFoco) botaoMenu.focus();
   }
 
-  botaoMenu.addEventListener('click', abrirMenu);
-  $('#botao-fechar-menu').addEventListener('click', () => fecharMenu(true));
-  menuFundo.addEventListener('click', () => fecharMenu(true));
-  menu.addEventListener('click', (evento) => {
-    if (evento.target.closest('a')) fecharMenu(false);
-  });
+  if (menu) {
+    botaoMenu.addEventListener('click', abrirMenu);
+    $('#botao-fechar-menu').addEventListener('click', () => fecharMenu(true));
+    menuFundo.addEventListener('click', () => fecharMenu(true));
+    menu.addEventListener('click', (evento) => {
+      if (evento.target.closest('a')) fecharMenu(false);
+    });
 
-  document.addEventListener('keydown', (evento) => {
-    if (menu.hidden) return;
-    if (evento.key === 'Escape') {
-      evento.preventDefault();
-      fecharMenu(true);
-      return;
-    }
-    if (evento.key === 'Tab') {
-      const focaveis = $$('a, button', menu);
-      const primeiro = focaveis[0];
-      const ultimo = focaveis[focaveis.length - 1];
-      if (evento.shiftKey && (document.activeElement === primeiro || document.activeElement === menu)) {
+    document.addEventListener('keydown', (evento) => {
+      if (menu.hidden) return;
+      if (evento.key === 'Escape') {
         evento.preventDefault();
-        ultimo.focus();
-      } else if (!evento.shiftKey && document.activeElement === ultimo) {
-        evento.preventDefault();
-        primeiro.focus();
+        fecharMenu(true);
+        return;
       }
-    }
-  });
+      if (evento.key === 'Tab') {
+        const focaveis = $$('a, button', menu);
+        const primeiro = focaveis[0];
+        const ultimo = focaveis[focaveis.length - 1];
+        if (evento.shiftKey && (document.activeElement === primeiro || document.activeElement === menu)) {
+          evento.preventDefault();
+          ultimo.focus();
+        } else if (!evento.shiftKey && document.activeElement === ultimo) {
+          evento.preventDefault();
+          primeiro.focus();
+        }
+      }
+    });
+  }
 
   // ---------------------------------------------------------------
   // Barra flutuante em pílula: só aparece quando as ações principais da tela
-  // (as do topo, no Início; Começar, navegação e resultado, no quiz) estão fora de vista,
-  // para não repetir os mesmos botões nem cobrir os do quiz.
-  // Fade de 200 ms no CSS, sem animação com "reduzir movimento".
+  // (marcadas com data-acoes) estão fora de vista, para não repetir os mesmos
+  // botões nem cobrir os da página. Fade de 200 ms; sem animação com "reduzir movimento".
   // ---------------------------------------------------------------
-  function mostrarBarraForaDeVista(elementos) {
-    if (!('IntersectionObserver' in window)) {
+  if (barraPilula) {
+    const acoes = $$('[data-acoes]');
+    if (!('IntersectionObserver' in window) || acoes.length === 0) {
       barraPilula.classList.add('visivel');
-      return;
+    } else {
+      const visiveis = new Set();
+      const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) visiveis.add(entrada.target);
+          else visiveis.delete(entrada.target);
+        });
+        barraPilula.classList.toggle('visivel', visiveis.size === 0);
+      }, { rootMargin: '-' + $('#cabecalho').offsetHeight + 'px 0px 0px 0px' });
+      acoes.forEach((el) => observador.observe(el));
     }
-    const visiveis = new Set();
-    const observador = new IntersectionObserver((entradas) => {
-      entradas.forEach((entrada) => {
-        if (entrada.isIntersecting) visiveis.add(entrada.target);
-        else visiveis.delete(entrada.target);
-      });
-      barraPilula.classList.toggle('visivel', visiveis.size === 0);
-    }, { rootMargin: '-' + $('#cabecalho').offsetHeight + 'px 0px 0px 0px' });
-    elementos.forEach((el) => observador.observe(el));
   }
 
-  // Rolagem suave, a não ser que o celular peça para reduzir movimento
-  function comportamentoRolagem() {
-    return reduzirMovimento.matches ? 'auto' : 'smooth';
+  // ---------------------------------------------------------------
+  // Voltar ao topo: aparece quando a página desce; leva ao topo e o foco ao h1
+  // ---------------------------------------------------------------
+  if (botaoTopo) {
+    let agendado = false;
+    const atualizarTopo = () => {
+      agendado = false;
+      botaoTopo.classList.toggle('visivel', window.scrollY > window.innerHeight * 0.5);
+    };
+    window.addEventListener('scroll', () => {
+      if (!agendado) { agendado = true; requestAnimationFrame(atualizarTopo); }
+    }, { passive: true });
+    atualizarTopo();
+    botaoTopo.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: comportamentoRolagem() });
+      const titulo = $('h1');
+      if (titulo) titulo.focus({ preventScroll: true });
+    });
   }
+
+  // ---------------------------------------------------------------
+  // Âncoras (#presencial, #etapas): ao chegar, o foco vai para o título da seção
+  // ---------------------------------------------------------------
+  function focarAncora() {
+    const alvo = location.hash.length > 1 && !location.hash.startsWith('#/') && document.getElementById(location.hash.slice(1));
+    if (!alvo) return;
+    const titulo = alvo.matches('h1, h2, h3') ? alvo : $('h2, h3', alvo);
+    if (titulo) titulo.focus({ preventScroll: true });
+  }
+  window.addEventListener('hashchange', focarAncora);
+  window.addEventListener('load', focarAncora);
 
   // ---------------------------------------------------------------
   // Baralho de cartões empilhados (flash cards do Início e perguntas do quiz)
@@ -239,5 +344,5 @@ window.PercursoC = (function () {
     };
   }
 
-  return { $, $$, mostrarBarraForaDeVista, comportamentoRolagem, criarBaralho };
+  return { $, $$, comportamentoRolagem, criarBaralho };
 })();

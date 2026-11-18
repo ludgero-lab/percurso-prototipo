@@ -3,7 +3,7 @@
 'use strict';
 
 (function () {
-  const { $, $$, criarBaralho, mostrarBarraForaDeVista } = window.PercursoC;
+  const { $, criarBaralho } = window.PercursoC;
 
   // A ordem das opções é a de exibição. A letra indica o tema e não aparece na tela.
   const PERGUNTAS = [
@@ -304,10 +304,4 @@
     window.scrollTo(0, 0);
     tituloQuiz.focus({ preventScroll: true });
   });
-
-  // ---------------------------------------------------------------
-  // Barra em pílula: aparece quando as ações do quiz (Começar, navegação, resultado)
-  // estão fora de vista, para não cobrir "Voltar" e "Próxima"
-  // ---------------------------------------------------------------
-  mostrarBarraForaDeVista($$('[data-acoes-quiz]'));
 })();

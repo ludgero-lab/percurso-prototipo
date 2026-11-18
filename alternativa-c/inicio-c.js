@@ -3,7 +3,7 @@
 'use strict';
 
 (function () {
-  const { $, mostrarBarraForaDeVista, comportamentoRolagem, criarBaralho } = window.PercursoC;
+  const { $, comportamentoRolagem, criarBaralho } = window.PercursoC;
 
   // ---------------------------------------------------------------
   // Com o que você está chegando hoje? (respostas em rascunho)
@@ -77,9 +77,4 @@
 
   botaoAnterior.addEventListener('click', () => baralho.irPara(baralho.atual() - 1));
   botaoProximo.addEventListener('click', () => baralho.irPara(baralho.atual() + 1));
-
-  // ---------------------------------------------------------------
-  // Barra em pílula: aparece quando as ações do topo saem da tela
-  // ---------------------------------------------------------------
-  mostrarBarraForaDeVista([$('#topo-acoes')]);
 })();
