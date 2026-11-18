@@ -231,10 +231,10 @@ window.PercursoC = (function () {
   // Baralho de cartões empilhados (flash cards do Início e perguntas do quiz)
   // ---------------------------------------------------------------
   // Cada [data-carta] recebe data-pos conforme a distância até o cartão atual:
-  // "0" na frente, "1" e "2" atrás (deslocados), "atras" escondido, "saiu" fora pela esquerda.
+  // "0" na frente, "1" e "2" atrás (alinhados, um pouco abaixo), "atras" escondido, "saiu" (subiu e sumiu).
   // Só o cartão da frente fica fora do inert. Cartões que viram têm um botão
   // .carta-virar (aria-expanded) e um .carta-verso, que fica inert enquanto fechado.
-  const DURACAO_TROCA = 300;
+  const DURACAO_TROCA = 560; // igual à transição de .carta no CSS
 
   function virarCarta(carta, aberta) {
     carta.classList.toggle('virada', aberta);
