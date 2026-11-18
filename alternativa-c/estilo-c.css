@@ -406,6 +406,10 @@ main > .secao:last-child {
   background: var(--escuro);
 }
 
+.video-c + .titulo-video {
+  margin-top: -4px;
+}
+
 .video-c iframe {
   position: absolute;
   inset: 0;

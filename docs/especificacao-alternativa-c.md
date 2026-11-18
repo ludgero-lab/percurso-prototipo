@@ -150,7 +150,8 @@ As outras três seções ganham textos novos, na voz da Maria Clara (primeira pe
 **YouTube (rascunho):**
 - h2: "Conheça meu canal no YouTube" (no lugar de "No YouTube, em temporadas"): um convite a conhecer o canal, sem prometer uma frequência de vídeos.
 - Vídeo: o espaço mostra uma capa cinza com o botão de play. Ao tocar, entra o player do vídeo https://youtu.be/3LOUZY9A1qo, carregado de `youtube-nocookie.com` (sem cookies de rastreio), e o foco vai para ele. Antes do toque não há nenhuma chamada ao YouTube. É a única exceção à regra de "nenhuma chamada de rede".
-- O título e a temporada do episódio continuam como espaços reservados.
+- Abaixo do vídeo, o título real do vídeo como h3 (abaixo do h2 da seção). Temporada e episódio ficam ocultos por ora.
+- No lugar de "Ver todos os episódios", um convite ao canal: botão secundário em pílula "Inscrever-se no canal" (mostra o aviso "Neste ponto abriria o canal no YouTube.").
 
 ### 2.6 Barra flutuante em pílula
 

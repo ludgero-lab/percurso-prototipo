@@ -27,7 +27,8 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 - "Voltar" no cabeçalho das páginas internas e do quiz leva ao Início da C. No agendamento, "Voltar" no passo 1 devolve à página da C de onde a pessoa veio.
 
 **Vídeo do canal**
-- O player é criado só no toque, a partir de `youtube-nocookie.com`; antes disso, nenhuma chamada ao YouTube. O título do iframe é o título do episódio da página (ainda um espaço reservado).
+- O player é criado só no toque, a partir de `youtube-nocookie.com`; antes disso, nenhuma chamada ao YouTube. O título do iframe é o título do vídeo mostrado abaixo dele (h3).
+- "Inscrever-se no canal" é secundário: a ação principal (escura) continua reservada para "Agendar sessão".
 
 **Barra em pílula e voltar ao topo**
 - Uma regra para todas as páginas: a barra aparece quando as ações marcadas com `data-acoes` (as de agendar e conversar de cada tela; no quiz, também "Começar" e "Voltar"/"Próxima") estão fora de vista.
