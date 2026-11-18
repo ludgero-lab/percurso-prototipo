@@ -50,7 +50,7 @@ Substituir os espaços reservados:
 | 5 | Acolhimento e sigilo ("Aqui você pode falar à vontade") |
 | 6 | Online ou presencial ("Online ou no consultório: você escolhe") |
 | 7 | O que dizem no Google |
-| 8 | YouTube ("Um vídeo novo toda semana no YouTube") |
+| 8 | YouTube ("Conheça meu canal no YouTube") |
 | 9 | Quer conversar antes de marcar? |
 | 10 | Rodapé (seção 1.1) |
 | — | Barra flutuante em pílula com WhatsApp e Agendar sessão (2.6) e botão de voltar ao topo (2.7) |
@@ -100,7 +100,7 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 ### 2.3 Baralho de flash cards
 
 - h2: "Para entender em poucas palavras" (com `tabindex="-1"`, para receber o foco vindo de "Ver como funciona").
-- Quatro cartões empilhados: o da frente inteiro e os de trás alinhados no centro, um pouco mais estreitos e deslocados para baixo, mostrando que há mais cartões. Os cartões não têm sombra: só o quadro.
+- Quatro cartões empilhados: o da frente inteiro e os de trás alinhados no centro, um pouco mais estreitos e deslocados para baixo, mostrando que há mais cartões. Cada cartão de trás é um tom de cinza mais escuro que o da frente dele, para a quantidade ficar perceptível. Os cartões não têm sombra: só o quadro.
 - Troca de cartão na vertical: em "Próximo", o cartão da frente sobe e some enquanto o seguinte sobe para o lugar; em "Anterior", o cartão volta descendo. Movimento suave e perceptível (560 ms, curva suave). Com "reduzir movimento", vira troca de opacidade.
 - Acima do baralho: "Cartão X de 4". Abaixo: botões "Anterior" e "Próximo" (desativados nas pontas). Deslizar o cartão com o dedo para os lados é um atalho, nunca a única forma de navegar.
 - Frente de cada cartão: a pergunta em destaque e o apoio "Toque para ver a resposta".
@@ -148,7 +148,9 @@ As outras três seções ganham textos novos, na voz da Maria Clara (primeira pe
 - Cartão **Presencial**: "No consultório no Balneário, Estreito, em Florianópolis (SC)." Link "Ver rota".
 
 **YouTube (rascunho):**
-- h2: "Um vídeo novo toda semana no YouTube" (no lugar de "No YouTube, em temporadas"); o resto da seção não muda.
+- h2: "Conheça meu canal no YouTube" (no lugar de "No YouTube, em temporadas"): um convite a conhecer o canal, sem prometer uma frequência de vídeos.
+- Vídeo: o espaço mostra uma capa cinza com o botão de play. Ao tocar, entra o player do vídeo https://youtu.be/3LOUZY9A1qo, carregado de `youtube-nocookie.com` (sem cookies de rastreio), e o foco vai para ele. Antes do toque não há nenhuma chamada ao YouTube. É a única exceção à regra de "nenhuma chamada de rede".
+- O título e a temporada do episódio continuam como espaços reservados.
 
 ### 2.6 Barra flutuante em pílula
 
@@ -223,7 +225,7 @@ Abaixo do resultado:
 
 A C tem as mesmas páginas da A, em arquivos próprios: `sobre.html`, `atendimento.html` (âncoras `#presencial` e `#etapas`), `conteudo.html`, `duvidas.html` e `agendar.html` (passos `#/1`, `#/2` e `#/3`).
 
-- **Conteúdo e textos:** os da especificação da A, com as mudanças globais da seção 1. Duas exceções, para a C falar do mesmo jeito em todas as páginas: em Atendimento, a seção "Online ou presencial" usa o título e os textos da seção 2.5; em Dúvidas, a resposta de "O que é parapsicologia clínica?" usa o verso do primeiro flash card (seção 2.3).
+- **Conteúdo e textos:** os da especificação da A, com as mudanças globais da seção 1. Três exceções, para a C falar do mesmo jeito em todas as páginas: em Atendimento, a seção "Online ou presencial" usa o título e os textos da seção 2.5; em Dúvidas, a resposta de "O que é parapsicologia clínica?" usa o verso do primeiro flash card (seção 2.3); em Conteúdo, o texto de abertura passa a "Vídeos em temporadas, sobre temas escolhidos pela Maria Clara." (rascunho), sem prometer um vídeo por semana.
 - **Linha visual e usabilidade:** as mesmas do Início e do quiz: cabeçalho com Voltar (leva ao Início da C) e menu redondos, menu com a página atual, título da página como o do quiz, seções em cartões arredondados, listas numeradas com o número num círculo, temporadas em chips, Dúvidas em cartões que abrem, ações finais em cartão de destaque, barra em pílula (2.6), voltar ao topo (2.7) e o mesmo rodapé.
 - **Agendamento:** mesmo comportamento da A, com a linha visual da C (progresso em pílula, calendário num cartão, dias e horários em pílula, bloco do passo 1 flutuante). Sem menu, sem barra em pílula e com o rodapé curto. "Voltar" no passo 1 devolve à página da C de onde a pessoa veio; "Voltar ao início" leva ao Início da C. A lógica do agendamento é a mesma da A (`agendamento.js`).
 
@@ -262,7 +264,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] Quiz: 6 perguntas em baralho, "Próxima" desativado sem escolha, "Voltar" mantém a resposta, resultado correto para respostas todas A, todas B, todas C, todas D e para um empate.
 - [ ] Resultado vira ao toque; e-mail simulado valida os três erros e mostra a mensagem de sucesso sem enviar nada.
 - [ ] "Refazer o quiz" limpa tudo.
-- [ ] Nenhum texto fora desta especificação e da especificação da A; nenhuma cor além dos cinzas e da cor escura; nenhuma chamada de rede.
+- [ ] Nenhum texto fora desta especificação e da especificação da A; nenhuma cor além dos cinzas e da cor escura; nenhuma chamada de rede, exceto o vídeo do canal depois do toque no play.
 - [ ] Nenhum arquivo de `alternativa-b/` foi alterado.
 - [ ] `alternativa-c/MUDANCAS.md` criado; `CLAUDE.md` e `docs/especificacao-prototipo.md` atualizados.
 - [ ] O README do repositório lista as três alternativas com os links publicados.

@@ -398,6 +398,22 @@ main > .secao:last-child {
 
 /* ---------- 5 a 9. Seções mantidas da B ---------- */
 
+/* Vídeo do canal: capa cinza com play; ao tocar, o player ocupa a caixa */
+.video-c.video-carregado {
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--escuro);
+}
+
+.video-c iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* Avaliações: rolagem de ponta a ponta, com respiro nas laterais */
 .rolagem-c {
   margin: 16px -20px 8px;
@@ -674,9 +690,14 @@ main > .secao:last-child {
   transition: opacity 400ms var(--curva-suave);
 }
 
-/* Atrás, o cartão é só a forma: o conteúdo aparece quando ele chega à frente */
+/* Atrás, o cartão é só a forma: o conteúdo aparece quando ele chega à frente.
+   Cada cartão de trás é um tom mais escuro, para a quantidade ficar perceptível. */
 .carta:not([data-pos="0"]) .carta-face {
-  background: var(--superficie-forte);
+  background: var(--superficie-forte); /* #e6e6e6: o primeiro de trás */
+}
+
+.carta[data-pos="2"] .carta-face {
+  background: #d9d9d9; /* o segundo de trás, um tom abaixo */
 }
 
 .carta:not([data-pos="0"]) .carta-face > * {

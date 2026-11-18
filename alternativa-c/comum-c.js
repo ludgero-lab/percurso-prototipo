@@ -115,6 +115,26 @@ window.PercursoC = (function () {
   });
 
   // ---------------------------------------------------------------
+  // Vídeo do YouTube: o player só é criado quando a pessoa toca no play
+  // (nenhuma chamada ao YouTube antes disso; domínio sem cookies de rastreio)
+  // ---------------------------------------------------------------
+  document.addEventListener('click', (evento) => {
+    const play = evento.target.closest('[data-video]');
+    if (!play) return;
+    const caixa = play.parentElement;
+    const titulo = play.getAttribute('aria-labelledby');
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(play.dataset.video) + '?autoplay=1&rel=0';
+    iframe.title = titulo && document.getElementById(titulo) ? document.getElementById(titulo).textContent.trim() : 'YouTube';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    caixa.classList.add('video-carregado');
+    caixa.replaceChildren(iframe);
+    iframe.focus();
+  });
+
+  // ---------------------------------------------------------------
   // Menu (foco no painel ao abrir, Esc fecha, foco volta ao botão)
   // ---------------------------------------------------------------
   const botaoMenu = $('#botao-menu');
