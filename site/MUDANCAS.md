@@ -25,6 +25,9 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 
 ## 3. Decisões que a especificação não definia
 
+**Avaliações do Google (A e C)**
+- A seção comporta dois cartões. Das três avaliações reais recebidas, entraram as de Ana Esther Pithan e Nestor Jose Rech, com o texto exato. A de Carla Maranhão ficou de fora: o erro de digitação ("tem medo ajudado"), mantido exato, poderia confundir no teste. "[nota] · [nº] avaliações" continua como espaço reservado.
+
 **Retorno da Maria Clara (23/11): onde cada pedido entrou**
 - Regra seguida: o topo, área mais nobre, não muda; o que é complementar desce de nível (cartão, página Dúvidas).
 - **Três frases para o Início** ("conduzir o seu caminho…", "sintonizar…", "aliviar tensões…"): viraram a lista do verso do cartão "Como ela pode ajudar?", no lugar do texto antigo, que repetia os sentimentos já listados nas opções. Ficou "Sem prometer milagres" na abertura, para manter o equilíbrio.
@@ -77,7 +80,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 | 3 | Baralho de flash cards | Substitui os cards em rolagem e "Como é uma sessão" em lista |
 | 4 | Convite para o quiz | Substitui o convite para o teste de perfil |
 | 5–6 | "Aqui você pode falar à vontade" e "Online ou no consultório: você escolhe" | Mesmo conteúdo, textos novos (rascunho) |
-| 7 | O que dizem no Google | Igual |
+| 7 | O que dizem no Google | Duas avaliações reais do Google no lugar dos dois cartões reservados (a nota continua reservada) |
 | 8 | "Conheça meu canal no YouTube" | Título novo (rascunho) |
 | 9 | Quer conversar antes de marcar? | "Agendar sessão" |
 | 10 | Rodapé com o CVV discreto e a linha de registro | Mudança global (também na A) |

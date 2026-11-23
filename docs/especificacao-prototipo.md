@@ -45,7 +45,9 @@ Vale para as páginas Início, Sobre, Atendimento, Conteúdo e Dúvidas.
 5. **h2 "Online ou presencial":**
    - Cartão **Online**: "Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso." Link "Agendar online" (abre o agendamento com Online já marcado).
    - Cartão **Presencial**: "Balneário, Estreito, Florianópolis (SC)." Link "Ver rota" (vai para Atendimento, seção Presencial).
-6. **h2 "O que dizem no Google":** "[nota] · [nº] avaliações"; dois cartões em rolagem horizontal com "[texto da avaliação publicada no Google]" e "[nome] · [data]"; link "Ver todas no Google".
+6. **h2 "O que dizem no Google":** "[nota] · [nº] avaliações" (espaço reservado); dois cartões em rolagem horizontal (o que a seção comporta), com o texto da avaliação e "nome · data", copiados do perfil no Google exatamente como estão; link "Ver todas no Google".
+   1. "GRATIDÃO ETERNA, Clara!!! Com os nossos encontros e estudos contigo encontrei a ALEGRIA de me sentir merecedora do meu dom da VIDA!!! Esse sentimento estava tão escondido no subconsciente... que só com nossas hipnoses e sessões consegui trazer tudo para o consciente e então me libertar... para uma vida muito mais plena e leve. Seguir meu rumo com consciência das minhas escolhas... tão transformadoras de experiências! Viva, sucesso nos teus rumos e determinação de ajudar as pessoas!" / "Ana Esther Pithan · 5 anos atrás"
+   2. "Minha querida e competente mestra" / "Nestor Jose Rech · 5 anos atrás"
 7. **Sobre resumido:** [foto]; h2 "Maria Clara Vinotti"; "Parapsicóloga clínica pelo Sistema Grisa." seguido da biografia curta (abaixo); link "Formação e vínculos" (vai para Sobre).
 
    **Biografia curta (rascunho):** "Professora de Letras (Português e Inglês), especialista em Gestão Escolar e especialista em análise, orientação e hipnoterapia em Parapsicologia Clínica pelo Sistema Grisa. Atendo há sete anos."
