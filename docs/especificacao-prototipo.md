@@ -45,7 +45,7 @@ Vale para as páginas Início, Sobre, Atendimento, Conteúdo e Dúvidas.
 5. **h2 "Online ou presencial":**
    - Cartão **Online**: "Todo o Brasil e brasileiros no exterior. Por Google Meet ou WhatsApp, com o horário no seu fuso." Link "Agendar online" (abre o agendamento com Online já marcado).
    - Cartão **Presencial**: "Balneário, Estreito, Florianópolis (SC)." Link "Ver rota" (vai para Atendimento, seção Presencial).
-6. **h2 "O que dizem no Google":** "[nota] · [nº] avaliações"; dois cartões em rolagem horizontal com "[texto da avaliação publicada no Google]" e "[nome] · [data]"; link "Ver todas no Google".
+6. **h2 "O que dizem no Google":** "[nota] · [nº] avaliações"; três cartões em rolagem horizontal com o texto da avaliação publicada no Google e "[nome] · [data]" (as três primeiras do perfil, na ordem "Mais relevantes", em 23/11/2026; textos e datas reais em `index.html` e `site/index.html`, e a lista fica em `site/MUDANCAS.md`, seção 4); link "Ver todas no Google".
 7. **Sobre resumido:** [foto]; h2 "Maria Clara Vinotti"; "Parapsicóloga clínica pelo Sistema Grisa." seguido da biografia curta (abaixo); link "Formação e vínculos" (vai para Sobre).
 
    **Biografia curta (rascunho):** "Professora de Letras (Português e Inglês), especialista em Gestão Escolar e especialista em análise, orientação e hipnoterapia em Parapsicologia Clínica pelo Sistema Grisa. Atendo há sete anos."
