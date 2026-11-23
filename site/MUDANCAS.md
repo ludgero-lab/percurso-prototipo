@@ -111,3 +111,22 @@ A C segue a referência de estrutura e cartões em tons de cinza, para que a fas
 | `quiz-c.js` | Perguntas, resultado, e-mail simulado e "Refazer o quiz" |
 | `conteudo-c.js` | Temporadas e lista de episódios |
 | `agendar-c.js` | Navegação entre os passos do agendamento (a lógica está em `../agendamento.js`) |
+
+## 4. Avaliações do Google no Início (A e C)
+
+Em 23/11/2026 os dois cartões de "O que dizem no Google" viraram **três**, com as três primeiras avaliações do perfil "Maria Clara Vinotti Parapsicóloga Clinica - Sistema Grisa" no Google, na ordem "Mais relevantes". Entraram na A (`index.html`) e na C (`site/index.html`). A B continua congelada, com os espaços reservados.
+
+Os textos são os publicados, copiados sem alteração (inclusive caixa alta, pontuação e a falta de acento ou concordância do original). A data é a relativa que o Google mostrava no dia.
+
+| # | Nome | Nota | Quando | Texto |
+|---|---|---|---|---|
+| 1 | Ana Esther Pithan | 5 estrelas | 5 anos atrás | "GRATIDÃO ETERNA, Clara!!! Com os nossos encontros e estudos contigo encontrei a ALEGRIA de me sentir merecedora do meu dom da VIDA!!! Esse sentimento estava tão escondido no subconsciente... que só com nossas hipnoses e sessões consegui trazer tudo para o consciente e então me libertar... para uma vida muito mais plena e leve. Seguir meu rumo com consciência das minhas escolhas... tão transformadoras de experiências! Viva, sucesso nos teus rumos e determinação de ajudar as pessoas!" |
+| 2 | Carla Maranhão | 5 estrelas | um ano atrás | "Muito obrigada pois tem medo ajudado muito" |
+| 3 | Nestor Jose Rech | 5 estrelas | 5 anos atrás | "Minha querida e competente mestra" |
+
+**Decisões e pontos de atenção**
+- O perfil mostrava 5,0 e 7 avaliações. A linha "[nota] · [nº] avaliações" **continua com o espaço reservado**, porque o pedido foi só inserir as três avaliações. Falta decidir se entra "5,0 · 7 avaliações".
+- A avaliação 1 menciona "hipnoses e sessões" e "me libertar", e a 2 fala em "ajudou muito". São relatos de terceiros no Google, não promessa nossa, mas valem atenção na regra de "sem promessa de cura ou resultado". Observar no teste como as pessoas leem; a 2 tem erro de digitação no original ("tem medo ajudado").
+- As datas relativas ("5 anos atrás") vão ficar defasadas; no site final, usar o ano ou o mês.
+- Antes de publicar no site final, confirmar com a Maria Clara e com quem avaliou o uso do nome. Aqui o repositório é só de teste e está bloqueado para buscadores.
+- Em "Em aberto" (seção 1), o item 1 não muda: os textos em rascunho continuam sendo os listados lá.
