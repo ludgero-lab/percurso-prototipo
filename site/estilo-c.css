@@ -407,6 +407,10 @@ main > .secao:last-child {
   resize: vertical;
 }
 
+.campo-outros .botao {
+  margin-top: 12px;
+}
+
 .resposta-acoes {
   display: flex;
   flex-direction: column;

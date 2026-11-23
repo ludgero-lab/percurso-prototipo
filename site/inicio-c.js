@@ -36,6 +36,8 @@
         '<div class="campo campo-outros" id="campo-outros" hidden>' +
           '<label for="motivo-busca">Se quiser, conte o motivo da sua busca</label>' +
           '<textarea id="motivo-busca" rows="3"></textarea>' +
+          // O texto escrito precisa de um destino: no site final, vai pré-preenchido na mensagem do WhatsApp
+          '<button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>' +
         '</div>' +
         '<p class="resposta-cvv" id="resposta-cvv" hidden>Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito.</p>' +
         '<div class="resposta-acoes">' +
@@ -56,7 +58,19 @@
     textoResposta.hidden = !RESPOSTAS[valor];
     campoOutros.hidden = valor !== 'outros';
     linhaCvv.hidden = !COM_CVV.includes(valor);
+    mostrarResposta();
   });
+
+  // Com 9 opções, a resposta pode nascer abaixo da dobra (e da barra em pílula):
+  // rola só o necessário para ela aparecer, sem tirar o título do cartão da tela
+  function mostrarResposta() {
+    const cartao = areaResposta.firstElementChild;
+    if (!cartao) return;
+    const caixa = cartao.getBoundingClientRect();
+    const limiteBaixo = window.innerHeight - 112;   // espaço da barra em pílula
+    const deslocar = Math.min(caixa.bottom - limiteBaixo, caixa.top - 96);
+    if (deslocar > 0) window.scrollBy({ top: deslocar, behavior: comportamentoRolagem() });
+  }
 
   // "Ver como funciona": rola até o baralho e leva o foco ao título dele
   areaResposta.addEventListener('click', (evento) => {

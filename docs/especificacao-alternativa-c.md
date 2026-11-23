@@ -86,7 +86,9 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 
 **Respostas:** a Maria Clara ainda vai escrever as respostas de cada opção; até lá, cada uma mostra o espaço reservado "[Resposta para <opção>]". "Só estou conhecendo" mantém: "Que bom ter você aqui. Os cartões abaixo explicam, em poucas palavras, como a parapsicologia clínica funciona."
 
-**Outros:** não tem resposta; abre um campo de texto com o rótulo "Se quiser, conte o motivo da sua busca" (adaptado de "Se a resposta for outros, explique o motivo de sua busca"). Nada é guardado nem enviado.
+**Outros:** não tem resposta; abre um campo de texto com o rótulo "Se quiser, conte o motivo da sua busca" (adaptado de "Se a resposta for outros, explique o motivo de sua busca") e, abaixo, o botão secundário "Conversar no WhatsApp" (aviso simulado). No site final, o texto escrito vai pré-preenchido na mensagem do WhatsApp; no protótipo, nada é guardado nem enviado.
+
+**Resposta visível:** ao escolher uma opção, se o cartão de resposta ficar abaixo da dobra ou atrás da barra em pílula, a página rola só o necessário para mostrá-lo, sem tirar da tela a opção tocada (sem animação com "reduzir movimento").
 
 Nas respostas de **Depressão** e **Síndrome do pânico**, acrescentar uma linha final em texto pequeno, sem destaque: "Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito."
 
