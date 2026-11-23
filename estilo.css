@@ -973,3 +973,14 @@ select {
   padding: 0;
   background: none;
 }
+
+/* Avaliações do Google (A e C): o texto para em 5 linhas, com reticências;
+   a avaliação completa fica no perfil ("Ver todas no Google").
+   Classe própria, para não mudar a aparência da B. */
+.avaliacao-texto {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}

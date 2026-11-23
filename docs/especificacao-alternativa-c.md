@@ -127,7 +127,7 @@ Nas respostas de **Depressão** e **Síndrome do pânico**, acrescentar uma linh
 
 ### 2.5 Demais seções
 
-"O que dizem no Google" e "Quer conversar antes de marcar?" ficam como estão na B, só com os links para as páginas da C (seção 2) e "Agendar sessão" no lugar de "Agendar uma sessão". Exceção: em "O que dizem no Google", os dois cartões com espaço reservado viram duas avaliações reais do perfil no Google, iguais às da A (`docs/especificacao-prototipo.md`); "[nota] · [nº] avaliações" continua como espaço reservado.
+"O que dizem no Google" e "Quer conversar antes de marcar?" ficam como estão na B, só com os links para as páginas da C (seção 2) e "Agendar sessão" no lugar de "Agendar uma sessão". Exceção: em "O que dizem no Google", os dois cartões com espaço reservado viram duas avaliações reais do perfil no Google, iguais às da A (`docs/especificacao-prototipo.md`), com o texto limitado a 5 linhas; "[nota] · [nº] avaliações" continua como espaço reservado.
 
 As outras três seções ganham textos novos, na voz da Maria Clara (primeira pessoa, como "Me chame no WhatsApp" e "Quem sou eu?"), para ficarem mais naturais.
 
