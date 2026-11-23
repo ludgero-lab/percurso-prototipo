@@ -11,16 +11,28 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 ## 1. Em aberto (para validar com a Maria Clara)
 
 1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe", "Conheça meu canal no YouTube" com o texto de convite (confirmar se os temas citados estão no canal) e a abertura de Conteúdo.
-2. Lista final de sentimentos.
+2. Respostas das opções novas de "Com o que você está chegando hoje?" (hoje entre colchetes) e se o texto escrito em "Outros" deve seguir para algum lugar no site final (por exemplo, a mensagem do WhatsApp).
 3. Se o quiz entra no MVP (estava previsto para a V2).
 4. Texto do aviso do CVV no rodapé.
 5. Evolução para um segundo momento: dar à Maria Clara acesso às respostas do quiz de quem autorizar. Exige guardar dados sobre sentimentos, consentimento específico e destacado e revisão de LGPD.
+6. Conferir a adaptação do retorno de 23/11 (seção 3, "Retorno da Maria Clara"), em especial os trechos que ficaram de fora por prometerem resultado.
 
 ## 2. Riscos para o teste
 
 - **Altura do baralho do quiz:** os cartões ocupam a mesma célula, então o cartão do resultado tem a altura da pergunta mais longa e fica com espaço em branco quando há um só tema.
 
+- **Termos clínicos nas opções:** "Depressão", "Síndrome do pânico" e "Ansiedade" vêm da Maria Clara. Podem levar a pessoa a esperar um tratamento de saúde; as duas primeiras mostram a linha do CVV (188). Observar no teste como as pessoas leem essas opções.
+
 ## 3. Decisões que a especificação não definia
+
+**Retorno da Maria Clara (23/11): onde cada pedido entrou**
+- Regra seguida: o topo, área mais nobre, não muda; o que é complementar desce de nível (cartão, página Dúvidas).
+- **Três frases para o Início** ("conduzir o seu caminho…", "sintonizar…", "aliviar tensões…"): viraram a lista do verso do cartão "Como ela pode ajudar?", no lugar do texto antigo, que repetia os sentimentos já listados nas opções. Ficou "Sem prometer milagres" na abertura, para manter o equilíbrio.
+- **Opções de "Com o que você está chegando hoje?"**: as oito dela, com rótulos curtos de chip ("Traumas" em vez de "Traumas diversos", "Não encontro meu lugar no mundo" em primeira pessoa, "Síndrome do pânico" com a grafia usual). "Só estou conhecendo" continua, como saída para quem não quer se rotular.
+- **"O que é parapsicologia clínica?"**: o cartão traz um resumo de três frases, com as duas que ela destacou em negrito; o texto completo fica em Dúvidas, que o link "Mais dúvidas" abre já na pergunta.
+- **"Mais dúvidas"**: dividido em duas dúvidas novas, para cada resposta caber num cartão que abre: "Como o Sistema Grisa vê a pessoa?" e "E os fenômenos paranormais?". As perguntas são nossas; as respostas são o texto dela.
+- **Revisão:** só grafia e concordância, sem mudar o sentido: "funciona como dois - 0 consciente" → "funciona como duas: a consciente"; "através da" → "por meio da"; "alheio" → "alheios"; "livre arbítrio" → "livre-arbítrio"; "ordem físico" → "ordem física"; "programações ameaçadores" → "ameaçadoras"; "telepatias desconfortantes" → "desconfortáveis"; frases longas divididas.
+- **Fora, por prometerem resultado (regra do projeto):** "para começar a desfrutar de resultados melhores, podendo inclusive ajudar pessoas que se encontram em situação de perigo" e "significando que você pode mudar ou alterar o resultado final". Voltam se a Maria Clara confirmar, com a redação dela.
 
 **Estrutura**
 - Cabeçalho, menu, rodapé, barra em pílula, voltar ao topo e aviso são montados uma vez só por `comum-c.js`, a partir de `<body data-pagina>`. Cada página traz só o próprio conteúdo.

@@ -241,6 +241,12 @@ window.PercursoC = (function () {
   function focarAncora() {
     const alvo = location.hash.length > 1 && !location.hash.startsWith('#/') && document.getElementById(location.hash.slice(1));
     if (!alvo) return;
+    // Uma dúvida (details) chega aberta, com o foco na pergunta
+    if (alvo.tagName === 'DETAILS') {
+      alvo.open = true;
+      $('summary', alvo).focus({ preventScroll: true });
+      return;
+    }
     const titulo = alvo.matches('h1, h2, h3') ? alvo : $('h2, h3', alvo);
     if (titulo) titulo.focus({ preventScroll: true });
   }

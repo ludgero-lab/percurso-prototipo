@@ -390,6 +390,23 @@ main > .secao:last-child {
   color: var(--texto-suave);
 }
 
+/* "Outros": campo para a pessoa contar o motivo da busca (nada é guardado nem enviado) */
+.campo-outros {
+  margin: 0 0 12px;
+}
+
+.campo-outros textarea {
+  display: block;
+  width: 100%;
+  min-height: 96px;
+  padding: 10px 12px;
+  border: 2px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--fundo);
+  font: inherit;
+  resize: vertical;
+}
+
 .resposta-acoes {
   display: flex;
   flex-direction: column;
