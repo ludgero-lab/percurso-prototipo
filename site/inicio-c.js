@@ -8,24 +8,37 @@
   // ---------------------------------------------------------------
   // Com o que você está chegando hoje? (respostas em rascunho)
   // ---------------------------------------------------------------
+  // Textos das respostas ainda por escrever pela Maria Clara: ficam entre colchetes.
+  // "Outros" não tem texto: abre um campo para a pessoa contar o motivo da busca.
   const RESPOSTAS = {
-    culpa: 'Muitas pessoas chegam aqui com culpas que não deixam desfrutar da alegria de viver. Na parapsicologia clínica, olhamos para a sua história para entender de onde elas vêm, sem julgamento: a regra é separar o ato da pessoa.',
-    raiva: 'A raiva que a gente não quer sentir costuma ter raízes em vivências antigas. Compreender essa história ajuda a mudar a forma como ela comanda a sua vida.',
-    medo: 'O medo é uma forma de proteção que a mente aprendeu cedo. Na parapsicologia clínica, buscamos compreender esse medo para que ele deixe de decidir por você.',
-    inseguranca: 'A sensação de não merecer ou de não ser capaz costuma vir de vivências antigas. O trabalho começa conhecendo a sua história, no seu ritmo.',
-    tristeza: 'A tristeza merece ser olhada com cuidado. Aqui você encontra um espaço de acolhimento para entender a sua história e voltar a sentir prazer em viver.',
-    magoa: 'Mágoas e ressentimentos pesam nas relações e na forma como nos vemos. Compreender o que ficou mal resolvido abre caminho para mais leveza.',
+    merecimento: '[Resposta para Sensação de não merecimento]',
+    sentido: '[Resposta para Encontrar sentido para a vida]',
+    ansiedade: '[Resposta para Ansiedade]',
+    depressao: '[Resposta para Depressão]',
+    panico: '[Resposta para Síndrome do pânico]',
+    traumas: '[Resposta para Traumas]',
+    lugar: '[Resposta para Não encontro meu lugar no mundo]',
+    outros: '',
     conhecendo: 'Que bom ter você aqui. Os cartões abaixo explicam, em poucas palavras, como a parapsicologia clínica funciona.'
   };
+  // Opções que mostram a linha do CVV (188)
+  const COM_CVV = ['depressao', 'panico'];
 
   const areaResposta = $('#resposta-sentimento');
   let textoResposta = null;
   let linhaCvv = null;
+  let campoOutros = null;
 
   function criarCartaoResposta() {
     areaResposta.innerHTML =
       '<div class="cartao-c cartao-resposta">' +
         '<p id="texto-sentimento"></p>' +
+        '<div class="campo campo-outros" id="campo-outros" hidden>' +
+          '<label for="motivo-busca">Se quiser, conte o motivo da sua busca</label>' +
+          '<textarea id="motivo-busca" rows="3"></textarea>' +
+          // O texto escrito precisa de um destino: no site final, vai pré-preenchido na mensagem do WhatsApp
+          '<button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>' +
+        '</div>' +
         '<p class="resposta-cvv" id="resposta-cvv" hidden>Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito.</p>' +
         '<div class="resposta-acoes">' +
           '<a class="link" href="#baralho" id="ver-como-funciona">Ver como funciona</a>' +
@@ -34,15 +47,30 @@
       '</div>';
     textoResposta = $('#texto-sentimento');
     linhaCvv = $('#resposta-cvv');
+    campoOutros = $('#campo-outros');
   }
 
   $('#chips-sentimento').addEventListener('change', (evento) => {
     const valor = evento.target.value;
-    if (!RESPOSTAS[valor]) return;
+    if (!(valor in RESPOSTAS)) return;
     if (!textoResposta) criarCartaoResposta();
     textoResposta.textContent = RESPOSTAS[valor];
-    linhaCvv.hidden = valor !== 'tristeza';
+    textoResposta.hidden = !RESPOSTAS[valor];
+    campoOutros.hidden = valor !== 'outros';
+    linhaCvv.hidden = !COM_CVV.includes(valor);
+    mostrarResposta();
   });
+
+  // Com 9 opções, a resposta pode nascer abaixo da dobra (e da barra em pílula):
+  // rola só o necessário para ela aparecer, sem tirar o título do cartão da tela
+  function mostrarResposta() {
+    const cartao = areaResposta.firstElementChild;
+    if (!cartao) return;
+    const caixa = cartao.getBoundingClientRect();
+    const limiteBaixo = window.innerHeight - 112;   // espaço da barra em pílula
+    const deslocar = Math.min(caixa.bottom - limiteBaixo, caixa.top - 96);
+    if (deslocar > 0) window.scrollBy({ top: deslocar, behavior: comportamentoRolagem() });
+  }
 
   // "Ver como funciona": rola até o baralho e leva o foco ao título dele
   areaResposta.addEventListener('click', (evento) => {

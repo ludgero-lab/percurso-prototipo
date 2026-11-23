@@ -78,25 +78,19 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 
 - h2: "Com o que você está chegando hoje?"
 - Apoio: "Escolha uma opção. Sua resposta não é guardada."
-- Opções em chips (rádios nativos estilizados como chips, num `fieldset` com legenda escondida igual ao título), nenhuma marcada no início: Culpa · Raiva · Medo · Insegurança · Tristeza · Mágoa · Só estou conhecendo.
+- Opções em chips (rádios nativos estilizados como chips, num `fieldset` com legenda escondida igual ao título), nenhuma marcada no início: Sensação de não merecimento · Encontrar sentido para a vida · Ansiedade · Depressão · Síndrome do pânico · Traumas · Não encontro meu lugar no mundo · Outros · Só estou conhecendo (lista da Maria Clara, retorno de 23/11).
 - Ao escolher, aparece abaixo, numa área `aria-live="polite"`, um cartão de resposta com o texto correspondente e duas ações:
   - Link "Ver como funciona": rola até o baralho de flash cards e leva o foco ao título dele.
   - Link "Fazer o quiz de autoconhecimento": abre o quiz.
 - Trocar de opção troca o texto da resposta.
 
-**Respostas (rascunho):**
+**Respostas:** a Maria Clara ainda vai escrever as respostas de cada opção; até lá, cada uma mostra o espaço reservado "[Resposta para <opção>]". "Só estou conhecendo" mantém: "Que bom ter você aqui. Os cartões abaixo explicam, em poucas palavras, como a parapsicologia clínica funciona."
 
-| Opção | Texto |
-|---|---|
-| Culpa | Muitas pessoas chegam aqui com culpas que não deixam desfrutar da alegria de viver. Na parapsicologia clínica, olhamos para a sua história para entender de onde elas vêm, sem julgamento: a regra é separar o ato da pessoa. |
-| Raiva | A raiva que a gente não quer sentir costuma ter raízes em vivências antigas. Compreender essa história ajuda a mudar a forma como ela comanda a sua vida. |
-| Medo | O medo é uma forma de proteção que a mente aprendeu cedo. Na parapsicologia clínica, buscamos compreender esse medo para que ele deixe de decidir por você. |
-| Insegurança | A sensação de não merecer ou de não ser capaz costuma vir de vivências antigas. O trabalho começa conhecendo a sua história, no seu ritmo. |
-| Tristeza | A tristeza merece ser olhada com cuidado. Aqui você encontra um espaço de acolhimento para entender a sua história e voltar a sentir prazer em viver. |
-| Mágoa | Mágoas e ressentimentos pesam nas relações e na forma como nos vemos. Compreender o que ficou mal resolvido abre caminho para mais leveza. |
-| Só estou conhecendo | Que bom ter você aqui. Os cartões abaixo explicam, em poucas palavras, como a parapsicologia clínica funciona. |
+**Outros:** não tem resposta; abre um campo de texto com o rótulo "Se quiser, conte o motivo da sua busca" (adaptado de "Se a resposta for outros, explique o motivo de sua busca") e, abaixo, o botão secundário "Conversar no WhatsApp" (aviso simulado). No site final, o texto escrito vai pré-preenchido na mensagem do WhatsApp; no protótipo, nada é guardado nem enviado.
 
-Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, sem destaque: "Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito."
+**Resposta visível:** ao escolher uma opção, se o cartão de resposta ficar abaixo da dobra ou atrás da barra em pílula, a página rola só o necessário para mostrá-lo, sem tirar da tela a opção tocada (sem animação com "reduzir movimento").
+
+Nas respostas de **Depressão** e **Síndrome do pânico**, acrescentar uma linha final em texto pequeno, sem destaque: "Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito."
 
 ### 2.3 Baralho de flash cards
 
@@ -111,10 +105,10 @@ Só na resposta de **Tristeza**, acrescentar uma linha final em texto pequeno, s
 **Conteúdo dos cartões:**
 
 1. **Frente:** "O que é a parapsicologia clínica?"
-   **Verso (rascunho):** "A parapsicologia do Sistema Grisa busca entender como funciona a mente humana. A mente é uma só, mas funciona como duas: a consciente, racional, e a subconsciente, emocional. Ela dialoga com a psicologia, a psicanálise e a psiquiatria como aliadas importantes."
-   Link: "Mais dúvidas" → `duvidas.html`.
+   **Verso (resumo do texto da Maria Clara):** "A mente é uma só, mas funciona como duas: a consciente e a subconsciente. A parapsicologia clínica ajuda a entender e dar sentido ao que gerou conflitos, por meio da compreensão. Com orientação parapsicológica e hipnose, é possível reprogramar o que age sem a sua vontade consciente."
+   Link: "Mais dúvidas" → `duvidas.html#o-que-e` (a dúvida chega aberta, com o foco na pergunta). O texto completo fica lá.
 2. **Frente:** "Como ela pode ajudar?"
-   **Verso (rascunho):** "Quem procura costuma trazer angústia, ansiedade, raiva, culpa ou a sensação de não merecer as próprias conquistas. Não prometemos milagres: o caminho é ficar mais consciente do próprio poder de pensar, decidir e conduzir a própria vida."
+   **Verso:** "Sem prometer milagres, o trabalho busca ajudar você a:" e a lista: Conduzir o seu caminho, com novas percepções diante das dificuldades. · Sintonizar com o seu jeito de ser e estar hoje, sem as sombras do passado. · Aliviar tensões e pressões que alimentam o medo de sofrer e o medo de morrer. (As três frases que a Maria Clara pediu para o Início; o topo fica curto.)
    Link: "Ver o atendimento" → `atendimento.html`.
 3. **Frente:** "Como é uma sessão?"
    **Verso:** "Cerca de 1h30, online ou presencial." e a lista numerada: 1. Conhecer a sua história. 2. Olhar para os sentimentos que mais marcam a sua vida. 3. Definir metas a curto, médio e longo prazo, juntos. 4. Tarefas entre as sessões, no seu tempo.
@@ -228,7 +222,7 @@ Abaixo do resultado:
 
 A C tem as mesmas páginas da A, em arquivos próprios: `sobre.html`, `atendimento.html` (âncoras `#presencial` e `#etapas`), `conteudo.html`, `duvidas.html` e `agendar.html` (passos `#/1`, `#/2` e `#/3`).
 
-- **Conteúdo e textos:** os da especificação da A, com as mudanças globais da seção 1. Três exceções, para a C falar do mesmo jeito em todas as páginas: em Atendimento, a seção "Online ou presencial" usa o título e os textos da seção 2.5; em Dúvidas, a resposta de "O que é parapsicologia clínica?" usa o verso do primeiro flash card (seção 2.3); em Conteúdo, o texto de abertura passa a "Vídeos em temporadas, sobre temas escolhidos pela Maria Clara." (rascunho), sem prometer um vídeo por semana.
+- **Conteúdo e textos:** os da especificação da A, com as mudanças globais da seção 1. Três exceções, para a C falar do mesmo jeito em todas as páginas: em Atendimento, a seção "Online ou presencial" usa o título e os textos da seção 2.5; em Dúvidas, "O que é parapsicologia clínica?" traz o texto completo da Maria Clara (o primeiro flash card é o resumo dele), seguido de duas dúvidas novas com o texto "Mais dúvidas" dela: "Como o Sistema Grisa vê a pessoa?" e "E os fenômenos paranormais?" (ver `site/MUDANCAS.md`); em Conteúdo, o texto de abertura passa a "Vídeos em temporadas, sobre temas escolhidos pela Maria Clara." (rascunho), sem prometer um vídeo por semana.
 - **Linha visual e usabilidade:** as mesmas do Início e do quiz: cabeçalho com Voltar (leva ao Início da C) e menu redondos, menu com a página atual, título da página como o do quiz, seções em cartões arredondados, listas numeradas com o número num círculo, temporadas em chips, Dúvidas em cartões que abrem, ações finais em cartão de destaque, barra em pílula (2.6), voltar ao topo (2.7) e o mesmo rodapé.
 - **Agendamento:** mesmo comportamento da A, com a linha visual da C (progresso em pílula, calendário num cartão, dias e horários em pílula, bloco do passo 1 flutuante). Sem menu, sem barra em pílula e com o rodapé curto. "Voltar" no passo 1 devolve à página da C de onde a pessoa veio; "Voltar ao início" leva ao Início da C. A lógica do agendamento é a mesma da A (`agendamento.js`).
 
@@ -255,7 +249,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] Biografia e trajetória substituem os espaços reservados na A.
 - [ ] Topo da C: nome em serifa, "Parapsicóloga clínica" em itálico, h1 e apoio sobre o espaço reservado da imagem, com contraste AA; pílula "Agendar sessão", sem o botão redondo do WhatsApp.
 - [ ] Animação de entrada só acontece uma vez e não acontece com "reduzir movimento".
-- [ ] Os 7 chips funcionam com toque e teclado; cada um mostra a resposta certa; só "Tristeza" mostra a linha do 188.
+- [ ] Os 9 chips funcionam com toque e teclado; cada um mostra a resposta certa; só "Depressão" e "Síndrome do pânico" mostram a linha do 188; "Outros" abre o campo do motivo.
 - [ ] "Ver como funciona" rola até o baralho e leva o foco ao título.
 - [ ] Baralho: "Cartão X de 4", setas de anterior e próximo com nome acessível, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
 - [ ] Baralho alinhado na vertical, sem sombra, com hierarquia tonal (cada cartão de trás mais escuro) e troca para os lados, evidente e suave; o mesmo no quiz.
