@@ -11,7 +11,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 ## 1. Em aberto (para validar com a Maria Clara)
 
 1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe", "Conheça meu canal no YouTube" com o texto de convite (confirmar se os temas citados estão no canal) e a abertura de Conteúdo.
-2. Respostas das opções novas de "Com o que você está chegando hoje?" (hoje entre colchetes) e se o texto escrito em "Outros" deve seguir para algum lugar no site final (por exemplo, a mensagem do WhatsApp).
+2. Rótulos provisórios do seletor: "Falta de sentido na vida" e "Outro motivo". E, no site final, o texto escrito em "Outro motivo" seguir pré-preenchido na mensagem do WhatsApp.
 3. Se o quiz entra no MVP (estava previsto para a V2).
 4. Texto do aviso do CVV no rodapé.
 5. Evolução para um segundo momento: dar à Maria Clara acesso às respostas do quiz de quem autorizar. Exige guardar dados sobre sentimentos, consentimento específico e destacado e revisão de LGPD.
@@ -21,12 +21,19 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 
 - **Altura do baralho do quiz:** os cartões ocupam a mesma célula, então o cartão do resultado tem a altura da pergunta mais longa e fica com espaço em branco quando há um só tema.
 
-- **Termos clínicos nas opções:** "Depressão", "Síndrome do pânico" e "Ansiedade" vêm da Maria Clara. Podem levar a pessoa a esperar um tratamento de saúde; as duas primeiras mostram a linha do CVV (188). Observar no teste como as pessoas leem essas opções.
+- **Termos clínicos nas opções:** "Depressão", "Síndrome do pânico" e "Ansiedade" vêm da Maria Clara. Podem levar a pessoa a esperar um tratamento de saúde; nas duas primeiras, o texto dela encaminha para avaliação médica. O 188 fica só no rodapé. Observar no teste como as pessoas leem essas opções.
 
 ## 3. Decisões que a especificação não definia
 
 **Avaliações do Google (A e C)**
 - A seção comporta dois cartões. Das três avaliações reais recebidas, entraram as de Ana Esther Pithan e Nestor Jose Rech, com o texto exato. A de Carla Maranhão ficou de fora: o erro de digitação ("tem medo ajudado"), mantido exato, poderia confundir no teste. A linha de cima mostra "5,0 · 7 avaliações", como no perfil.
+
+**Seletor "Com o que você está chegando hoje?" (retorno de 24/11)**
+- Os textos saíram do código para `conteudo-seletor.js`, lido por `inicio-c.js`, que monta os chips e as respostas. Cada item tem id, rótulo, texto, status e, em "Outro motivo", o rótulo do campo.
+- De 9 para 8 opções: "Encontrar sentido para a vida" e "Não encontro meu lugar no mundo" viraram "Falta de sentido na vida"; "Outros" virou "Outro motivo"; "Traumas" voltou a "Traumas diversos".
+- "Outro motivo": a primeira frase do texto dela fica no cartão e a segunda vira o rótulo do campo, para o texto ficar exato e o campo ter rótulo visível. Saiu o rótulo que tínhamos escrito.
+- A linha do 188 que aparecia em Depressão e Síndrome do pânico saiu: o 188 fica só no rodapé.
+- A 375 px, todas as respostas cabem no cartão sem rolagem interna: a maior tem 49 palavras (8 linhas).
 
 **Retorno da Maria Clara (23/11): onde cada pedido entrou**
 - Regra seguida: o topo, área mais nobre, não muda; o que é complementar desce de nível (cartão, página Dúvidas).
@@ -110,7 +117,8 @@ A C segue a referência de estrutura e cartões em tons de cinza, para que a fas
 | `agendar.html` | Agendamento (passos `#/1`, `#/2`, `#/3`) |
 | `estilo-c.css` | Só o que muda em relação a `../estilo.css`, em ordem: tokens, componentes, moldura, Início, páginas internas, agendamento, baralho, quiz, movimento |
 | `comum-c.js` | Moldura da página (cabeçalho, menu, rodapé, barra, voltar ao topo, aviso) e o componente de baralho |
-| `inicio-c.js` | Chips de sentimentos e flash cards |
+| `conteudo-seletor.js` | Rótulos e textos do seletor "Com o que você está chegando hoje?" (única fonte desses textos) |
+| `inicio-c.js` | Monta o seletor a partir de `conteudo-seletor.js` e controla os flash cards |
 | `quiz-c.js` | Perguntas, resultado, e-mail simulado e "Refazer o quiz" |
 | `conteudo-c.js` | Temporadas e lista de episódios |
 | `agendar-c.js` | Navegação entre os passos do agendamento (a lógica está em `../agendamento.js`) |

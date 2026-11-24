@@ -42,16 +42,8 @@
       <p class="apoio">Escolha uma opção. Sua resposta não é guardada.</p>
       <fieldset class="chips" id="chips-sentimento">
         <legend class="so-leitor">Com o que você está chegando hoje?</legend>
-        <label class="chip"><input type="radio" name="sentimento" value="merecimento"><span>Sensação de não merecimento</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="sentido"><span>Encontrar sentido para a vida</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="ansiedade"><span>Ansiedade</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="depressao"><span>Depressão</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="panico"><span>Síndrome do pânico</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="traumas"><span>Traumas</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="lugar"><span>Não encontro meu lugar no mundo</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="outros"><span>Outros</span></label>
-          <label class="chip"><input type="radio" name="sentimento" value="conhecendo"><span>Só estou conhecendo</span></label>
-        </fieldset>
+        <!-- As opções são montadas por inicio-c.js a partir de conteudo-seletor.js -->
+      </fieldset>
       <!-- Resposta: o cartão é criado na primeira escolha; depois só o texto muda -->
       <div class="resposta-sentimento" id="resposta-sentimento" aria-live="polite"></div>
     </section>
@@ -226,6 +218,7 @@
 </div>
 
 <script src="comum-c.js"></script>
+<script src="conteudo-seletor.js"></script>
 <script src="inicio-c.js"></script>
 </body>
 </html>
