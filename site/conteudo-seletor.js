@@ -19,45 +19,51 @@ window.PercursoConteudo.seletor = [
   {
     id: 'merecimento',
     rotulo: 'Sensação de não merecimento',
-    texto: 'É não se permitir amar nem receber amor, ter sucesso, ser feliz, como se houvesse algo errado com você. A insegurança gera o medo de errar e de não estar à altura do outro; na sessão, buscamos a percepção de onde tudo começou.',
+    texto: 'É não se permitir o amor, o sucesso, a felicidade, como se houvesse algo errado. A insegurança gera o medo de errar e de não estar à altura do outro.',
     status: 'aprovado'
   },
   {
     id: 'sentido',
     rotulo: 'Falta de sentido na vida',
-    texto: 'Sentir-se fora do ninho, ameaçado pelo fantasma da rejeição, num mundo solitário e triste. O vazio existencial é alerta para um encontro com as qualidades dentro de você: o que você é, o que você tem e o que faz. Quando foi a primeira vez que se percebeu assim?',
-    status: 'rotulo-provisorio'
+    texto: 'O vazio existencial é alerta para um encontro com as qualidades dentro de você: o que você é, o que você tem e o que faz. O processo terapêutico ajuda a perceber onde tudo começou.',
+    status: 'aprovado'
   },
   {
     id: 'ansiedade',
     rotulo: 'Ansiedade',
-    texto: 'A ansiedade acontece pelo medo do resultado, de que não dê certo, e pelo medo de resultados futuros; assim, está vinculada à depressão. Criar mecanismos que tragam de volta a calma pode ser o início de um aprendizado.',
+    texto: 'A ansiedade acontece pelo medo do resultado, de que não dê certo, e por isso está vinculada à depressão. Criar mecanismos que tragam de volta a calma pode ser o início de um aprendizado.',
     status: 'aprovado'
   },
   {
     id: 'depressao',
     rotulo: 'Depressão',
-    texto: 'Tudo parece difícil, sem graça, sem sentido. É possível olhar para o sentimento que desencadeia esse resultado, e paralelo à terapia é necessário, inicialmente, uma avaliação médica especializada.',
+    texto: 'Tudo parece difícil, sem graça, sem sentido. É possível olhar para o sentimento que desencadeia esse resultado, e paralelo à terapia é necessário, inicialmente, avaliação médica especializada.',
     status: 'aprovado'
   },
   {
     id: 'panico',
     rotulo: 'Síndrome do pânico',
-    texto: 'Ela surge em pessoas que vivenciaram ou tiveram percepção de ameaça de morte, na gestação ou no momento do nascimento. Ligada à depressão, poderá precisar de avaliação médica, e a terapia trabalha com técnicas específicas para essa sensação tão difícil de viver.',
+    texto: 'Surge em pessoas que vivenciaram ou tiveram percepção de ameaça de morte, na gestação ou no nascimento. Ligada à depressão, pode precisar de avaliação médica, e a terapia trabalha com técnicas específicas para essa sensação tão difícil de viver.',
     status: 'aprovado'
   },
   {
     id: 'traumas',
     rotulo: 'Traumas diversos',
-    texto: 'Todo trauma tem uma porta, que pode ser real ou imaginária. A verdade é que dói enquanto não percebe a superação.',
+    texto: 'Todo trauma tem uma porta, real ou imaginária, e dói enquanto a superação não é percebida.',
     status: 'aprovado'
+  },
+  {
+    id: 'lugar',
+    rotulo: 'Não encontro meu lugar no mundo',
+    texto: 'Sentir-se fora do ninho, sob a ameaça do fantasma da rejeição, num mundo solitário e triste. Encontrar-se consigo mesmo e com o seu valor. Quando foi a primeira vez que se percebeu assim?',
+    status: 'rotulo-provisorio'
   },
   {
     id: 'outro',
     rotulo: 'Outro motivo',
     texto: 'Sofremos ou temos medo porque nos perdemos, e é preciso encontrar o caminho de volta.',
-    campo: 'Escreva com as suas palavras o que te trouxe aqui.',
-    status: 'rotulo-provisorio'
+    campo: 'Escreva com as suas palavras o que trouxe você até aqui.',
+    status: 'aprovado'
   },
   {
     id: 'conhecendo',
