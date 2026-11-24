@@ -257,7 +257,7 @@ window.PercursoC = (function () {
   // Baralho de cartões empilhados (flash cards do Início e perguntas do quiz)
   // ---------------------------------------------------------------
   // Cada [data-carta] recebe data-pos conforme a distância até o cartão atual:
-  // "0" na frente, "1" e "2" atrás (alinhados, um pouco abaixo), "atras" escondido, "saiu" (saiu pela direita).
+  // "0" na frente, "1" e "2" atrás (alinhados, um pouco abaixo), "atras" escondido, "saiu" (fora da tela, pelo lado guardado em data-lado: "direita" ou "esquerda").
   // Só o cartão da frente fica fora do inert. Cartões que viram têm um botão
   // .carta-virar (aria-expanded) e um .carta-verso, que fica inert enquanto fechado.
   const DURACAO_TROCA = 650; // igual a --duracao-troca no CSS
@@ -297,25 +297,19 @@ window.PercursoC = (function () {
       });
     }
 
-    function irPara(indice) {
+    // Avançar: o cartão da frente sai pelo lado pedido ("direita", padrão do botão
+    // Próximo, ou o lado para onde o dedo deslizou) e guarda esse lado.
+    // Voltar: o cartão anterior volta entrando pelo mesmo lado por onde saiu.
+    function irPara(indice, lado) {
       const lista = cartas();
       if (indice < 0 || indice >= lista.length || indice === atual) return false;
       const anterior = lista[atual];
       const tinhaFoco = anterior.contains(document.activeElement);
-      const voltando = indice < atual;
+      if (indice > atual) {
+        for (let i = atual; i < indice; i++) lista[i].dataset.lado = lado === 'esquerda' ? 'esquerda' : 'direita';
+      }
       atual = indice;
       posicionar();
-      // Voltando (espelho do Próximo), o cartão da frente vai para a esquerda e volta
-      // para trás da pilha, e o anterior sobe da pilha para a frente
-      if (voltando && !reduzirMovimento.matches) {
-        const novo = lista[atual];
-        [[anterior, 'indo-para-tras'], [novo, 'voltando-da-pilha']].forEach(([carta, classe]) => {
-          carta.classList.remove(classe);
-          void carta.offsetWidth;
-          carta.classList.add(classe);
-          setTimeout(() => carta.classList.remove(classe), DURACAO_TROCA + 20);
-        });
-      }
       // O novo cartão aparece sempre pela frente; o que saiu desvira depois de sair de vista
       if (anterior.classList.contains('virada')) {
         setTimeout(() => {
@@ -346,7 +340,8 @@ window.PercursoC = (function () {
       else virarCarta(carta, !carta.classList.contains('virada'));
     });
 
-    // Deslizar para os lados é só um atalho, no mesmo sentido das setas: para a direita, Próximo; para a esquerda, Anterior
+    // Deslizar é só um atalho para avançar: o cartão sai para o lado do dedo (direita ou esquerda).
+    // Voltar é sempre pelo botão de seta para a esquerda.
     if (opcoes.deslizar) {
       let inicio = null;
       raiz.addEventListener('pointerdown', (evento) => {
@@ -361,7 +356,7 @@ window.PercursoC = (function () {
         if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
         ignorarClique = true;
         setTimeout(() => { ignorarClique = false; }, 400);
-        irPara(atual + (dx > 0 ? 1 : -1));
+        irPara(atual + 1, dx > 0 ? 'direita' : 'esquerda');
       });
       raiz.addEventListener('pointercancel', () => { inicio = null; });
     }

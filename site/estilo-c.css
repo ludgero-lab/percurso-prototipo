@@ -699,8 +699,9 @@ main > .secao:last-child {
   transform: translateY(32px) scale(0.88);
 }
 
-/* Cartão que já passou ("Próximo", seta da direita): desliza para fora pela direita,
-   girando de leve, e some só no fim */
+/* Cartão que já passou: desliza para fora pelo lado guardado em data-lado
+   (direita: botão Próximo ou dedo para a direita; esquerda: dedo para a esquerda),
+   girando de leve, e some só no fim. Ao voltar, entra pelo mesmo lado. */
 .carta[data-pos="saiu"] {
   z-index: 5;
   opacity: 0;
@@ -709,53 +710,8 @@ main > .secao:last-child {
   transition: transform var(--duracao-troca) var(--curva-troca), opacity var(--duracao-troca) ease-in;
 }
 
-/* "Anterior" (seta da esquerda): espelho do "Próximo". O cartão da frente vai para a esquerda e
-   volta para trás da pilha; o anterior sobe da pilha para a frente, sem
-   atravessar a tela. Na primeira metade, o que sai fica por cima. */
-@keyframes carta-para-tras {
-  0% {
-    transform: none;
-    z-index: 6;
-  }
-  50% {
-    transform: translateX(-70%) rotate(-6deg);
-    z-index: 6;
-  }
-  51% {
-    z-index: 1;
-  }
-  100% {
-    transform: translateY(16px) scale(0.94);
-    z-index: 1;
-  }
-}
-
-@keyframes carta-volta-da-pilha {
-  0%,
-  35% {
-    transform: translateY(16px) scale(0.94);
-    opacity: 1;
-  }
-  100% {
-    transform: none;
-    opacity: 1;
-  }
-}
-
-.carta.indo-para-tras {
-  animation: carta-para-tras var(--duracao-troca) var(--curva-troca);
-}
-
-.carta.voltando-da-pilha {
-  animation: carta-volta-da-pilha var(--duracao-troca) var(--curva-troca);
-}
-
-.baralho .carta.indo-para-tras .carta-face {
-  background: var(--tom-carta-frente);
-}
-
-.baralho .carta.indo-para-tras .carta-face > * {
-  opacity: 1;
+.carta[data-pos="saiu"][data-lado="esquerda"] {
+  transform: translateX(-112%) rotate(-6deg);
 }
 
 .carta-giro {
@@ -1054,7 +1010,8 @@ main > .secao:last-child {
     transition: opacity 300ms ease;
   }
 
-  .carta[data-pos="saiu"] {
+  .carta[data-pos="saiu"],
+  .carta[data-pos="saiu"][data-lado="esquerda"] {
     transform: none;
     transition: opacity 300ms ease;
   }
