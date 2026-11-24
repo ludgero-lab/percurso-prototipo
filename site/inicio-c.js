@@ -6,62 +6,63 @@
   const { $, comportamentoRolagem, criarBaralho } = window.PercursoC;
 
   // ---------------------------------------------------------------
-  // Com o que você está chegando hoje? (respostas em rascunho)
+  // Com o que você está chegando hoje?
+  // Opções e respostas vêm de conteudo-seletor.js (textos da cliente, fora do HTML).
   // ---------------------------------------------------------------
-  // Textos das respostas ainda por escrever pela Maria Clara: ficam entre colchetes.
-  // "Outros" não tem texto: abre um campo para a pessoa contar o motivo da busca.
-  const RESPOSTAS = {
-    merecimento: '[Resposta para Sensação de não merecimento]',
-    sentido: '[Resposta para Encontrar sentido para a vida]',
-    ansiedade: '[Resposta para Ansiedade]',
-    depressao: '[Resposta para Depressão]',
-    panico: '[Resposta para Síndrome do pânico]',
-    traumas: '[Resposta para Traumas]',
-    lugar: '[Resposta para Não encontro meu lugar no mundo]',
-    outros: '',
-    conhecendo: 'Que bom ter você aqui. Os cartões abaixo explicam, em poucas palavras, como a parapsicologia clínica funciona.'
-  };
-  // Opções que mostram a linha do CVV (188)
-  const COM_CVV = ['depressao', 'panico'];
+  const OPCOES = window.PercursoConteudo.seletor;
+  const grupo = $('#chips-sentimento');
+
+  OPCOES.forEach((opcao) => {
+    const rotulo = document.createElement('label');
+    rotulo.className = 'chip';
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'sentimento';
+    radio.value = opcao.id;
+    const texto = document.createElement('span');
+    texto.textContent = opcao.rotulo;
+    rotulo.append(radio, texto);
+    grupo.append(rotulo);
+  });
 
   const areaResposta = $('#resposta-sentimento');
   let textoResposta = null;
-  let linhaCvv = null;
-  let campoOutros = null;
+  let campo = null;
+  let rotuloCampo = null;
 
+  // O campo (hoje só em "Outro motivo") tem rótulo visível vindo do conteúdo e,
+  // abaixo, "Conversar no WhatsApp" (aviso simulado; no site final, a mensagem
+  // vai pré-preenchida com o texto escrito)
   function criarCartaoResposta() {
     areaResposta.innerHTML =
       '<div class="cartao-c cartao-resposta">' +
         '<p id="texto-sentimento"></p>' +
         '<div class="campo campo-outros" id="campo-outros" hidden>' +
-          '<label for="motivo-busca">Se quiser, conte o motivo da sua busca</label>' +
+          '<label for="motivo-busca" id="rotulo-motivo"></label>' +
           '<textarea id="motivo-busca" rows="3"></textarea>' +
-          // O texto escrito precisa de um destino: no site final, vai pré-preenchido na mensagem do WhatsApp
           '<button type="button" class="botao botao-secundario" data-aviso="whatsapp">Conversar no WhatsApp</button>' +
         '</div>' +
-        '<p class="resposta-cvv" id="resposta-cvv" hidden>Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito.</p>' +
         '<div class="resposta-acoes">' +
           '<a class="link" href="#baralho" id="ver-como-funciona">Ver como funciona</a>' +
           '<a class="link" href="quiz.html">Fazer o quiz de autoconhecimento</a>' +
         '</div>' +
       '</div>';
     textoResposta = $('#texto-sentimento');
-    linhaCvv = $('#resposta-cvv');
-    campoOutros = $('#campo-outros');
+    campo = $('#campo-outros');
+    rotuloCampo = $('#rotulo-motivo');
   }
 
-  $('#chips-sentimento').addEventListener('change', (evento) => {
-    const valor = evento.target.value;
-    if (!(valor in RESPOSTAS)) return;
+  grupo.addEventListener('change', (evento) => {
+    const opcao = OPCOES.find((item) => item.id === evento.target.value);
+    if (!opcao) return;
     if (!textoResposta) criarCartaoResposta();
-    textoResposta.textContent = RESPOSTAS[valor];
-    textoResposta.hidden = !RESPOSTAS[valor];
-    campoOutros.hidden = valor !== 'outros';
-    linhaCvv.hidden = !COM_CVV.includes(valor);
+    textoResposta.textContent = opcao.texto;
+    campo.hidden = !opcao.campo;
+    rotuloCampo.textContent = opcao.campo || '';
     mostrarResposta();
   });
 
-  // Com 9 opções, a resposta pode nascer abaixo da dobra (e da barra em pílula):
+  // Com muitas opções, a resposta pode nascer abaixo da dobra (e da barra em pílula):
   // rola só o necessário para ela aparecer, sem tirar o título do cartão da tela
   function mostrarResposta() {
     const cartao = areaResposta.firstElementChild;

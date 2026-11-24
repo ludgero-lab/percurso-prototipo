@@ -385,11 +385,6 @@ main > .secao:last-child {
   margin-top: 16px;
 }
 
-.resposta-cvv {
-  font-size: 0.875rem;
-  color: var(--texto-suave);
-}
-
 /* "Outros": campo para a pessoa contar o motivo da busca (nada é guardado nem enviado) */
 .campo-outros {
   margin: 0 0 12px;

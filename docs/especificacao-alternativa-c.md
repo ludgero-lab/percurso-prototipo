@@ -78,19 +78,19 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 
 - h2: "Com o que você está chegando hoje?"
 - Apoio: "Escolha uma opção. Sua resposta não é guardada."
-- Opções em chips (rádios nativos estilizados como chips, num `fieldset` com legenda escondida igual ao título), nenhuma marcada no início: Sensação de não merecimento · Encontrar sentido para a vida · Ansiedade · Depressão · Síndrome do pânico · Traumas · Não encontro meu lugar no mundo · Outros · Só estou conhecendo (lista da Maria Clara, retorno de 23/11).
+- Opções em chips (rádios nativos estilizados como chips, num `fieldset` com legenda escondida igual ao título), nenhuma marcada no início, nesta ordem: Sensação de não merecimento · Falta de sentido na vida · Ansiedade · Depressão · Síndrome do pânico · Traumas diversos · Outro motivo · Só estou conhecendo (retorno da Maria Clara de 24/11; "Falta de sentido na vida" e "Outro motivo" são rótulos provisórios).
 - Ao escolher, aparece abaixo, numa área `aria-live="polite"`, um cartão de resposta com o texto correspondente e duas ações:
   - Link "Ver como funciona": rola até o baralho de flash cards e leva o foco ao título dele.
   - Link "Fazer o quiz de autoconhecimento": abre o quiz.
 - Trocar de opção troca o texto da resposta.
 
-**Respostas:** a Maria Clara ainda vai escrever as respostas de cada opção; até lá, cada uma mostra o espaço reservado "[Resposta para <opção>]". "Só estou conhecendo" mantém: "Que bom ter você aqui. Os cartões abaixo explicam, em poucas palavras, como a parapsicologia clínica funciona."
+**Respostas:** os rótulos e os textos de cada opção ficam em `site/conteudo-seletor.js`, única fonte desses textos (id, rótulo, texto, campo opcional e status). Os textos são da Maria Clara, com corte e ajuste de concordância apenas: não reescrever nem completar. "Só estou conhecendo" mantém o texto de antes, ainda em rascunho.
 
-**Outros:** não tem resposta; abre um campo de texto com o rótulo "Se quiser, conte o motivo da sua busca" (adaptado de "Se a resposta for outros, explique o motivo de sua busca") e, abaixo, o botão secundário "Conversar no WhatsApp" (aviso simulado). No site final, o texto escrito vai pré-preenchido na mensagem do WhatsApp; no protótipo, nada é guardado nem enviado.
+**Outro motivo:** o cartão mostra a primeira frase do texto dela e abre um campo de texto cujo rótulo visível é a segunda: "Escreva com as suas palavras o que te trouxe aqui." Abaixo do campo, o botão secundário "Conversar no WhatsApp" (aviso simulado). No site final, o texto escrito vai pré-preenchido na mensagem do WhatsApp; no protótipo, nada é guardado nem enviado.
 
 **Resposta visível:** ao escolher uma opção, se o cartão de resposta ficar abaixo da dobra ou atrás da barra em pílula, a página rola só o necessário para mostrá-lo, sem tirar da tela a opção tocada (sem animação com "reduzir movimento").
 
-Nas respostas de **Depressão** e **Síndrome do pânico**, acrescentar uma linha final em texto pequeno, sem destaque: "Se precisar de ajuda agora, ligue 188 (CVV), 24 horas e gratuito."
+O 188 (CVV) não aparece nas respostas: fica só no rodapé, como em todas as telas. Em Depressão e Síndrome do pânico, o encaminhamento é a avaliação médica, que já está no texto da Maria Clara.
 
 ### 2.3 Baralho de flash cards
 
@@ -249,7 +249,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] Biografia e trajetória substituem os espaços reservados na A.
 - [ ] Topo da C: nome em serifa, "Parapsicóloga clínica" em itálico, h1 e apoio sobre o espaço reservado da imagem, com contraste AA; pílula "Agendar sessão", sem o botão redondo do WhatsApp.
 - [ ] Animação de entrada só acontece uma vez e não acontece com "reduzir movimento".
-- [ ] Os 9 chips funcionam com toque e teclado; cada um mostra a resposta certa; só "Depressão" e "Síndrome do pânico" mostram a linha do 188; "Outros" abre o campo do motivo.
+- [ ] Os 8 chips aparecem na ordem de `site/conteudo-seletor.js`, funcionam com toque e teclado e cada um mostra a resposta certa; nenhuma resposta traz o 188; "Outro motivo" abre o campo com rótulo visível. Cada resposta cabe no cartão a 375 px, sem rolagem interna.
 - [ ] "Ver como funciona" rola até o baralho e leva o foco ao título.
 - [ ] Baralho: "Cartão X de 4", setas de anterior e próximo com nome acessível, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
 - [ ] Baralho alinhado na vertical, sem sombra, com hierarquia tonal (cada cartão de trás mais escuro) e troca para os lados, evidente e suave; o mesmo no quiz.
