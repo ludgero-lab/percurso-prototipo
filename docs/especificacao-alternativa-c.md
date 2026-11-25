@@ -120,7 +120,7 @@ O 188 (CVV) não aparece nas respostas: fica só no rodapé, como em todas as te
 ### 2.4 Convite para o quiz
 
 - h2: "Quiz de autoconhecimento"
-- Texto: "São 6 perguntas rápidas sobre como você tem vivido os seus desafios. Leva cerca de 2 minutos."
+- Texto: "São 6 perguntas rápidas sobre os sentimentos que costumam estar por baixo dos desafios que trouxeram você até aqui. Leva cerca de 2 minutos."
 - Pílula "Começar o quiz" → abre o quiz.
 - `details` "O que é o quiz?": "Não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão."
 - Só o quadro do cartão, sem formas atrás nem sombra.
@@ -171,7 +171,7 @@ Página própria da C: `site/quiz.html`, com o mesmo cabeçalho, rodapé e barra
 ### 3.1 Abertura
 
 - h1: "Quiz de autoconhecimento"
-- Texto: "São 6 perguntas rápidas sobre como você tem vivido os seus desafios. Não existe resposta certa, e não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão."
+- Texto: "São 6 perguntas rápidas sobre os sentimentos que costumam estar por baixo dos desafios que trouxeram você até aqui. Não existe resposta certa, e não é um diagnóstico: é um convite para olhar para a sua história com mais atenção. Nada é guardado sem a sua permissão."
 - Pílula "Começar". Apoio: "Leva cerca de 2 minutos."
 
 ### 3.2 Perguntas em baralho
