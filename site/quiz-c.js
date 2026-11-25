@@ -190,7 +190,13 @@
     const pontos = { A: 0, B: 0, C: 0, D: 0 };
     respostas.forEach((tema) => { if (tema) pontos[tema] += 1; });
     const maximo = Math.max(...ORDEM_TEMAS.map((t) => pontos[t]));
-    return ORDEM_TEMAS.filter((t) => pontos[t] === maximo);
+    const empatados = ORDEM_TEMAS.filter((t) => pontos[t] === maximo);
+    if (empatados.length === 1) return empatados;
+    // Desempate pela pergunta 6, a única voltada ao futuro: o tema escolhido ali ganha.
+    const temaP6 = respostas[5];
+    if (temaP6 && empatados.includes(temaP6)) return [temaP6];
+    // Se o tema da pergunta 6 não está entre os empatados, vale o primeiro da ordem.
+    return [empatados[0]];
   }
 
   // O verso é preenchido ao chegar no cartão (a altura do cartão já fica certa antes do giro)
