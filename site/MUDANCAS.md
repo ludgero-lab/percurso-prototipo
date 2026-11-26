@@ -11,7 +11,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 ## 1. Em aberto (para validar com a Maria Clara)
 
 1. Textos em rascunho: biografia, trajetória, respostas dos sentimentos, versos dos cartões, perguntas e resultados do quiz, e os textos novos de "Aqui você pode falar à vontade", "Online ou no consultório: você escolhe", "Conheça meu canal no YouTube" com o texto de convite (confirmar se os temas citados estão no canal) e a abertura de Conteúdo.
-2. Rótulos provisórios do seletor: "Falta de sentido na vida" e "Outro motivo". E, no site final, o texto escrito em "Outro motivo" seguir pré-preenchido na mensagem do WhatsApp.
+2. Rótulos ainda em definição no seletor: "Não encontro meu lugar no mundo" (provisório) e "Só estou conhecendo" (texto em rascunho); os dois estão em primeira pessoa, que o registro combinado evita. E, no site final, o texto escrito em "Outro motivo" seguir pré-preenchido na mensagem do WhatsApp.
 3. Se o quiz entra no MVP (estava previsto para a V2).
 4. Texto do aviso do CVV no rodapé.
 5. Evolução para um segundo momento: dar à Maria Clara acesso às respostas do quiz de quem autorizar. Exige guardar dados sobre sentimentos, consentimento específico e destacado e revisão de LGPD.
@@ -30,10 +30,11 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 
 **Seletor "Com o que você está chegando hoje?" (retorno de 24/11)**
 - Os textos saíram do código para `conteudo-seletor.js`, lido por `inicio-c.js`, que monta os chips e as respostas. Cada item tem id, rótulo, texto, status e, em "Outro motivo", o rótulo do campo.
-- De 9 para 8 opções: "Encontrar sentido para a vida" e "Não encontro meu lugar no mundo" viraram "Falta de sentido na vida"; "Outros" virou "Outro motivo"; "Traumas" voltou a "Traumas diversos".
+- Opções: "Outros" virou "Outro motivo" e "Traumas" voltou a "Traumas diversos". "Encontrar sentido para a vida" e "Não encontro meu lugar no mundo" chegaram a ser fundidas em "Falta de sentido na vida"; a fusão foi desfeita (são experiências diferentes) e as duas voltaram como opções próprias: 9 no total.
+- Textos revistos com a cliente: nada em primeira pessoa do singular, nenhuma concordância que presuma o gênero, textos mais curtos.
 - "Outro motivo": a primeira frase do texto dela fica no cartão e a segunda vira o rótulo do campo, para o texto ficar exato e o campo ter rótulo visível. Saiu o rótulo que tínhamos escrito.
 - A linha do 188 que aparecia em Depressão e Síndrome do pânico saiu: o 188 fica só no rodapé.
-- A 375 px, todas as respostas cabem no cartão sem rolagem interna: a maior tem 49 palavras (8 linhas).
+- A 375 px, todas as respostas cabem no cartão sem rolagem interna: a maior é a de Síndrome do pânico, com 39 palavras (7 linhas).
 
 **Retorno da Maria Clara (23/11): onde cada pedido entrou**
 - Regra seguida: o topo, área mais nobre, não muda; o que é complementar desce de nível (cartão, página Dúvidas).
@@ -63,6 +64,7 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 - O voltar ao topo aparece depois de meia tela de rolagem, à direita e acima da barra.
 
 **Baralho**
+- No cartão "Como é uma sessão?", os quatro itens têm marcadores, não números: são um resumo da sessão, e numerados pareciam contar etapas faltando ao lado do link "Ver as 8 etapas".
 - Atrás do cartão da frente aparecem os que ainda faltam (até dois); no último, não há nada atrás.
 - Se o botão com foco é desativado (nas pontas), o foco vai para o cartão.
 - Avançar pode levar o cartão para os dois lados: "Próximo" (›) e o dedo para a direita o levam pela direita; o dedo para a esquerda, pela esquerda. Cada cartão guarda o lado por onde saiu (`data-lado`), e "Anterior" (‹) o traz de volta entrando por esse mesmo lado. O deslize com o dedo só avança; voltar é pela seta.
@@ -76,6 +78,8 @@ A C é um site completo: Início, quiz, páginas internas (Sobre, Atendimento, C
 - O h1 fica sempre visível; ao começar, somem o texto de abertura e o "Começar".
 - No cartão do resultado não há contador nem "Próxima"; "Voltar" continua e devolve à pergunta 6.
 - O resultado vira uma vez só. O título aparece sem a letra do tema.
+- O resultado é sempre um só: em empate, decide a pergunta 6, a única voltada ao futuro. Antes, um 3+3 mostrava dois temas e um 2+2+2 mostrava três, com cerca de 225 palavras no cartão.
+- A abertura do quiz e o convite no Início dizem que o quiz olha "os sentimentos que costumam estar por baixo dos desafios", para a passagem do motivo escolhido no Início (por exemplo, "Síndrome do pânico") para o resultado (por exemplo, "A mágoa e a raiva guardadas") não parecer troca de assunto.
 - "Este quiz não é um diagnóstico…", as ações e o formulário ficam abaixo do baralho e aparecem depois de virar o resultado. "Agendar sessão" é a ação principal; "Refazer o quiz" é um link.
 
 ## 4. Estrutura do Início em relação à B
