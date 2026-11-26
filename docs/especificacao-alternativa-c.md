@@ -78,15 +78,15 @@ Todo "Agendar sessão" da C leva ao agendamento da C (`agendar.html`). "Agendar 
 
 - h2: "Com o que você está chegando hoje?"
 - Apoio: "Escolha uma opção. Sua resposta não é guardada."
-- Opções em chips (rádios nativos estilizados como chips, num `fieldset` com legenda escondida igual ao título), nenhuma marcada no início, nesta ordem: Sensação de não merecimento · Falta de sentido na vida · Ansiedade · Depressão · Síndrome do pânico · Traumas diversos · Outro motivo · Só estou conhecendo (retorno da Maria Clara de 24/11; "Falta de sentido na vida" e "Outro motivo" são rótulos provisórios).
+- Opções em chips (rádios nativos estilizados como chips, num `fieldset` com legenda escondida igual ao título), nenhuma marcada no início, nesta ordem: Sensação de não merecimento · Falta de sentido na vida · Ansiedade · Depressão · Síndrome do pânico · Traumas diversos · Não encontro meu lugar no mundo · Outro motivo · Só estou conhecendo (textos aprovados com a Maria Clara em 24/11; "Não encontro meu lugar no mundo" é rótulo provisório).
 - Ao escolher, aparece abaixo, numa área `aria-live="polite"`, um cartão de resposta com o texto correspondente e duas ações:
   - Link "Ver como funciona": rola até o baralho de flash cards e leva o foco ao título dele.
   - Link "Fazer o quiz de autoconhecimento": abre o quiz.
 - Trocar de opção troca o texto da resposta.
 
-**Respostas:** os rótulos e os textos de cada opção ficam em `site/conteudo-seletor.js`, única fonte desses textos (id, rótulo, texto, campo opcional e status). Os textos são da Maria Clara, com corte e ajuste de concordância apenas: não reescrever nem completar. "Só estou conhecendo" mantém o texto de antes, ainda em rascunho.
+**Respostas:** os rótulos e os textos de cada opção ficam em `site/conteudo-seletor.js`, única fonte desses textos (id, rótulo, texto, campo opcional e status). Os textos são da Maria Clara, com corte e ajuste de concordância apenas: não reescrever nem completar. Registro combinado com ela: nada em primeira pessoa do singular e nenhuma concordância que presuma o gênero de quem lê. "Só estou conhecendo" mantém o texto de antes, ainda em rascunho.
 
-**Outro motivo:** o cartão mostra a primeira frase do texto dela e abre um campo de texto cujo rótulo visível é a segunda: "Escreva com as suas palavras o que te trouxe aqui." Abaixo do campo, o botão secundário "Conversar no WhatsApp" (aviso simulado). No site final, o texto escrito vai pré-preenchido na mensagem do WhatsApp; no protótipo, nada é guardado nem enviado.
+**Outro motivo:** o cartão mostra a primeira frase do texto dela e abre um campo de texto cujo rótulo visível vem do campo `campo` do conteúdo: "Escreva com as suas palavras o que trouxe você até aqui." Abaixo do campo, o botão secundário "Conversar no WhatsApp" (aviso simulado). No site final, o texto escrito vai pré-preenchido na mensagem do WhatsApp; no protótipo, nada é guardado nem enviado.
 
 **Resposta visível:** ao escolher uma opção, se o cartão de resposta ficar abaixo da dobra ou atrás da barra em pílula, a página rola só o necessário para mostrá-lo, sem tirar da tela a opção tocada (sem animação com "reduzir movimento").
 
@@ -111,7 +111,7 @@ O 188 (CVV) não aparece nas respostas: fica só no rodapé, como em todas as te
    **Verso:** "Sem prometer milagres, o trabalho busca ajudar você a:" e a lista: Conduzir o seu caminho, com novas percepções diante das dificuldades. · Sintonizar com o seu jeito de ser e estar hoje, sem as sombras do passado. · Aliviar tensões e pressões que alimentam o medo de sofrer e o medo de morrer. (As três frases que a Maria Clara pediu para o Início; o topo fica curto.)
    Link: "Ver o atendimento" → `atendimento.html`.
 3. **Frente:** "Como é uma sessão?"
-   **Verso:** "Cerca de 1h30, online ou presencial." e a lista numerada: 1. Conhecer a sua história. 2. Olhar para os sentimentos que mais marcam a sua vida. 3. Definir metas a curto, médio e longo prazo, juntos. 4. Tarefas entre as sessões, no seu tempo.
+   **Verso:** "Cerca de 1h30, online ou presencial." e a lista com marcadores, sem números (é um resumo da sessão, não a contagem das 8 etapas): Conhecer a sua história. · Olhar para os sentimentos que mais marcam a sua vida. · Definir metas a curto, médio e longo prazo, juntos. · Tarefas entre as sessões, no seu tempo.
    Link: "Ver as 8 etapas" → `atendimento.html#etapas`.
 4. **Frente:** "Quem sou eu?"
    **Verso:** a biografia curta (seção 1.2).
@@ -194,7 +194,7 @@ Página própria da C: `site/quiz.html`, com o mesmo cabeçalho, rodapé e barra
 
 ### 3.3 Resultado
 
-- Cada opção soma um ponto ao seu tema. O resultado é o tema com mais pontos. Em empate, mostrar os temas empatados, um abaixo do outro, na ordem A, B, C, D.
+- Cada opção soma um ponto ao seu tema. O resultado é o tema com mais pontos. O resultado é sempre um só. Em empate, vence o tema escolhido na pergunta 6 ("O que você gostaria de sentir mais?"), a única voltada ao futuro; se esse tema não está entre os empatados, vale o primeiro da ordem A, B, C, D.
 - Depois da sexta pergunta, o último cartão do baralho mostra na frente "Seu resultado está pronto" e "Toque para ver". Ao tocar, o cartão vira (giro em Y de 450 ms, troca de opacidade com "reduzir movimento") e mostra o resultado. O foco vai para o título do resultado.
 
 **Resultados (rascunho):**
@@ -249,7 +249,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] Biografia e trajetória substituem os espaços reservados na A.
 - [ ] Topo da C: nome em serifa, "Parapsicóloga clínica" em itálico, h1 e apoio sobre o espaço reservado da imagem, com contraste AA; pílula "Agendar sessão", sem o botão redondo do WhatsApp.
 - [ ] Animação de entrada só acontece uma vez e não acontece com "reduzir movimento".
-- [ ] Os 8 chips aparecem na ordem de `site/conteudo-seletor.js`, funcionam com toque e teclado e cada um mostra a resposta certa; nenhuma resposta traz o 188; "Outro motivo" abre o campo com rótulo visível. Cada resposta cabe no cartão a 375 px, sem rolagem interna.
+- [ ] Os 9 chips aparecem na ordem de `site/conteudo-seletor.js`, funcionam com toque e teclado e cada um mostra a resposta certa; nenhuma resposta traz o 188; "Outro motivo" abre o campo com rótulo visível. Cada resposta cabe no cartão a 375 px, sem rolagem interna.
 - [ ] "Ver como funciona" rola até o baralho e leva o foco ao título.
 - [ ] Baralho: "Cartão X de 4", setas de anterior e próximo com nome acessível, giro com toque e teclado, verso lido por leitor de tela, troca de opacidade com "reduzir movimento".
 - [ ] Baralho alinhado na vertical, sem sombra, com hierarquia tonal (cada cartão de trás mais escuro) e troca para os lados, evidente e suave; o mesmo no quiz.
@@ -258,7 +258,7 @@ Criar o arquivo da C, no mesmo formato do da B, com o que muda em relação à B
 - [ ] O botão de voltar ao topo aparece quando a página desce, leva ao topo e o foco ao h1.
 - [ ] Páginas internas da C com o conteúdo da A e a linha visual da C; âncoras `#presencial` e `#etapas` levam o foco ao título.
 - [ ] Agendamento da C cumpre os critérios do agendamento da A ("Agendar online", calendário, Lisboa, "Continuar" sem escolhas, resumo, "Alterar", validação, passo 3).
-- [ ] Quiz: 6 perguntas em baralho, "Próxima" desativado sem escolha, "Voltar" mantém a resposta, resultado correto para respostas todas A, todas B, todas C, todas D e para um empate.
+- [ ] Quiz: 6 perguntas em baralho, "Próxima" desativado sem escolha, "Voltar" mantém a resposta, resultado correto para respostas todas A, todas B, todas C, todas D e um resultado só nos empates 3+3 e 2+2+2 (o tema da pergunta 6).
 - [ ] Resultado vira ao toque; e-mail simulado valida os três erros e mostra a mensagem de sucesso sem enviar nada.
 - [ ] "Refazer o quiz" limpa tudo.
 - [ ] Nenhum texto fora desta especificação e da especificação da A; nenhuma cor além dos cinzas e da cor escura; nenhuma chamada de rede, exceto o vídeo do canal depois do toque no play.
